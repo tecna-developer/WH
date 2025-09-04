@@ -6,16 +6,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
     &-burger {
       background-color: transparent;
-      border: 1px solid $black-color;
+      border: transparent;
       width: 2.75rem;
       height: 2.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      gap: 10px;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+
       span {
-        display: inline-block;
         width: 100%;
-        height: 1px;
-        color: red;
+        height: 2px;
+        background-color: $black-color;
+        border-radius: 1px;
+        &:nth-child(2) {
+          width: 75%;
+        }
       }
     }
     &-logo {
@@ -23,6 +33,20 @@
       height: 2.25rem;
       object-fit: cover;
       align-self: self-end;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &-basket {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      span {
+        color: $black-color;
+        font-size: 1.3125rem;
+      }
     }
   }
 }
