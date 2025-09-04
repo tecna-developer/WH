@@ -30,9 +30,33 @@ a {
 }
 
 .container {
-  max-width: 22.5rem;
+  max-inline-size: 100%;
   padding-inline: 20px;
-  margin: 0 auto;
+  margin-inline: auto;
+}
+@media screen and (min-width: 480px) {
+  .container {
+    max-width: 440px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 720px;
+    padding-inline: 0;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .container {
+    max-width: 1440px;
+  }
 }
 
 .visually-hidden {
