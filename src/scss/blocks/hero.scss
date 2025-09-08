@@ -29,8 +29,12 @@
     margin-bottom: 35px;
   }
   &__slider {
-    width: 12.5rem;
-    aspect-ratio: 1;
     margin-bottom: 35px;
+    padding: 20px;
+    border: 3px dashed green;
+    img {
+      width: 12.5rem;
+      aspect-ratio: 1;
+    }
   }
 }
