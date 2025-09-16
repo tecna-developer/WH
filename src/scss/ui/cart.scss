@@ -1,0 +1,29 @@
+@use "/src/scss/helpers/variables.scss" as *;
+.cart {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3125rem;
+  &__btn {
+    width: 44px;
+    height: 44px;
+    background-color: transparent;
+    border: none;
+    background: url(/src/icons/backet.svg) center/cover no-repeat;
+  }
+  &__title {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .cart {
+    &__btn {
+      background: none;
+    }
+    &__title {
+      display: block;
+    }
+  }
+}

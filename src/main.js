@@ -8,7 +8,7 @@ import "./scss/style.scss";
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // Reference to the counter element in the header
-const basketCounter = document.querySelector(".header__navbar-basket span");
+const basketCounter = document.querySelector(".cart span:last-child");
 
 // Persist cart and update counter in the DOM
 function updateCartCounter() {
