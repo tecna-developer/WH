@@ -1,6 +1,8 @@
 import "@a1rth/css-normalize";
 import "./scss/style.scss";
 
+// Открытие меню
+
 //счетчик для корзины
 // --- Cart state and helpers -------------------------------------------------
 

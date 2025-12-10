@@ -13,12 +13,20 @@
 
     <header class="header">
         <div class="container">
-            <nav class="header__navbar">
-                <button class="header__navbar-burger" aria-controls="nav-menu" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+
+            <div class="header__navbar">
+                <nav class="menu">
+                    <button class="header__navbar-burger" aria-controls="nav-menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="menu__list">
+                        <li class="menu__item"><a href="/shop.html">Shop</a></li>
+                        <li class="menu__item"><a href="/about.html">About</a></li>
+                        <li class="menu__item"><a href="/contacts.html">Contacts</a> </li>
+                    </ul>
+                </nav>
                 <div class="header__navbar-logo">
                     <a class="header__navbar-logo-link" href="#">
                         <img src="/wh.svg" alt="Warm heart logo">
@@ -39,8 +47,7 @@
                     </div>
 
                 </div>
-            </nav>
-        </div>
+            </div>
     </header>
     <section class="hero">
         <div class="container">
@@ -63,6 +70,64 @@
 
 
     </section>
+    <section class="popular">
+        <div class="container">
+            <h2 class="title__h2 popular__title">Popular products</h2>
+            <div class="popular__wrapper"></div>
+        </div>
+    </section>
+    <section class="presentation">
+        <div class="container">
+            <h2 class="title__h2 presentation__title">Create comfort in home</h2>
+            <p class="presentation__pretext">Ablan ket is a simple and versatile thing that can make relaxing after a
+                hard day's work much more comfortable.</p>
+            <div class="presentation__img-block"><img src="/src/image/products/product (2).png" alt="product"></div>
+            <div class="presentation__descr">
+                <h3 class="title__h3">Sideneert</h3>
+                <p class="presentation__descr-text">It is made from soft New Zealand wool, which is naturally
+                    stain-repellent.</p>
+                <a href="" class="presentation_button">Go to shop</a>
+            </div>
+        </div>
+    </section>
+    <section class="eco">
+        <div class="container">
+            <div class="h2 title__h2">We use eco-friendly materials</div>
+            <p>We always care about the environment. Therefore we use only environmentally friendly and recyclable
+                materials in our production. Our blankets help to warm up on cold evenings, and also make your home even
+                more cozy.</p>
+        </div>
+    </section>
+    <section class="follow">
+        <div class="container">
+            <h2 class="title__h2">Follow us on instagram</h2>
+            <div class="post">
+                <img src="" alt="">
+                <a href="#">@warm.heart</a>
+                <p>On our Instagram, we regularly share the most interesting news. We also tell you about all our new
+                    products.</p>
+            </div>
+        </div>
+    </section>
+    <section class="subscription">
+        <div class="container">
+            <h2 class="title__h2">Get 20% off your first purchase</h2>
+            <p>Subscribe to our newsletter and get a promo code for a 20% discount! You will receive only the most
+                important
+                and relevant news.</p>
+            <form action="">
+                <input type="email" id="email" placeholder="Email address">
+                <label for="email"></label>
+                <input type="submit" value="submit">
+            </form>
+        </div>
+
+    </section>
+    <footer>
+
+    </footer>
+
+
 
 
     <script type="module" src="/src/main.js"></script>
