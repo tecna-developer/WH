@@ -12,6 +12,7 @@ html {
   line-height: 1.5;
   font-weight: 400;
   font-size: 16px;
+  letter-spacing: normal;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -59,6 +60,21 @@ a {
 @media screen and (min-width: 1920px) {
   .container {
     max-width: 1440px;
+  }
+}
+
+section {
+  padding-block: 70px 90px;
+}
+@media screen and (min-width: 768px) {
+  section {
+    padding-block: 90px 120px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  section {
+    padding-block: 130px 150px;
   }
 }
 

@@ -1,0 +1,7 @@
+@use "/src/scss/helpers/variables.scss" as *;
+
+.popular {
+  &__wrapper {
+    padding-block: 20px;
+  }
+}

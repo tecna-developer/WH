@@ -1,0 +1,12 @@
+@use "/src/scss/helpers/variables.scss" as *;
+
+.presentation {
+  background-color: $black-color;
+  color: $white-color;
+  &__title {
+    color: $white-color;
+  }
+  &__img-block {
+    padding-block: 40px;
+  }
+}
