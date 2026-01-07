@@ -1,13 +1,22 @@
 @use "/src/scss/helpers/variables.scss" as *;
 
-.button-shop {
-  background-color: $black-color;
-  color: $white-color;
+.btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 13px 80px;
+  padding: 15px 80px;
   border-radius: 6.25rem;
-  max-width: fit-content;
+  max-width: max-content;
   min-height: 3.4375rem;
+  &-shop {
+    background-color: $black-color;
+    color: $white-color;
+  }
+  &-presentation {
+    background-color: $white-color;
+    color: $black-color;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.4;
+  }
 }

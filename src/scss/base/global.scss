@@ -65,7 +65,15 @@ a {
 
 section {
   padding-block: 70px 90px;
+  background-color: $beige-color;
 }
+section:nth-child(even) {
+  background-color: $black-color;
+}
+#posts {
+  background-color: $white-color;
+}
+
 @media screen and (min-width: 768px) {
   section {
     padding-block: 90px 120px;

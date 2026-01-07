@@ -1,6 +1,7 @@
 @use "/src/scss/helpers/variables.scss" as *;
 
 .popular {
+  background-color: $white-color;
   &__wrapper {
     padding-block: 20px;
   }

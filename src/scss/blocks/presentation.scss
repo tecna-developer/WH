@@ -1,10 +1,13 @@
 @use "/src/scss/helpers/variables.scss" as *;
 
 .presentation {
-  background-color: $black-color;
+  // background-color: $black-color;
   color: $white-color;
   &__title {
     color: $white-color;
+  }
+  & > p {
+    overflow: hidden;
   }
   &__img-block {
     padding-block: 40px;
