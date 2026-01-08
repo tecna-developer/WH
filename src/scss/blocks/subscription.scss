@@ -1,0 +1,7 @@
+@use "/src/scss/helpers/variables.scss" as *;
+
+.subscription {
+  &__block {
+    margin-bottom: 40px;
+  }
+}
