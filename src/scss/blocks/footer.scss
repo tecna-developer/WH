@@ -1,0 +1,78 @@
+@use "/src/scss/helpers/variables.scss" as *;
+
+.footer {
+  padding: 70px 20px 40px 20px;
+  background-color: $black-color;
+  color: $white-color;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  &__logo {
+    color: $white-color;
+  }
+  &__nav {
+    &_collapsible {
+      & summary {
+        cursor: pointer;
+        list-style: none;
+        position: relative;
+        padding-right: 24px;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.4;
+
+        &::-webkit-details-marker {
+          display: none;
+        }
+        &::after {
+          content: "+";
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+      & details {
+        padding-bottom: 25px;
+        border-bottom: 1px solid $white-color;
+        & [open] summary::after {
+          content: "–";
+        }
+      }
+      & details .footer__list {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 32px;
+        transition: all 0.3s ease-out;
+        &:hover {
+          transform-origin: top left;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: start;
+    &__header {
+      grid-column: 1 / -1;
+    }
+    &__nav {
+      &_collapsible {
+        & details {
+          border-bottom: none;
+        }
+
+        & summary {
+          pointer-events: none;
+          cursor: default;
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

@@ -43,3 +43,5 @@ window.cart = {
   removeItem,
   items: cart,
 };
+
+//Slider practice

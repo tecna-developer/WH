@@ -1,7 +1,30 @@
 @use "/src/scss/helpers/variables.scss" as *;
 
 .subscription {
-  &__block {
-    margin-bottom: 40px;
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  & .form {
+    align-self: last baseline;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .subscription {
+    &__wrapper {
+      grid-template-columns: 47% 44%;
+      gap: 50px;
+    }
+  }
+}
+
+@media screen and (min-width: 1268px) {
+  .subscription {
+    &__wrapper {
+      grid-template-columns: 50% 45%;
+      gap: 60px;
+    }
   }
 }

@@ -6,8 +6,9 @@
   justify-content: center;
   padding: 15px 80px;
   border-radius: 6.25rem;
-  max-width: max-content;
-  min-height: 3.4375rem;
+  max-width: fit-content;
+  min-width: 226px;
+  height: 3.4375rem;
   &-shop {
     background-color: $black-color;
     color: $white-color;
