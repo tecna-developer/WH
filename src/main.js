@@ -45,3 +45,27 @@ window.cart = {
 };
 
 //Slider practice
+
+//Footer details collaps
+
+// 1. Создаем "слушателя" ширины экрана (768px)
+const mediaQuery = window.matchMedia("(min-width: 768px)");
+const detailsElements = document.querySelectorAll(".footer__details");
+
+function handleScreenChange(e) {
+  if (e.matches) {
+    detailsElements.forEach((detail) => {
+      detail.setAttribute("open", ""); // Принудительно открываем
+    });
+  } else {
+    detailsElements.forEach((detail) => {
+      detail.removeAttribute("open");
+    });
+  }
+}
+
+// 2. Запускаем проверку при загрузке страницы
+handleScreenChange(mediaQuery);
+
+// 3. Запускаем проверку при изменении размера окна
+mediaQuery.addEventListener("change", handleScreenChange);

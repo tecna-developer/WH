@@ -149,8 +149,14 @@
             </div>
         </div>
         <nav class="footer__nav footer__nav_collapsible">
-            <details>
-                <summary class="footer__title">Info</summary>
+            <details class="footer__details" name="footer">
+                <summary class="footer__title">Info
+                    <svg class="arrow-icon" width="14" height="11" viewBox="0 0 14 11" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 4L7 10L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </summary>
                 <ul class="footer__list">
                     <li><a href="">About us</a></li>
                     <li><a href="">Contacts</a></li>
@@ -160,9 +166,16 @@
             </details>
         </nav>
         <nav class="footer__nav footer__nav_collapsible">
-            <details open>
-                <summary class="footer__title">Customer service</summary>
+            <details class="footer__details" name="footer" open>
+                <summary class="footer__title">Customer service
+                    <svg class="arrow-icon" width="14" height="11" viewBox="0 0 14 11" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 4L7 10L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </summary>
                 <ul class="footer__list">
+
                     <li><a href="">Delivery and pickup</a></li>
                     <li><a href="">Payment</a></li>
                     <li><a href="">Exchange and return</a></li>
@@ -171,8 +184,14 @@
             </details>
         </nav>
         <nav class="footer__nav footer__nav_collapsible">
-            <details>
-                <summary class="footer__title">Useful information</summary>
+            <details class="footer__details" name="footer">
+                <summary class="footer__title">Useful information
+                    <svg class="arrow-icon" width="14" height="11" viewBox="0 0 14 11" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 4L7 10L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </summary>
                 <ul class="footer__list">
                     <li><a href="">suppliers</a></li>
                     <li><a href="">Buying guides</a></li>
@@ -181,12 +200,21 @@
                 </ul>
             </details>
         </nav>
+        <div class="footer__bottom">
+            <small>
+                &copy; WARM HEART <span id="year"></span>
+            </small>
+            <a href="#">Privacy policy</a>
+
+        </div>
     </footer>
 
 
 
 
-
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
     <script type="module" src="/src/main.js"></script>
 </body>
 
