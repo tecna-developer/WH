@@ -1,12 +1,15 @@
 @use "/src/scss/helpers/variables.scss" as *;
 
 .footer {
-  padding: 70px 20px 40px 20px;
   background-color: $black-color;
+  padding-inline: 20px;
+  padding-block: 70px 40px;
   color: $white-color;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
   &__logo {
     color: $white-color;
   }
@@ -65,17 +68,24 @@
 
 @media screen and (min-width: 768px) {
   .footer {
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: start;
+    &__wrapper {
+      padding-block: 90px 50px;
+      padding-inline: 0;
+      max-width: 720px;
+      margin: 0 auto;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: start;
+    }
+
     &__header {
       grid-column: 1 / -1;
     }
     &__nav {
+      display: contents;
       &_collapsible {
         & details {
           border-bottom: none;
         }
-
         & summary {
           pointer-events: none;
           cursor: default;
@@ -87,6 +97,23 @@
     }
     &__bottom {
       grid-column: 1 / -1;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .footer {
+    &__wrapper {
+      max-width: 960px;
+      padding-block: 90px 120px;
+    }
+  }
+}
+@media screen and (min-width: 1920px) {
+  .footer {
+    &__wrapper {
+      padding-block: 150px;
+      max-width: 1440px;
     }
   }
 }

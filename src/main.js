@@ -48,24 +48,27 @@ window.cart = {
 
 //Footer details collaps
 
-// 1. Создаем "слушателя" ширины экрана (768px)
-const mediaQuery = window.matchMedia("(min-width: 768px)");
-const detailsElements = document.querySelectorAll(".footer__details");
+function handleFooterResize() {
+  const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+  const detailsElements = document.querySelectorAll("details");
+  const accordionGroupName = "footer";
 
-function handleScreenChange(e) {
-  if (e.matches) {
-    detailsElements.forEach((detail) => {
-      detail.setAttribute("open", ""); // Принудительно открываем
-    });
-  } else {
-    detailsElements.forEach((detail) => {
+  detailsElements.forEach((detail) => {
+    if (isDesktop) {
+      detail.removeAttribute("name");
+
+      // Принудительно открываем
+      detail.setAttribute("open", "");
+    } else {
+      detail.setAttribute("name", accordionGroupName);
+
       detail.removeAttribute("open");
-    });
-  }
+    }
+  });
 }
 
-// 2. Запускаем проверку при загрузке страницы
-handleScreenChange(mediaQuery);
+// Слушаем изменение размера экрана
+window.addEventListener("resize", handleFooterResize);
 
-// 3. Запускаем проверку при изменении размера окна
-mediaQuery.addEventListener("change", handleScreenChange);
+// Запускаем один раз при загрузке страницы
+document.addEventListener("DOMContentLoaded", handleFooterResize);
