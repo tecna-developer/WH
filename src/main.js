@@ -1,8 +1,7 @@
-import Slider from "./modules/slider";
-
 import "@a1rth/css-normalize";
 import "./scss/style.scss";
 
+import Slider from "./js/slider";
 // Открытие меню
 
 //счетчик для корзины
@@ -47,6 +46,14 @@ window.cart = {
 };
 
 //Slider popular products
+window.addEventListener("DOMContentLoaded", () => {
+  const sliderPopular = new Slider({
+    track: ".popular__slider_track",
+    btns: "",
+    prevBtn: ".prev",
+    nextBtn: ".next",
+  });
+});
 
 //Footer details collaps
 
