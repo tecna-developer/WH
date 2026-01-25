@@ -5,4 +5,22 @@
   &__wrapper {
     padding-block: 20px;
   }
+  &__slider {
+    overflow: hidden;
+
+    &_track {
+      display: flex;
+      column-gap: 20px;
+      transition: $transition;
+    }
+    &_item {
+      & img {
+        min-width: 240px;
+        min-height: 232px;
+        padding: 40px;
+        border-radius: 25px;
+        background-color: $beige-color;
+      }
+    }
+  }
 }

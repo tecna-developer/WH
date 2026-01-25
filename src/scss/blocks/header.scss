@@ -1,12 +1,18 @@
 @use "/src/scss/helpers/variables.scss" as *;
+@use "/src/scss/helpers/mixin.scss" as *;
+
 .header {
   padding: 1.25rem 0;
 
   &__navbar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    min-height: 36px;
+    position: relative;
     align-items: center;
-    column-gap: 10px;
+    column-gap: 16px;
 
     &-burger {
       justify-self: start;
@@ -32,7 +38,8 @@
     }
 
     &-logo {
-      justify-self: center;
+      align-content: center;
+      @include centerAbs;
       width: 52px;
       height: 36px;
 

@@ -1,3 +1,5 @@
+import Slider from "./modules/slider";
+
 import "@a1rth/css-normalize";
 import "./scss/style.scss";
 
@@ -44,7 +46,7 @@ window.cart = {
   items: cart,
 };
 
-//Slider practice
+//Slider popular products
 
 //Footer details collaps
 

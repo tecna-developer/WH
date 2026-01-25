@@ -58,6 +58,7 @@
     flex-direction: column;
     row-gap: 32px;
     transition: all 0.3s ease-out;
+    color: rgba($color: $white-color, $alpha: 0.8);
     &:hover {
       transform-origin: top left;
     }
@@ -72,7 +73,7 @@
     & small,
     & a {
       font-size: inherit;
-      opacity: 0.3;
+      color: rgba($color: $white-color, $alpha: 0.3);
     }
   }
 }
