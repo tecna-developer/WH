@@ -46,8 +46,9 @@ window.cart = {
 };
 
 //Slider popular products
+const sliderElementForPopular = document.querySelector(".popular__slider");
 window.addEventListener("DOMContentLoaded", () => {
-  const sliderPopular = new Slider({
+  const sliderPopular = new Slider(sliderElementForPopular, {
     track: ".popular__slider_track",
     btns: "",
     prevBtn: ".prev",
