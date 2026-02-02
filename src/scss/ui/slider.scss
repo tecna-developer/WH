@@ -1,0 +1,30 @@
+@use "/src/scss/helpers/variables.scss" as *;
+
+.slider {
+  &_track {
+    display: flex;
+    column-gap: 20px;
+    transition: $transition;
+    margin-bottom: 40px;
+  }
+  &_item {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    & img {
+      min-width: 240px;
+      min-height: 232px;
+      padding: 40px;
+      border-radius: 25px;
+      background-color: $beige-color;
+    }
+  }
+  &_arrows {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
