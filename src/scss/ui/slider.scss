@@ -2,22 +2,21 @@
 
 .slider {
   &_track {
-    display: flex;
-    column-gap: 20px;
-    transition: $transition;
-    margin-bottom: 40px;
+    margin: 0 40px;
+    // overflow: hidden;
+    width: 100%;
   }
   &_item {
     display: flex;
     flex-shrink: 0;
-    justify-content: center;
     align-items: center;
-    width: 100%;
+    column-gap: 20px;
 
     & img {
-      min-width: 240px;
-      min-height: 232px;
+      width: 240px;
+      height: 232px;
       padding: 40px;
+      object-fit: cover;
       border-radius: 25px;
       background-color: $beige-color;
     }

@@ -2,10 +2,7 @@
 
 .popular {
   background-color: $white-color;
-  &__wrapper {
-    padding-block: 20px;
-  }
   &__slider {
-    overflow: hidden;
+    padding-block: 20px;
   }
 }
