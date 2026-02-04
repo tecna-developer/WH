@@ -49,7 +49,7 @@ window.cart = {
 const sliderElementForPopular = document.querySelector(".popular__slider");
 window.addEventListener("DOMContentLoaded", () => {
   const sliderPopular = new Slider(sliderElementForPopular, {
-    track: ".popular__slider_track",
+    track: ".slider_track",
     btns: "",
     prevBtn: ".prev",
     nextBtn: ".next",
