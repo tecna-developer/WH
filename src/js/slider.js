@@ -7,16 +7,19 @@ export default class Slider {
     this.track = document.querySelector(track);
     this.nextBtn = document.querySelector(nextBtn);
     this.nextBtn = document.querySelector(prevBtn);
-    this.slides = this.track.children;
+    this.slide = document.querySelector("[data-slide]");
     this.currentIndex = 0;
     this.slidesToShow = slidesToShow || 1;
-    nextBtn.addEventListener("click", goToNextSlide);
-    prevBtn.addEventListener("click", goToPrevSlide);
-    console.log(this.track);
-  }
+    this.firstClone = this.slide.firstElementChild.cloneNode(true);
+    this.lastClone = this.slide.lastElementChild.cloneNode(true);
+    this.slide.appendChild(this.firstClone);
 
-  goToNextSlide() {
-    // this.slideIndex++;
-    console.log("листаем этот слайдер");
+    this.slide.insertBefore(this.lastClone, this.slide.firstElementChild);
+
+    console.log(this.track);
+    console.log(this.slide);
+
+    // nextBtn.addEventListener("click", goToNextSlide);
+    // prevBtn.addEventListener("click", goToPrevSlide);
   }
 }
