@@ -49,10 +49,9 @@ window.cart = {
 const sliderElementForPopular = document.querySelector(".popular__slider");
 window.addEventListener("DOMContentLoaded", () => {
   const sliderPopular = new Slider(sliderElementForPopular, {
-    track: ".slider_track",
-    btns: "",
-    prevBtn: ".prev",
-    nextBtn: ".next",
+    track: "[data-slider-track]",
+    prevBtn: "[data-btn-prev]",
+    nextBtn: "[data-btn-next]",
   });
 });
 
