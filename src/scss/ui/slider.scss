@@ -2,7 +2,7 @@
 
 .slider {
   &_track {
-    margin: 0 40px;
+    margin: 40px 0;
     // overflow: hidden;
     width: 100%;
   }
@@ -11,10 +11,11 @@
     flex-shrink: 0;
     align-items: center;
     column-gap: 20px;
+    max-width: 300px;
+    max-height: 252px;
 
     & img {
-      width: 240px;
-      height: 232px;
+      min-width: 100%;
       padding: 40px;
       object-fit: cover;
       border-radius: 25px;
