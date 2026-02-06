@@ -52,6 +52,7 @@ window.addEventListener("DOMContentLoaded", () => {
     track: "[data-slider-track]",
     prevBtn: "[data-btn-prev]",
     nextBtn: "[data-btn-next]",
+    slidesToShow: 1,
   });
 });
 
