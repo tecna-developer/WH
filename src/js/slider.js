@@ -15,7 +15,7 @@ export default class Slider {
     this.nextBtn = document.querySelector(nextBtn);
     this.prevBtn = document.querySelector(prevBtn);
     this.slide = document.querySelector("[data-slide]");
-    this.images = this.slide.children;
+    this.realSlidesCount = this.slide.children.length;
     this.ANIMATION_TIME = ANIMATION_TIME;
     this.gap = gap;
     this.slide.style.columnGap = `${gap}px`;
@@ -33,8 +33,8 @@ export default class Slider {
   cloneElements() {
     this.firstClone = this.slide.firstElementChild.cloneNode(true);
     this.lastClone = this.slide.lastElementChild.cloneNode(true);
-    this.slide.appendChild(this.firstClone);
 
+    this.slide.appendChild(this.firstClone);
     this.slide.insertBefore(this.lastClone, this.slide.firstElementChild);
   }
   initSlider() {
@@ -45,7 +45,7 @@ export default class Slider {
   }
   updatePosition() {
     this.slideWidth = this.slide.firstElementChild.offsetWidth;
-    this.slide.transition = `translate ${this.ANIMATION_TIME}s ease-in-out`;
+    this.slide.style.transition = `translate ${this.ANIMATION_TIME}s ease-in-out`;
     this.slide.style.translate = `-${this.slideWidth * (this.currentIndex + 1)}px`;
   }
 
@@ -57,16 +57,19 @@ export default class Slider {
 
   //Обработка кнопки "вперед":
   goToNextSlide() {
-    this.nextBtn.disabled = true;
     this.currentIndex++;
     this.updatePosition();
+
+    if (this.currentIndex >= this.realSlidesCount) {
+      this.nextBtn.disabled = true;
+    }
 
     // обработать быстрый переход в первому слайду обратно
 
     this.slide.addEventListener(
       "transitionend",
       () => {
-        if (this.currentIndex >= this.images.length) {
+        if (this.currentIndex >= this.realSlidesCount) {
           this.currentIndex = 0;
           this.slide.style.transition = `none`;
           this.slide.style.translate = `-${this.slideWidth * this.currentIndex}px`;
