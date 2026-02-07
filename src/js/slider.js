@@ -41,18 +41,30 @@ export default class Slider {
     this.cloneElements();
     this.slideWidth = this.slide.firstElementChild.offsetWidth;
     this.slide.style.transition = `none`;
-    this.slide.style.translate = `-${this.slideWidth * (this.currentIndex + 1)}px`;
+    this.slide.style.translate = `-${(this.slideWidth + this.gap) * (this.currentIndex + 1)}px`;
   }
   updatePosition() {
     this.slideWidth = this.slide.firstElementChild.offsetWidth;
     this.slide.style.transition = `translate ${this.ANIMATION_TIME}s ease-in-out`;
-    this.slide.style.translate = `-${this.slideWidth * (this.currentIndex + 1)}px`;
+    this.slide.style.translate = `-${(this.slideWidth + this.gap) * (this.currentIndex + 1)}px`;
   }
 
   // Работа кнопки "назад":
   goToPrevSlide() {
     this.currentIndex--;
     this.updatePosition();
+
+    this.slide.addEventListener(
+      "transitionend",
+      () => {
+        if (this.currentIndex < 0) {
+          this.currentIndex = this.realSlidesCount - 1;
+          this.slide.style.transition = `none`;
+          this.slide.style.translate = `-${(this.slideWidth + this.gap) * (this.currentIndex + 1)}px`;
+        }
+      },
+      { once: true },
+    );
   }
 
   //Обработка кнопки "вперед":
@@ -60,7 +72,7 @@ export default class Slider {
     this.currentIndex++;
     this.updatePosition();
 
-    if (this.currentIndex >= this.realSlidesCount) {
+    if (this.currentIndex >= this.realSlidesCount - 1) {
       this.nextBtn.disabled = true;
     }
 
@@ -69,10 +81,10 @@ export default class Slider {
     this.slide.addEventListener(
       "transitionend",
       () => {
-        if (this.currentIndex >= this.realSlidesCount) {
+        if (this.currentIndex >= this.realSlidesCount - 1) {
           this.currentIndex = 0;
           this.slide.style.transition = `none`;
-          this.slide.style.translate = `-${this.slideWidth * this.currentIndex}px`;
+          this.slide.style.translate = `-${(this.slideWidth + this.gap) * (this.currentIndex + 1)}px`;
           this.nextBtn.disabled = false;
         }
       },
