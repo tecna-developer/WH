@@ -5,4 +5,10 @@
   &__slider {
     padding-block: 20px;
   }
+  &__footer {
+    &-bottom {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }

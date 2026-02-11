@@ -1,25 +1,25 @@
 @use "/src/scss/helpers/variables.scss" as *;
 
 .slider {
+  overflow: hidden;
   &_track {
-    margin: 40px 0;
-    overflow: hidden;
-    width: 100%;
-  }
-  &_item {
     display: flex;
-    flex-shrink: 0;
     align-items: center;
     column-gap: 20px;
-    max-width: 300px;
-    max-height: 252px;
+  }
+  &_item {
+    background-color: transparent;
+    min-width: 300px;
+    min-height: 252px;
 
     & img {
-      min-width: 100%;
-      padding: 40px;
-      object-fit: cover;
       border-radius: 25px;
       background-color: $beige-color;
+      height: 100%;
+      padding: 40px;
+      object-fit: cover;
+
+      margin-bottom: 10px;
     }
   }
   &_arrows {
