@@ -24,6 +24,7 @@ export default class Slider {
 
     console.log(this.track);
     console.log(this.slide);
+    this.cloneElements();
     this.initSlider();
     this.bindListener();
   }
@@ -35,14 +36,14 @@ export default class Slider {
     this.track.appendChild(this.firstClone);
     this.track.insertBefore(this.lastClone, this.track.firstElementChild);
   }
+
   initSlider() {
-    this.cloneElements();
     this.slideWidth = this.track.firstElementChild.offsetWidth;
     this.track.style.transition = `none`;
-    this.track.style.translate = `-${this.slideWidth * (this.currentIndex + 1)}px`;
+    this.track.style.translate = `-${(this.slideWidth + this.gap) * (this.currentIndex + 1)}px`;
   }
   updatePosition() {
-    this.slideWidth = this.slide.firstElementChild.offsetWidth;
+    this.slideWidth = this.track.firstElementChild.offsetWidth;
     this.track.style.transition = `translate ${this.ANIMATION_TIME}s ease-in-out`;
     this.track.style.translate = `-${(this.slideWidth + this.gap) * (this.currentIndex + 1)}px`;
   }
@@ -52,13 +53,13 @@ export default class Slider {
     this.currentIndex--;
     this.updatePosition();
 
-    this.slide.addEventListener(
+    this.track.addEventListener(
       "transitionend",
       () => {
         if (this.currentIndex < 0) {
-          this.currentIndex = this.realSlidesCount - 1;
+          this.currentIndex = this.realSlidesCount;
           this.track.style.transition = `none`;
-          this.track.style.translate = `-${this.slideWidth * (this.currentIndex + 1)}px`;
+          this.track.style.translate = `-${(this.slideWidth + this.gap) * (this.currentIndex + 1)}px`;
         }
       },
       { once: true },
@@ -70,18 +71,18 @@ export default class Slider {
     this.currentIndex++;
     this.updatePosition();
 
-    if (this.currentIndex >= this.realSlidesCount - 1) {
+    if (this.currentIndex >= this.realSlidesCount) {
       this.nextBtn.disabled = true;
     }
 
     // обработать быстрый переход в первому слайду обратно
-    this.slide.addEventListener(
+    this.track.addEventListener(
       "transitionend",
       () => {
-        if (this.currentIndex >= this.realSlidesCount - 1) {
+        if (this.currentIndex >= this.realSlidesCount) {
           this.currentIndex = 0;
           this.track.style.transition = `none`;
-          this.track.style.translate = `-${this.slideWidth * (this.currentIndex + 1)}px`;
+          this.track.style.translate = `-${(this.slideWidth + this.gap) * (this.currentIndex + 1)}px`;
           this.nextBtn.disabled = false;
         }
       },
