@@ -15,38 +15,36 @@ export default class Slider {
     this.nextBtn = document.querySelector(nextBtn);
     this.prevBtn = document.querySelector(prevBtn);
     this.slide = document.querySelector("[data-slide]");
-    this.realSlidesCount = this.slide.children.length;
+    this.realSlidesCount = this.track.children.length;
     this.ANIMATION_TIME = ANIMATION_TIME;
     this.gap = gap;
-    this.slide.style.columnGap = `${gap}px`;
+    // this.track.style.columnGap = `${gap}px`;
     this.currentIndex = 0;
     this.slidesToShow = slidesToShow || 1;
 
     console.log(this.track);
     console.log(this.slide);
     this.initSlider();
-
-    this.prevBtn.addEventListener("click", () => this.goToPrevSlide());
-    this.nextBtn.addEventListener("click", () => this.goToNextSlide());
+    this.bindListener();
   }
 
   cloneElements() {
-    this.firstClone = this.slide.firstElementChild.cloneNode(true);
-    this.lastClone = this.slide.lastElementChild.cloneNode(true);
+    this.firstClone = this.track.firstElementChild.cloneNode(true);
+    this.lastClone = this.track.lastElementChild.cloneNode(true);
 
-    this.slide.appendChild(this.firstClone);
-    this.slide.insertBefore(this.lastClone, this.slide.firstElementChild);
+    this.track.appendChild(this.firstClone);
+    this.track.insertBefore(this.lastClone, this.track.firstElementChild);
   }
   initSlider() {
     this.cloneElements();
-    this.slideWidth = this.slide.firstElementChild.offsetWidth;
-    this.slide.style.transition = `none`;
-    this.slide.style.translate = `-${(this.slideWidth + this.gap) * (this.currentIndex + 1)}px`;
+    this.slideWidth = this.track.firstElementChild.offsetWidth;
+    this.track.style.transition = `none`;
+    this.track.style.translate = `-${this.slideWidth * (this.currentIndex + 1)}px`;
   }
   updatePosition() {
     this.slideWidth = this.slide.firstElementChild.offsetWidth;
-    this.slide.style.transition = `translate ${this.ANIMATION_TIME}s ease-in-out`;
-    this.slide.style.translate = `-${(this.slideWidth + this.gap) * (this.currentIndex + 1)}px`;
+    this.track.style.transition = `translate ${this.ANIMATION_TIME}s ease-in-out`;
+    this.track.style.translate = `-${(this.slideWidth + this.gap) * (this.currentIndex + 1)}px`;
   }
 
   // Работа кнопки "назад":
@@ -59,8 +57,8 @@ export default class Slider {
       () => {
         if (this.currentIndex < 0) {
           this.currentIndex = this.realSlidesCount - 1;
-          this.slide.style.transition = `none`;
-          this.slide.style.translate = `-${(this.slideWidth + this.gap) * (this.currentIndex + 1)}px`;
+          this.track.style.transition = `none`;
+          this.track.style.translate = `-${this.slideWidth * (this.currentIndex + 1)}px`;
         }
       },
       { once: true },
@@ -77,18 +75,22 @@ export default class Slider {
     }
 
     // обработать быстрый переход в первому слайду обратно
-
     this.slide.addEventListener(
       "transitionend",
       () => {
         if (this.currentIndex >= this.realSlidesCount - 1) {
           this.currentIndex = 0;
-          this.slide.style.transition = `none`;
-          this.slide.style.translate = `-${(this.slideWidth + this.gap) * (this.currentIndex + 1)}px`;
+          this.track.style.transition = `none`;
+          this.track.style.translate = `-${this.slideWidth * (this.currentIndex + 1)}px`;
           this.nextBtn.disabled = false;
         }
       },
       { once: true },
     );
+  }
+  bindListener() {
+    this.prevBtn.addEventListener("click", () => this.goToPrevSlide());
+
+    this.nextBtn.addEventListener("click", () => this.goToNextSlide());
   }
 }
