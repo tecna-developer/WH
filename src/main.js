@@ -54,7 +54,7 @@ window.addEventListener("DOMContentLoaded", () => {
     nextBtn: "[data-btn-next]",
     slidesToShow: 3,
   });
-  sliderPopular.updatePosition;
+  sliderPopular.initSlider();
 });
 
 //Footer details collaps

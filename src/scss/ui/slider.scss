@@ -9,8 +9,10 @@
   }
   &_item {
     background-color: transparent;
-    min-width: 300px;
+
     min-height: 252px;
+    flex-shrink: 0;
+    width: 100%;
 
     & img {
       border-radius: 25px;
