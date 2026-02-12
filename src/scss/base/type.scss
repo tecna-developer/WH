@@ -1,5 +1,10 @@
 @use "/src/scss/helpers/variables.scss" as *;
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 ul li a {
   text-transform: lowercase;
   display: inline-block;

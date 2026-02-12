@@ -4,7 +4,8 @@
 * {
   margin: 0;
 }
-html {
+html,
+body {
   scroll-behavior: smooth;
   color: $black-color;
   background-color: $white-color;
@@ -20,17 +21,13 @@ html {
   -moz-osx-font-smoothing: grayscale;
 
   position: relative;
+  overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: auto;
   }
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
 }
 
 .container {
