@@ -1,6 +1,7 @@
 @use "/src/scss/helpers/variables.scss" as *;
 
 .slider {
+  width: 100%;
   overflow: hidden;
   &_track {
     display: flex;
@@ -11,8 +12,9 @@
     background-color: transparent;
     min-height: 375px;
     flex-shrink: 0;
-    width: 100%;
-    padding: 0 10px;
+    width: stretch;
+    min-width: none;
+    padding: 0;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -28,13 +30,20 @@
   &_arrows {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .slider {
+    &_item {
+      padding: 0 10px;
+    }
   }
 }
 
 @media screen and (min-width: 1920px) {
   .slider {
-    &__item {
+    &_item {
       padding: 0 15px;
     }
   }

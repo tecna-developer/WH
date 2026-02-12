@@ -7,71 +7,55 @@ export default class Slider {
       prevBtn = "",
       slidesToShow = "",
       ANIMATION_TIME = 0.5,
-      gap = 20,
     } = {},
   ) {
     this.root = rootElement;
-    this.track = document.querySelector(track);
-    this.nextBtn = document.querySelector(nextBtn);
-    this.prevBtn = document.querySelector(prevBtn);
+    this.track = this.root.querySelector(track);
+    this.nextBtn = this.root.querySelector(nextBtn);
+    this.prevBtn = this.root.querySelector(prevBtn);
     this.slides = document.querySelectorAll("[data-slide]");
-    this.realSlidesCount = this.track.children.length;
     this.ANIMATION_TIME = ANIMATION_TIME;
-    this.gap = gap;
-    // this.track.style.columnGap = `${gap}px`;
+
     this.currentIndex = 0;
-    this.slidesToShow = slidesToShow || 1;
+    this.slidesToShow = slidesToShow;
     this.slideWidth = 0;
     this.maxIndex = this.slides.length - this.slidesToShow;
-    // this.cloneElements();
-
-    console.log(this.track);
-    console.log(this.slide);
 
     this.initSlider();
-
-    this.checkResize();
   }
-
-  initSlider() {
-    this.updatePosition();
-    this.track.style.transition = `none`;
-    this.track.style.translate = `-${(this.slideWidth + this.gap) * (this.currentIndex + 1)}px`;
-
-    this.bindEvents();
-  }
-  updatePosition() {
-    this.containerWidth = this.root.clientWidth;
+  updateDimensions() {
+    this.containerWidth = this.root.offsetWidth;
     this.slideWidth = this.containerWidth / this.slidesToShow;
     this.slides.forEach((slide) => {
       slide.style.width = `${this.slideWidth}px`;
     });
+    this.maxIndex = this.slides.length - this.slidesToShow;
   }
-  moveSlide() {
-    this.track.style.transition = `translate ${this.ANIMATION_TIME}s ease-in-out`;
-    this.track.style.translate = `-${(this.slideWidth + this.gap) * (this.currentIndex + 1)}px`;
+
+  initSlider() {
+    this.checkAdaptive();
+
+    this.bindEvents();
+    this.moveSlide(false);
+  }
+
+  moveSlide(animate = true) {
+    if (animate) {
+      this.track.style.transition = `translate ${this.ANIMATION_TIME}s ease-in-out`;
+    } else {
+      this.track.style.transition = "none";
+    }
+
+    this.track.style.translate = `-${this.slideWidth * this.currentIndex}px`;
   }
 
   // Работа кнопки "назад":
   goToPrevSlide() {
-    if (this.currentIndex >= 0) {
+    if (this.currentIndex > 0) {
       this.currentIndex--;
 
       this.moveSlide();
     }
-
-    this.track.addEventListener(
-      "transitionend",
-      () => {
-        if (this.currentIndex < 0) {
-          this.currentIndex = this.maxIndex;
-          this.track.style.transition = `none`;
-          this.track.style.translate = `-${(this.slideWidth + this.gap) * (this.currentIndex + 1)}px`;
-          this.prevBtn.disabled = false;
-        }
-      },
-      { once: true },
-    );
   }
 
   //Обработка кнопки "вперед":
@@ -79,32 +63,50 @@ export default class Slider {
     if (this.currentIndex < this.maxIndex) {
       this.currentIndex++;
       this.moveSlide();
-    } else {
-      this.nextBtn.disabled = true;
     }
 
     // обработать быстрый переход в первому слайду обратно
-    this.track.addEventListener(
-      "transitionend",
-      () => {
-        if (this.currentIndex >= this.maxIndex) {
-          this.currentIndex = 0;
-          this.track.style.transition = `none`;
-          this.track.style.translate = `-${(this.slideWidth + this.gap) * (this.currentIndex + 1)}px`;
-          this.nextBtn.disabled = false;
-        }
-      },
-      { once: true },
-    );
+    // this.track.addEventListener(
+    //   "transitionend",
+    //   () => {
+    //     if (this.currentIndex >= this.maxIndex) {
+    //       this.currentIndex = 0;
+    //       this.track.style.transition = `none`;
+    //       this.track.style.translate = `-${this.slideWidth * this.currentIndex}px`;
+    //       this.nextBtn.disabled = false;
+    //     }
+    //   },
+    //   { once: true },
+    // );
   }
+
+  //Все события
   bindEvents() {
     this.prevBtn.addEventListener("click", () => this.goToPrevSlide());
 
     this.nextBtn.addEventListener("click", () => this.goToNextSlide());
-  }
-  checkResize() {
     window.addEventListener("resize", () => {
-      this.initSlider();
+      this.checkAdaptive();
     });
+  }
+
+  // Проверяем размер экрана для адаптивности
+  checkAdaptive() {
+    const width = window.innerWidth;
+
+    if (width >= 1000) {
+      this.slidesToShow = 3;
+    } else if (width >= 480) {
+      this.slidesToShow = 2;
+    } else this.slidesToShow = 1;
+    this.updateDimensions();
+    this.currentIndex = 0;
+    this.moveSlide();
+
+    if (this.currentIndex > this.maxIndex) {
+      this.currentIndex = this.maxIndex;
+    }
+
+    this.moveSlide(false);
   }
 }

@@ -3,9 +3,10 @@
 .popular {
   background-color: $white-color;
   &__slider {
-    padding-block: 20px;
+    padding-block-start: 20px;
   }
   &__footer {
+    margin-top: auto;
     &-bottom {
       display: flex;
       justify-content: space-between;
