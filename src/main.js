@@ -1,7 +1,14 @@
 import "@a1rth/css-normalize";
+import Swiper from "swiper";
+import { Navigation, Pagination } from "swiper/modules";
+// import Swiper and modules styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import "./scss/style.scss";
 
 import Slider from "./js/slider";
+
 // Открытие меню
 
 //счетчик для корзины
@@ -44,6 +51,35 @@ window.cart = {
   removeItem,
   items: cart,
 };
+
+const heroSlider = new Swiper(".hero__slider", {
+  modules: [Navigation, Pagination],
+  // Настройки для мобильных устройств (по умолчанию)
+  direction: "horizontal",
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    type: "bullets",
+  },
+
+  // Адаптив
+  breakpoints: {
+    // Когда ширина экрана >= 768px
+    768: {
+      direction: "vertical",
+      clickable: true,
+      type: "bullets",
+    },
+  },
+
+  // Обновление при изменении размера окна
+  on: {
+    resize: function () {
+      this.update(); // Принудительно обновляем параметры при ресайзе
+    },
+  },
+});
 
 //Slider popular products
 const sliderElementForPopular = document.querySelector(".popular__slider");

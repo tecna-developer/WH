@@ -15,6 +15,7 @@
     "vite": "^7.1.2"
   },
   "dependencies": {
-    "@a1rth/css-normalize": "^1.2.1"
+    "@a1rth/css-normalize": "^1.2.1",
+    "swiper": "^12.1.0"
   }
 }

@@ -2,12 +2,15 @@
 
 .hero {
   min-height: 100vh;
-  background: url("/src/image/hero-bg.png"),
+  background:
+    url("/src/image/hero-bg.png"),
     linear-gradient(to bottom, $beige-color 65%, $black-color 65%);
 
   background-repeat: repeat-x;
   background-position: bottom, top;
-  background-size: auto 35%, 100% 100%;
+  background-size:
+    auto 35%,
+    100% 100%;
 
   padding-block: 4.375rem;
   &__wrapper {
@@ -32,9 +35,26 @@
     margin-bottom: 35px;
     padding: 20px;
     border: 3px dashed green;
-    img {
-      width: 12.5rem;
-      aspect-ratio: 1;
+    width: 300px;
+    height: 80vh;
+    &_item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      padding: 20px;
+
+      img {
+        width: 100%;
+        transform: rotate(10deg);
+      }
     }
   }
+}
+
+.swiper-pagination-vertical {
+  right: 10px;
+}
+.swiper-pagination-horizontal {
+  bottom: 10px;
 }
