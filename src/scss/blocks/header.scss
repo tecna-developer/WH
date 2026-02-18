@@ -6,12 +6,10 @@
 
   &__navbar {
     width: 100%;
-    display: flex;
+    @include flexStandart;
     flex-wrap: nowrap;
-    justify-content: space-between;
     min-height: 36px;
     position: relative;
-    align-items: center;
     column-gap: 16px;
 
     &-burger {

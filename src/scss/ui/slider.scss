@@ -20,11 +20,19 @@
     flex-direction: column;
 
     & img {
-      border-radius: 25px;
-      background-color: $beige-color;
+      position: relative;
       padding: 40px;
       object-fit: cover;
       margin-block-end: 10px;
+      &::before {
+        content: "";
+        position: absolute;
+        border-radius: 25px;
+        background-color: $beige-color;
+      }
+      // &[data-active]::before {
+      //   border-radius: 5000px;
+      // }
     }
   }
   &_arrows {

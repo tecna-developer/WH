@@ -1,4 +1,5 @@
 @use "/src/scss/helpers/variables.scss" as *;
+@use "/src/scss/helpers/mixin.scss" as *;
 
 .footer {
   background-color: $black-color;
@@ -28,6 +29,7 @@
     &_collapsible {
       & summary {
         cursor: pointer;
+        @include flexStandart;
         list-style: none;
         position: relative;
         // padding-right: 24px;
@@ -35,9 +37,6 @@
         margin-bottom: 20px;
         font-weight: 700;
         line-height: 1.4;
-        display: flex;
-        justify-content: space-between;
-
         &::-webkit-details-marker {
           display: none;
         }
@@ -73,6 +72,16 @@
     & a {
       font-size: inherit;
       color: rgba($color: $white-color, $alpha: 0.3);
+    }
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .footer {
+    &__header {
+      display: flex;
+      flex-direction: row;
+      column-gap: 50px;
     }
   }
 }

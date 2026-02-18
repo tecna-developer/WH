@@ -64,20 +64,6 @@ export default class Slider {
       this.currentIndex++;
       this.moveSlide();
     }
-
-    // обработать быстрый переход в первому слайду обратно
-    // this.track.addEventListener(
-    //   "transitionend",
-    //   () => {
-    //     if (this.currentIndex >= this.maxIndex) {
-    //       this.currentIndex = 0;
-    //       this.track.style.transition = `none`;
-    //       this.track.style.translate = `-${this.slideWidth * this.currentIndex}px`;
-    //       this.nextBtn.disabled = false;
-    //     }
-    //   },
-    //   { once: true },
-    // );
   }
 
   //Все события
@@ -108,5 +94,10 @@ export default class Slider {
     }
 
     this.moveSlide(false);
+  }
+  showCurrentSlide() {
+    // this.slides.forEach((slide) => {
+    //   slide.currentIndex
+    // };
   }
 }

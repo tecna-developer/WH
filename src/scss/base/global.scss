@@ -4,6 +4,17 @@
 * {
   margin: 0;
 }
+:root {
+  --swiper-theme-color: #fdfbf9;
+  --swiper-pagination-bullet-inactive-color: #fdfbf9;
+  --swiper-pagination-right: 12px;
+  --swiper-pagination-bottom: 12px;
+  --swiper-pagination-bullet-size: 16px;
+  --swiper-pagination-bullet-width: 16px;
+  --swiper-pagination-bullet-height: 16px;
+  --swiper-pagination-bullet-horizontal-gap: 30px;
+  --swiper-pagination-bullet-vertical-gap: 30px;
+}
 html,
 body {
   scroll-behavior: smooth;
@@ -43,7 +54,7 @@ body {
 
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 720px;
+    max-width: 728px;
     padding-inline: 0;
     margin: 0 auto;
   }
@@ -66,11 +77,11 @@ body {
   }
 }
 
-section {
+main section {
   padding-block: 70px 90px;
   background-color: $beige-color;
 }
-section:nth-child(even) {
+section:nth-child(odd) {
   background-color: $black-color;
 }
 #posts {

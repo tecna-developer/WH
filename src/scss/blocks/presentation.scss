@@ -1,8 +1,10 @@
 @use "/src/scss/helpers/variables.scss" as *;
+@use "/src/scss/helpers/mixin.scss" as *;
 
 .presentation {
-  // background-color: $black-color;
+  padding-block: 180px;
   color: $white-color;
+
   &__title {
     color: $white-color;
   }
@@ -10,6 +12,79 @@
     overflow: hidden;
   }
   &__img-block {
-    padding-block: 40px;
+    width: 300px;
+    margin-block: 40px;
+    & img {
+      transform: rotate(7deg);
+      object-fit: cover;
+    }
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .presentation {
+    &__descr {
+      max-width: 328px;
+    }
+    &__img-block {
+      width: 342px;
+      height: 320px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .presentation {
+    &__wrapper {
+      @include flexStandart;
+      column-gap: 32px;
+      padding-block-start: 50px;
+    }
+    &__descr {
+      max-width: 359px;
+    }
+    &__img-block {
+      margin-block: 0;
+      width: 297px;
+      height: 276px;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .presentation {
+    &__wrapper {
+      column-gap: 55px;
+    }
+    &__descr {
+      max-width: 470px;
+    }
+    &__img-block {
+      align-content: flex-end;
+      width: 378px;
+      height: 352px;
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .presentation {
+    & .container {
+      @include flexStandart;
+    }
+    &__title {
+      &_block {
+        max-width: 335px;
+      }
+    }
+    &__wrapper {
+      padding-block-start: 0;
+    }
+    &__img-block {
+      align-content: flex-start;
+    }
+    &__descr {
+      max-width: 382px;
+    }
   }
 }

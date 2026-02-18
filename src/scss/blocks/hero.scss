@@ -19,24 +19,26 @@
     align-items: center;
     row-gap: 2.1875rem;
   }
-
-  h1 {
-    font-weight: 900;
-    font-size: 2.5rem;
-    margin-block-end: 20px;
-  }
-  p {
-    font-size: 1.0625rem;
-    line-height: 140%;
-    text-align: start;
-    margin-bottom: 35px;
+  &__content {
+    outline: 1px dashed red;
+    h1 {
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-block-end: 20px;
+    }
+    p {
+      font-size: 1.0625rem;
+      line-height: 1.4;
+      text-align: start;
+      margin-bottom: 35px;
+    }
   }
   &__slider {
     margin-bottom: 35px;
     padding: 20px;
     border: 3px dashed green;
     width: 300px;
-    height: 80vh;
+    height: 50vh;
     &_item {
       display: flex;
       align-items: center;
@@ -46,15 +48,68 @@
 
       img {
         width: 100%;
-        transform: rotate(10deg);
+        transform: rotate(-10deg);
       }
     }
   }
 }
 
-.swiper-pagination-vertical {
-  right: 10px;
+@media screen and (min-width: 480px) {
+  .hero {
+    &__slider {
+      width: 100%;
+      &__wrapper {
+        row-gap: 0;
+      }
+      &_item {
+        & img {
+          width: 180px;
+          margin-left: auto;
+        }
+      }
+    }
+  }
 }
-.swiper-pagination-horizontal {
-  bottom: 10px;
+
+@media screen and (min-width: 768px) {
+  .hero {
+    min-height: 60vh;
+    background:
+      url("/src/image/hero-bg-768.png"),
+      linear-gradient(to right, $beige-color 68%, $black-color 32%);
+
+    background-repeat: repeat-y;
+    background-position: right, left;
+    background-size:
+      32% 100%,
+      100% 100%;
+    &__wrapper {
+      display: flex;
+      flex-direction: row;
+      column-gap: 10px;
+      justify-content: space-between;
+    }
+    &__content {
+      width: 440px;
+    }
+
+    &__slider {
+      position: relative;
+      align-self: end;
+      max-height: 500px;
+      margin-left: auto;
+      margin-right: 0;
+      margin-top: auto;
+      width: 370px;
+      height: 320px;
+      &_item {
+        & img {
+          position: absolute;
+          padding: 25px;
+          width: 251px;
+          height: 241px;
+        }
+      }
+    }
+  }
 }

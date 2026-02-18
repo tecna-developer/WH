@@ -1,4 +1,5 @@
 @use "/src/scss/helpers/variables.scss" as *;
+@use "/src/scss/helpers/mixin.scss" as *;
 
 .popular {
   background-color: $white-color;
@@ -8,8 +9,7 @@
   &__footer {
     margin-top: auto;
     &-bottom {
-      display: flex;
-      justify-content: space-between;
+      @include flexStandart;
     }
   }
 }
