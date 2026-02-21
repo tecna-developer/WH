@@ -9,7 +9,7 @@
   &__footer {
     margin-top: auto;
     &-bottom {
-      @include flexStandart;
+      @include flexStandart(30px);
     }
   }
 }

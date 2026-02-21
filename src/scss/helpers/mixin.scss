@@ -6,8 +6,14 @@
   z-index: 10;
 }
 
-@mixin flexStandart {
+@mixin flexStandart($gap: null, $justifyContent: space-between) {
   display: flex;
-  justify-content: space-between;
+  justify-content: $justifyContent;
   align-items: center;
+  gap: $gap;
+}
+@mixin box($width, $height, $bg) {
+  width: $width;
+  height: $height;
+  background-color: $bg;
 }
