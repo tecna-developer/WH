@@ -89,6 +89,7 @@ window.addEventListener("DOMContentLoaded", () => {
     prevBtn: "[data-btn-prev]",
     nextBtn: "[data-btn-next]",
     slidesToShow: 1,
+    paginationContainer: ".slider__pagination",
   });
   sliderPopular.initSlider();
 });
