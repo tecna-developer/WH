@@ -11,7 +11,9 @@
   }
   &_item {
     background-color: transparent;
-    min-height: 375px;
+    // outline: 1px ridge red;
+    // border-radius: 10px;
+    height: 375px;
     flex-shrink: 0;
     width: stretch;
     min-width: 0;
@@ -42,11 +44,13 @@
   }
   &__pagination {
     @include flexStandart(30px, center);
+    padding-block: 20px;
     &_dot {
       @include box(16px, 16px, $grey-color);
       border-radius: 50%;
       cursor: pointer;
       border: none;
+      transition: $transition;
       &.active {
         background-color: $black-color;
         transform: scale(1.2);

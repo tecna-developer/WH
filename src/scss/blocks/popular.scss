@@ -9,7 +9,9 @@
   &__footer {
     margin-top: auto;
     &-bottom {
-      @include flexStandart(30px);
+      display: flex;
+      justify-content: space-between;
+      column-gap: 20px;
     }
   }
 }

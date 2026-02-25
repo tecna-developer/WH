@@ -14,7 +14,7 @@ export default class Slider {
     this.track = this.root.querySelector(track);
     this.nextBtn = this.root.querySelector(nextBtn);
     this.prevBtn = this.root.querySelector(prevBtn);
-    this.slides = document.querySelectorAll("[data-slide]");
+    this.slides = this.root.querySelectorAll("[data-slide]");
     this.paginationContainer = this.root.querySelector(paginationContainer);
     this.ANIMATION_TIME = ANIMATION_TIME;
 
@@ -39,6 +39,7 @@ export default class Slider {
 
     this.bindEvents();
     this.moveSlide(false);
+    this.renderPagination();
   }
 
   moveSlide(animate = true) {
@@ -49,6 +50,7 @@ export default class Slider {
     }
 
     this.track.style.translate = `-${this.slideWidth * this.currentIndex}px`;
+    this.updateDots();
   }
 
   // Работа кнопки "назад":
@@ -68,6 +70,42 @@ export default class Slider {
     }
   }
 
+  //Пагинация
+
+  renderPagination() {
+    this.paginationContainer.innerHTML = "";
+
+    this.dots = [];
+    const dotsCount = this.maxIndex + 1;
+
+    for (let i = 0; i < dotsCount; i++) {
+      const dot = document.createElement("button");
+      dot.classList.add("slider__pagination_dot");
+
+      if (i === this.currentIndex) {
+        dot.classList.add("active");
+      }
+
+      dot.addEventListener("click", () => {
+        this.currentIndex = i;
+        this.moveSlide();
+      });
+      this.paginationContainer.appendChild(dot);
+      this.dots.push(dot);
+    }
+  }
+
+  updateDots() {
+    // Пробегаемся по всем точкам
+    this.dots.forEach((dot, index) => {
+      // Если номер точки совпадает с текущим слайдом — активна
+      if (index === this.currentIndex) {
+        dot.classList.add("active");
+      } else {
+        dot.classList.remove("active");
+      }
+    });
+  }
   //Все события
   bindEvents() {
     this.prevBtn.addEventListener("click", () => this.goToPrevSlide());
@@ -86,8 +124,12 @@ export default class Slider {
       this.slidesToShow = 3;
     } else if (width >= 480) {
       this.slidesToShow = 2;
-    } else this.slidesToShow = 1;
+    } else {
+      this.slidesToShow = 1;
+    }
     this.updateDimensions();
+    this.renderPagination();
+
     this.currentIndex = 0;
     this.moveSlide();
 
@@ -96,10 +138,5 @@ export default class Slider {
     }
 
     this.moveSlide(false);
-  }
-  showCurrentSlide() {
-    // this.slides.forEach((slide) => {
-    //   slide.currentIndex
-    // };
   }
 }
