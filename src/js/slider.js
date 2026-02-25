@@ -94,6 +94,9 @@ export default class Slider {
       this.dots.push(dot);
     }
   }
+  // setStylesForActive(){
+  //   if ()
+  // }
 
   updateDots() {
     // Пробегаемся по всем точкам
@@ -111,6 +114,7 @@ export default class Slider {
     this.prevBtn.addEventListener("click", () => this.goToPrevSlide());
 
     this.nextBtn.addEventListener("click", () => this.goToNextSlide());
+
     window.addEventListener("resize", () => {
       this.checkAdaptive();
     });
