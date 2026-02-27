@@ -3,7 +3,7 @@
 .hero {
   min-height: 100vh;
   background:
-    url("/src/image/hero-bg.png"),
+    url("/src/image/hero-bg.avif"),
     linear-gradient(to bottom, $beige-color 65%, $black-color 65%);
 
   background-repeat: repeat-x;
@@ -75,7 +75,7 @@
   .hero {
     min-height: 60vh;
     background:
-      url("/src/image/hero-bg-768.png"),
+      url("/src/image/hero-bg-768.avif"),
       linear-gradient(to right, $beige-color 68%, $black-color 32%);
 
     background-repeat: repeat-y;
