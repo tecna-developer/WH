@@ -7,7 +7,8 @@
     padding-block-start: 20px;
   }
   &__footer {
-    margin-top: auto;
+    flex-grow: 1;
+    outline: 3px groove green;
     &-bottom {
       display: flex;
       justify-content: space-between;

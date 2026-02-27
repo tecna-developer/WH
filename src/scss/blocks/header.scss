@@ -4,15 +4,26 @@
 .header {
   padding: 1.25rem 0;
 
-  &__navbar {
-    width: 100%;
-    @include flexStandart;
-    flex-wrap: nowrap;
-    min-height: 36px;
+  &__wrapper {
     position: relative;
-    column-gap: 16px;
+    @include flexStandart;
+    min-height: 36px;
+    column-gap: 10px;
+  }
+  &__left,
+  &__right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
 
-    &-burger {
+  &__left {
+    justify-content: flex-start;
+    width: 100%;
+    flex-wrap: nowrap;
+    column-gap: 16px;
+    &_burger {
+      cursor: pointer;
       justify-self: start;
       background-color: transparent;
       border: transparent;
@@ -34,32 +45,27 @@
         }
       }
     }
+  }
 
-    &-logo {
-      align-content: center;
-      @include centerAbs;
-      width: 52px;
-      height: 36px;
-
-      &-link {
-        img {
-          width: 100%;
-          object-fit: cover;
-        }
-        &_480 {
-          display: none;
-        }
+  &__center {
+    // width: 192px;
+    @include centerAbs;
+    &_link {
+      &_short {
+        display: inline-block;
+      }
+      &_long {
+        display: none;
       }
     }
+  }
 
-    &-right {
-      justify-self: end;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    &-search {
+  &__right {
+    width: 62px;
+    justify-content: flex-end;
+    // justify-content: space-between;
+    gap: 15px;
+    &_search {
       display: none;
       label {
         display: none;
@@ -69,48 +75,48 @@
       }
     }
   }
-}
-
-.menu {
-  &__list {
-    position: absolute;
-    inset: 0;
-    height: 100vh;
-    width: 100%;
-    background-color: $white-color;
-    z-index: 10;
-    transform: translateY(-100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 20px;
-
-    &.active {
-      transform: translateY(0);
+  .menu {
+    display: none;
+    &__list {
+      position: absolute;
+      inset: 0;
+      height: 100vh;
+      width: 100%;
+      z-index: 10;
+      background-color: $white-color;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      row-gap: 20px;
+      transform: translateY(-100%);
+      &.active {
+        transform: translateY(0);
+      }
+    }
+    &__close {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      padding: 10px;
     }
   }
-  &__close {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40px;
-    height: 40px;
-    padding: 10px;
+  .menu__desktop {
+    display: none;
   }
 }
 
 @media screen and (min-width: 480px) {
   .header {
-    &__navbar {
-      &-logo {
-        width: 12rem;
-        height: 2.25rem;
-        &-link {
+    &__center {
+      &_link {
+        &_short {
           display: none;
-          &_480 {
-            display: block;
-          }
+        }
+        &_long {
+          display: block;
         }
       }
     }
@@ -120,12 +126,11 @@
 @media screen and (min-width: 768px) {
   .header {
     padding-block: 1.875rem;
-    &__navbar {
-      &-logo {
-        width: 15.4375rem;
-        height: 2.9375rem;
-      }
-      &-search {
+    &__center {
+      width: 15.4375rem;
+    }
+    &__right {
+      &_search {
         display: inline-block;
         width: 44px;
         height: 44px;
@@ -149,17 +154,38 @@
 
 @media screen and (min-width: 1000px) {
   .header {
-    &__navbar {
-      &-right {
-        column-gap: 3.125rem;
-        font-size: 21px;
-      }
-      &-search {
+    &-right {
+      column-gap: 3.125rem;
+      font-size: 21px;
+      &_search {
         background: none;
 
         label {
           display: block;
         }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .header {
+    &__left {
+      &_burger {
+        display: none;
+      }
+    }
+    .menu__desktop {
+      display: block;
+      .menu__list {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        transform: none;
+        height: auto;
+        justify-content: flex-start;
+        column-gap: 20px;
       }
     }
   }
