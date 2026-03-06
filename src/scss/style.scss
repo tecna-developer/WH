@@ -2,14 +2,14 @@
 @use "/src/scss/helpers/variables.scss";
 @use "/src/scss/base/type.scss";
 
-@use "/src/scss/blocks/header.scss";
-@use "/src/scss/blocks/hero.scss";
-
 @use "/src/scss/ui/button.scss";
 @use "/src/scss/ui/cart.scss";
 @use "/src/scss/ui/form.scss";
 @use "/src/scss/ui/slider.scss";
+@use "/src/scss/ui/search.scss";
 
+@use "/src/scss/blocks/header.scss";
+@use "/src/scss/blocks/hero.scss";
 @use "/src/scss/blocks/popular.scss";
 @use "/src/scss/blocks/presentation.scss";
 @use "/src/scss/blocks/eco.scss";

@@ -147,6 +147,9 @@
       align-items: flex-start;
       row-gap: 30px;
     }
+    &__logo {
+      margin-bottom: 0;
+    }
     &__nav {
       & details {
         grid-row: 1 / -1;

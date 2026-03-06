@@ -1,20 +1,54 @@
 @use "/src/scss/helpers/variables.scss" as *;
+@use "/src/scss/helpers/mixin.scss" as *;
 
 .socials {
   display: flex;
   gap: 15px;
-  &__links svg {
-    display: block;
-    width: 40px;
-    height: 40px;
-    background-color: $white-color;
-    color: $black-color;
-    border-radius: 50%;
-    padding: 10px;
-    transition: all $transition;
-    &:hover {
-      background-color: $beige-color;
-      transform: scale(1.2) translate(0, 150%);
+  &__links {
+    & a,
+    a:visited {
+      width: 40px;
+      height: 40px;
+      background-color: $white-color;
+      color: $black-color;
+      border-radius: 50%;
+      padding: 10px;
+      transition: all $transition;
+      @include flexStandart(0, center);
+      &:active {
+        background-color: $black-color;
+        color: $white-color;
+        outline: 2px solid $white-color;
+        box-shadow: inset 0px 0px 0px 2px $white-color;
+        transform: scale(1.2);
+      }
+      &:focus {
+        outline: 3px solid rgb(250, 116, 116);
+        background-color: $beige-color;
+      }
+
+      &:focus-visible {
+        color: $white-color;
+        background-color: $black-color;
+      }
+    }
+    & svg {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .socials {
+    &__links {
+      & a {
+        &:hover {
+          background-color: $beige-color;
+          color: $white-color;
+          transform: scale(1.2);
+        }
+      }
     }
   }
 }

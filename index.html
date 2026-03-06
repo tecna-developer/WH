@@ -47,12 +47,32 @@
                     </a>
                 </div>
                 <div class="header__right">
-                    <form class="header__right_search" role="search">
-                        <label for="search">Search</label>
-                        <input id="search" type="search" aria-label="Search products" />
-                    </form>
+                    <button type="button" class="btn header__right_search" area-label="Open search">
+                        <svg class="header__icon" width="28" height="28" viewBox="0 0 28 28" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12.8333 22.1667C17.988 22.1667 22.1667 17.988 22.1667 12.8333C22.1667 7.67868 17.988 3.5 12.8333 3.5C7.67868 3.5 3.5 7.67868 3.5 12.8333C3.5 17.988 7.67868 22.1667 12.8333 22.1667Z"
+                                stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M24.5008 24.5L19.4258 19.425" stroke="#2C2C2C" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span class="header__right_search_text">Search</span>
+                    </button>
+                    <div class="search__overlay" aria-hidden="true">
+                        <div class="search__modal header__right_modal">
+                            <button type="button" area-label="Close search" class="search__modal_close">
+                                &times;
+                            </button>
+                            <form action="/search" method="get" class="header__right_search_form" role="search">
+                                <label for="search">Search</label>
+                                <input id="search" type="search" name="q" placeholder="Search" required />
+                                <button type="submit" area-label="Search products"></button>
+                            </form>
+
+                        </div>
+                    </div>
                     <div class="cart">
-                        <button class="cart__btn" area-label="cart"></button>
+                        <a href="#" class="cart__btn" area-label="cart"></a>
                         <span class="cart__title">Cart</span>
                         <span></span>
                     </div>

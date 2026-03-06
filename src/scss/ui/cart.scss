@@ -1,9 +1,9 @@
 @use "/src/scss/helpers/variables.scss" as *;
 .cart {
+  cursor: pointer;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  gap: 10px;
   font-size: 1.3125rem;
   &__btn {
     width: 44px;

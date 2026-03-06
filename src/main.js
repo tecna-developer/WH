@@ -11,6 +11,20 @@ import Slider from "./js/slider";
 
 // Открытие меню
 
+//Открытие модального окна с формой поиска
+
+const openSearchElement = document.querySelector(".header__right_search"),
+  modalFormElement = document.querySelector(".search__modal"),
+  closeModalFormBtn = document.querySelector(".search__modal_close");
+
+openSearchElement.addEventListener("click", () => {
+  modalFormElement.classList.add("is-active");
+});
+
+closeModalFormBtn.addEventListener("click", () => {
+  modalFormElement.classList.remove("is-active");
+});
+
 //счетчик для корзины
 // --- Cart state and helpers -------------------------------------------------
 
