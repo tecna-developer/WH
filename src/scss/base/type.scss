@@ -56,7 +56,12 @@ a {
   font-size: 17px;
   font-weight: 400;
   line-height: 1.4;
-  text-wrap: balance;
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3 {
+  text-wrap: pretty;
 }
 
 p:not(:last-child) {
