@@ -94,9 +94,6 @@ export default class Slider {
       this.dots.push(dot);
     }
   }
-  // setStylesForActive(){
-  //   if ()
-  // }
 
   updateDots() {
     // Пробегаемся по всем точкам

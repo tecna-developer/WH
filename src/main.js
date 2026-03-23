@@ -11,6 +11,22 @@ import Slider from "./js/slider";
 
 // Открытие меню
 
+const burgerBtnElement = document.querySelector(".header__left_burger"),
+  menuElement = document.querySelector(".menu"),
+  closeBtnElement = document.querySelector(".menu__close");
+
+burgerBtnElement.addEventListener("click", () => {
+  menuElement.classList.add("active");
+  document.body.style.overflow = "hidden";
+});
+
+if (closeBtnElement) {
+  closeBtnElement.addEventListener("click", () => {
+    menuElement.classList.remove("active");
+    document.body.style.overflow = "";
+  });
+}
+
 //Открытие модального окна с формой поиска
 
 const openSearchElement = document.querySelector(".header__right_search"),
