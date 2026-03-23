@@ -7,7 +7,8 @@
   &_track {
     display: flex;
     align-items: center;
-    margin-bottom: 40px;
+    margin-block: 40px;
+    padding-block: 20px;
   }
   &_item {
     background-color: transparent;
@@ -57,7 +58,7 @@
   }
   &__pagination {
     @include flexStandart(30px, center);
-    padding-block: 20px;
+    padding-block: 40px;
     &_dot {
       @include box(16px, 16px, $grey-color);
       border-radius: 50%;
