@@ -1,0 +1,24 @@
+@use "/src/scss/helpers/variables.scss" as *;
+@use "/src/scss/helpers/mixin.scss" as *;
+
+.shop {
+  &__about {
+    &_block {
+      display: flex;
+      flex-direction: column;
+
+      row-gap: 10px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .shop {
+    &__about {
+      &_block {
+        flex-direction: row;
+        column-gap: 50px;
+      }
+    }
+  }
+}
