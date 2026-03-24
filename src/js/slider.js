@@ -108,9 +108,9 @@ export default class Slider {
   }
   //Все события
   bindEvents() {
-    this.prevBtn.addEventListener("click", () => this.goToPrevSlide());
+    // this.prevBtn.addEventListener("click", () => this.goToPrevSlide());
 
-    this.nextBtn.addEventListener("click", () => this.goToNextSlide());
+    // this.nextBtn.addEventListener("click", () => this.goToNextSlide());
 
     window.addEventListener("resize", () => {
       this.checkAdaptive();

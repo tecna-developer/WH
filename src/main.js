@@ -27,6 +27,15 @@ if (closeBtnElement) {
   });
 }
 
+window.addEventListener("scroll", () => {
+  const headerElement = document.querySelector(".header");
+  if (scrollY > 50) {
+    headerElement.classList.add("header_scrolled");
+  } else {
+    headerElement.classList.remove("header_scrolled");
+  }
+});
+
 //Открытие модального окна с формой поиска
 
 const openSearchElement = document.querySelector(".header__right_search"),
@@ -44,44 +53,7 @@ closeModalFormBtn.addEventListener("click", () => {
 //счетчик для корзины
 // --- Cart state and helpers -------------------------------------------------
 
-// Retrieve cart from localStorage or start with an empty array
-const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-// Reference to the counter element in the header
-const basketCounter = document.querySelector(".cart span:last-child");
-
-// Persist cart and update counter in the DOM
-function updateCartCounter() {
-  if (basketCounter) {
-    basketCounter.textContent = `(${cart.length})`;
-  }
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-// Add item to cart
-function addItem(item) {
-  cart.push(item);
-  updateCartCounter();
-}
-
-// Remove item from cart by index
-function removeItem(index) {
-  if (index >= 0 && index < cart.length) {
-    cart.splice(index, 1);
-    updateCartCounter();
-  }
-}
-
-// Initialize counter on page load
-updateCartCounter();
-
-// Expose cart API globally (optional for other modules)
-window.cart = {
-  addItem,
-  removeItem,
-  items: cart,
-};
-
+// Cлайдер через Swiper.js
 const heroSlider = new Swiper(".hero__slider", {
   modules: [Navigation, Pagination],
   // Настройки для мобильных устройств (по умолчанию)

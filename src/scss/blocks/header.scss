@@ -2,7 +2,18 @@
 @use "/src/scss/helpers/mixin.scss" as *;
 
 .header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  transition: all $transition;
   padding: 1.25rem 0;
+  z-index: 1000;
+
+  &.header_scrolled {
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+  }
   &__wrapper {
     position: relative;
     @include flexStandart;
@@ -50,6 +61,9 @@
     // width: 192px;
     @include centerAbs;
     &_link {
+      font-size: 28px;
+      text-transform: uppercase;
+      font-weight: 900;
       &_short {
         display: inline-block;
       }
@@ -164,7 +178,7 @@
           display: none;
         }
         &_long {
-          display: block;
+          display: inline-block;
         }
       }
     }
@@ -176,6 +190,9 @@
     padding-block: 1.875rem;
     &__center {
       width: 15.4375rem;
+      &_link {
+        font-size: 36px;
+      }
     }
   }
 }
