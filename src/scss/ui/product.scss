@@ -1,0 +1,50 @@
+@use "/src/scss/helpers/variables.scss" as *;
+@use "/src/scss/helpers/mixin.scss" as *;
+
+.product {
+  background-color: transparent;
+  //   height: 375px;
+  flex-shrink: 0;
+  width: stretch;
+  min-width: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  &:not(:last-child) {
+    padding-right: 20px;
+  }
+  &__bg {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    margin-block-end: 10px;
+    &::before {
+      content: "";
+      position: absolute;
+      border-radius: 25px;
+      background-color: $beige-color;
+      inset: 0;
+      z-index: -1;
+      transition: border-radius $transition;
+    }
+    &_circled::before {
+      border-radius: 50%;
+    }
+    & img {
+      height: auto;
+      object-fit: cover;
+    }
+  }
+  &__footer {
+    flex-grow: 1;
+    &_bottom {
+      display: flex;
+      justify-content: space-between;
+      column-gap: 20px;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@use "/src/scss/helpers/variables.scss" as *;
+@use "/src/scss/helpers/mixin.scss" as *;
+
+.catalog {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    column-gap: 20px;
+    align-items: stretch;
+    row-gap: 20px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .catalog {
+    &__wrapper {
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .catalog {
+    &__wrapper {
+      grid-template-columns: repeat(auto-fit, minmax(349px, 1fr));
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .catalog {
+    &__wrapper {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .catalog {
+    &__wrapper {
+      grid-template-columns: repeat(auto-fit, minmax(396px, 1fr));
+      column-gap: 30px;
+    }
+  }
+}

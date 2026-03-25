@@ -10,48 +10,6 @@
     margin-block: 40px;
     padding-block: 20px;
   }
-  &_item {
-    background-color: transparent;
-    // outline: 1px ridge red;
-    // border-radius: 10px;
-    height: 375px;
-    flex-shrink: 0;
-    width: stretch;
-    min-width: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-
-    &_bg {
-      position: relative;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      aspect-ratio: 1 / 1;
-
-      margin-block-end: 10px;
-
-      &::before {
-        content: "";
-        position: absolute;
-        border-radius: 25px;
-        background-color: $beige-color;
-        inset: 0;
-        z-index: -1;
-        transition: border-radius $transition;
-      }
-      &_circled::before {
-        border-radius: 50%;
-      }
-
-      & img {
-        height: auto;
-        object-fit: cover;
-      }
-    }
-  }
   &_arrows {
     display: flex;
     justify-content: space-between;
