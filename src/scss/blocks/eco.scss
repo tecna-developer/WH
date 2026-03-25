@@ -1,6 +1,7 @@
 @use "/src/scss/helpers/variables.scss" as *;
 
 .eco {
+  background-color: $beige-color;
   position: relative;
   text-align: center;
   &::before {

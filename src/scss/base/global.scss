@@ -39,7 +39,6 @@ body {
   overflow-x: hidden;
   color: $black-color;
   background-color: $white-color;
-  padding-block-start: 3 0px;
 }
 main {
   flex: 1;
@@ -89,16 +88,6 @@ main {
 
 main section {
   padding-block: 70px 90px;
-  background-color: $beige-color;
-}
-section:nth-child(odd) {
-  background-color: $black-color;
-}
-#posts {
-  background-color: $white-color;
-}
-#shop_section {
-  background-color: $beige-color;
 }
 
 @media screen and (min-width: 768px) {

@@ -2,6 +2,7 @@
 @use "/src/scss/helpers/mixin.scss" as *;
 
 .presentation {
+  background-color:$black-color;
   padding-block: 180px;
   color: $white-color;
 

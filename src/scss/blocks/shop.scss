@@ -3,10 +3,10 @@
 
 .shop {
   &__about {
+    background-color: $beige-color;
     &_block {
       display: flex;
       flex-direction: column;
-
       row-gap: 10px;
     }
   }

@@ -1,6 +1,7 @@
 @use "/src/scss/helpers/variables.scss" as *;
 
 .subscription {
+  background-color: $beige-color;
   &__wrapper {
     display: grid;
     grid-template-columns: 1fr;

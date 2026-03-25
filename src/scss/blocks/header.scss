@@ -8,6 +8,7 @@
   transition: all $transition;
   padding: 1.25rem 0;
   z-index: 1000;
+  min-height: 115px;
 
   &.header_scrolled {
     background: rgba(255, 255, 255, 0.7);
@@ -15,7 +16,6 @@
     padding: 10px 0;
   }
   &__wrapper {
-    position: relative;
     @include flexStandart;
     min-height: 36px;
     column-gap: 10px;
@@ -43,6 +43,7 @@
       flex-direction: column;
       justify-content: space-around;
       gap: 10px;
+      outline: none;
       transition: transform 0.1s ease;
 
       span {
@@ -58,8 +59,6 @@
   }
 
   &__center {
-    // width: 192px;
-    @include centerAbs;
     &_link {
       font-size: 28px;
       text-transform: uppercase;
@@ -97,13 +96,13 @@
     // }
   }
   .menu {
-    position: fixed;
+    position: absolute;
     inset: 0;
     height: 100vh;
-    width: 360px;
+    max-width: 100%;
     z-index: 100;
     background-color: $white-color;
-    transform: translateY(-100%);
+    transform: translateY(-1000vh);
     transition: transform 0.4s ease-in-out;
     display: flex;
     justify-content: flex-start;
@@ -194,6 +193,9 @@
         font-size: 36px;
       }
     }
+  }
+  .menu {
+    width: 360px;
   }
 }
 
