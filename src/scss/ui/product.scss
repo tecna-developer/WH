@@ -4,7 +4,6 @@
 .product {
   position: relative;
   background-color: transparent;
-  //   height: 375px;
   flex-shrink: 0;
   width: stretch;
   min-width: 0;
@@ -15,6 +14,22 @@
   &:not(:last-child) {
     padding-right: 20px;
   }
+  &__add_icon {
+    position: absolute;
+    top: -34px;
+    right: -17px;
+    width: 70px;
+    height: 70px;
+    padding: 18px;
+    z-index: 2;
+    top: -34px;
+    right: -17px;
+    opacity: 0;
+    background-color: $black-color;
+    color: $white-color;
+    border-radius: 50%;
+    transition: opacity 0.3s ease;
+  }
   &__bg {
     position: relative;
     padding: 20px;
@@ -23,18 +38,13 @@
     justify-content: center;
     aspect-ratio: 1 / 1;
     margin-block-end: 10px;
-    &::before {
-      content: "";
-      position: absolute;
-      border-radius: 25px;
-      background-color: $beige-color;
-      inset: 0;
-      z-index: -1;
-      transition: border-radius $transition;
-    }
+    border-radius: 25px;
+    background-color: $beige-color;
+    transition: border-radius $transition;
+
     & img {
       height: auto;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
   &__link {
@@ -45,6 +55,9 @@
       position: absolute;
       inset: 0;
       z-index: 1;
+    }
+    &:hover &__add_icon {
+      opacity: 1;
     }
   }
   &__footer {
