@@ -2,6 +2,7 @@
 @use "/src/scss/helpers/mixin.scss" as *;
 
 .product {
+  position: relative;
   background-color: transparent;
   //   height: 375px;
   flex-shrink: 0;
@@ -31,12 +32,19 @@
       z-index: -1;
       transition: border-radius $transition;
     }
-    &_circled::before {
-      border-radius: 50%;
-    }
     & img {
       height: auto;
       object-fit: cover;
+    }
+  }
+  &__link {
+    font-size: inherit;
+    font-weight: inherit;
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
     }
   }
   &__footer {
