@@ -1,0 +1,27 @@
+@use "/src/scss/helpers/variables.scss" as *;
+@use "/src/scss/helpers/mixin.scss" as *;
+
+.contacts {
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+  &__card {
+    width: 100%;
+    background-color: $beige-color;
+    border-radius: 25px;
+    padding: 35px 20px;
+    &_title {
+      font-family: "Lato", sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+    }
+    &_link {
+      font-weight: 700;
+    }
+  }
+  & img {
+    width: 100%;
+  }
+}

@@ -12,37 +12,49 @@
         <div class="container">
             <div class="header__wrapper">
                 <div class="header__left">
-                    <button class="header__left_burger" aria-controls="nav-menu" aria-expanded="false"
-                        area-label="menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <div class="menu">
-                        <nav class="menu__nav">
-                            <button class="menu__close">&times;</button>
-                            <ul class="menu__list">
-                                <li class="menu__item"><a href="shop.html">Shop</a></li>
-                                <li class="menu__item"><a href="about.html">About</a></li>
-                                <li class="menu__item"><a href="contacts.html">Contacts</a> </li>
+                    <div class="mobile-menu" aria-label="mobile-navigation">
+                        <label class="mobile-menu__toggler" for="burger_toggler"
+                            aria-label="open-close mobile-navigation">
+                            <svg width="42" height="22" viewBox="0 0 42 22" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1H41" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
+                                <path d="M1 11H31" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
+                                <path d="M1 21H41" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </label>
+                        <input type="checkbox" id="burger_toggler" class="mobile-menu__toggler"></input>
+                        <nav class="mobile-menu__block">
+                            <ul class="menu__list mobile-menu__list">
+                                <li class="menu__item"><a href="/shop.html">Shop</a></li>
+                                <li class="menu__item"><a href="/about.html">About</a></li>
+                                <li class="menu__item"><a href="/contacts.html">Contacts</a> </li>
+                            </ul>
+                            <form class="mobile-menu__form" method="get">
+                                <label for="mobile-menu-search" aria-label="mobile-navigation search"></label>
+                                <input type="search" placeholder="Search" name="q">
+                            </form>
+                            <div class="cart mobile__menu_cart">
+                                <a href="#" class="cart__btn mobile-menu__cart_btn" area-label="cart">Cart</a>
+                                <span></span>
+                            </div>
+                            <label for="burger_toggler" class="mobile-menu__close">
+                                <svg width="31" height="31" viewBox="0 0 31 31" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.00151 29.2843L29.2858 1M29.2858 29.2843L1.00151 1" stroke="#2C2C2C"
+                                        stroke-width="2" stroke-linecap="round" />
+                                </svg>
+                            </label>
+                        </nav>
+                    </div>
+                    <div class="menu__desktop">
+                        <nav class="menu__desktop_nav">
+                            <ul class="menu__desktop_list">
+                                <li class="menu__desktop_item"><a href="/shop.html">Shop</a></li>
+                                <li class="menu__desktop_item"><a href="/about.html">About</a></li>
+                                <li class="menu__desktop_item"><a href="/contacts.html">Contacts</a> </li>
                             </ul>
                         </nav>
-                        <div class="menu__search_block"><button type="button" class="btn menu__search"
-                                area-label="Open search">Search</button>
-                        </div>
-                        <div class="cart menu__cart">
-                            <a href="#" class=" cart__btn menu__cart_btn" area-label="cart">Cart</a>
-                            <span></span>
-                        </div>
-
                     </div>
-                    <nav class="menu__desktop">
-                        <ul class="menu__list">
-                            <li class="menu__item"><a href="/shop.html">Shop</a></li>
-                            <li class="menu__item"><a href="/about.html">About</a></li>
-                            <li class="menu__item"><a href="/contacts.html">Contacts</a> </li>
-                        </ul>
-                    </nav>
                 </div>
                 <div class="header__center">
                     <a class="header__center_link header__center_link_short " href="#" aria-label="warm heart logo">
@@ -60,7 +72,7 @@
                 </div>
                 <div class="header__right">
                     <button type="button" class="btn header__right_search" area-label="Open search">
-                        <svg class="header__icon" width="28" height="28" viewBox="0 0 28 28" fill="none"
+                        <svg class="header__right_icon" width="28" height="28" viewBox="0 0 28 28" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M12.8333 22.1667C17.988 22.1667 22.1667 17.988 22.1667 12.8333C22.1667 7.67868 17.988 3.5 12.8333 3.5C7.67868 3.5 3.5 7.67868 3.5 12.8333C3.5 17.988 7.67868 22.1667 12.8333 22.1667Z"
@@ -68,33 +80,67 @@
                             <path d="M24.5008 24.5L19.4258 19.425" stroke="#2C2C2C" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        <span class="header__right_search_text">Search</span>
+                        <span class="header__right_text">Search</span>
                     </button>
-                    <div class="search__overlay" aria-hidden="true">
-                        <div class="search__modal header__right_modal">
-                            <button type="button" area-label="Close search" class="search__modal_close">
-                                &times;
-                            </button>
-                            <form action="/search" method="get" class="header__right_search_form" role="search">
-                                <label for="search">Search</label>
-                                <input id="search" type="search" name="q" placeholder="Search" required />
-                                <button type="submit" area-label="Search products"></button>
-                            </form>
+                    <a href="#" class="btn cart__btn" area-label="cart">
+                        <svg class="header__right_icon" role="img" focusable="false" width="28" height="28"
+                            viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <title>Cart</title>
+                            <path
+                                d="M7 2.33333L3.5 7V23.3333C3.5 23.9522 3.74583 24.5457 4.18342 24.9833C4.621 25.4208 5.21449 25.6667 5.83333 25.6667H22.1667C22.7855 25.6667 23.379 25.4208 23.8166 24.9833C24.2542 24.5457 24.5 23.9522 24.5 23.3333V7L21 2.33333H7Z"
+                                stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M3.5 7H24.5" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path
+                                d="M18.6693 11.6667C18.6693 12.9043 18.1776 14.0913 17.3024 14.9665C16.4273 15.8417 15.2403 16.3333 14.0026 16.3333C12.7649 16.3333 11.5779 15.8417 10.7028 14.9665C9.8276 14.0913 9.33594 12.9043 9.33594 11.6667"
+                                stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span class="header__right_text">Cart</span>
+                    </a>
 
-                        </div>
-                    </div>
-                    <div class="cart">
-                        <a href="#" class="cart__btn" area-label="cart"></a>
-                        <span class="cart__title">Cart</span>
-                        <span></span>
-                    </div>
 
                 </div>
             </div>
         </div>
     </header>
 
+
     <main>
+        <div class="container">
+            <h1>Contacts</h1>
+        </div>
+
+        <section>
+            <div class="container">
+                <div class="contacts__grid">
+                    <map name="contact">
+                        <img src="/src/image/common/map.jpg" alt="map">
+                    </map>
+                    <div class="contacts__card">
+                        <h2 class="contacts__card_title">WARM HEART SHOP</h2>
+                        <address class="contacts__card_list">
+                            Phone number:<a class="contacts__card_link" href="tel:+44 330 321 8754">+44 330 321
+                                8754</a><br>Address:<span class="contacts__card_link">2A Craven
+                                Street, Northampton</span><br>Email:<a class="contacts__card_link"
+                                href="mailto:warmheart.shop@gmail.com">warmheart.shop@gmail.com</a>
+                        </address>
+
+                    </div>
+                    <div class="contacts__card">
+                        <h2 class="contacts__card_title">WARM HEART OFFICE</h2>
+                        <address class="contacts__card_list">
+                            Phone number: <a href="tel:+443304561425" class="contacts__card_link">+44 330 456 1425</a>
+                            <br>
+                            Address: <span class="contacts__card_link">70 Edith Street, Northampton</span>
+                            <br>
+                            Email: <a class="contacts__card_link"
+                                href="mailto:warmheart.office@gmail.com">warmheart.office@gmail.com</a>
+                        </address>
+
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
 
