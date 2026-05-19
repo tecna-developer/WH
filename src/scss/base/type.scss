@@ -13,6 +13,10 @@ ul li a {
 ul li a::first-letter {
   text-transform: uppercase;
 }
+.title__h1 {
+  font-size: 48px;
+  font-weight: 900;
+}
 
 .title__h2 {
   font-size: 36px;
@@ -25,6 +29,9 @@ ul li a::first-letter {
 }
 
 @media screen and (min-width: 480px) {
+  .title__h1 {
+    font-size: 60px;
+  }
   .title__h2 {
     font-size: 40px;
   }
