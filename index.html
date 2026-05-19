@@ -15,37 +15,50 @@
         <div class="container">
             <div class="header__wrapper">
                 <div class="header__left">
-                    <button class="header__left_burger" aria-controls="nav-menu" aria-expanded="false"
-                        area-label="menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <div class="menu">
-                        <nav class="menu__nav">
-                            <button class="menu__close">&times;</button>
-                            <ul class="menu__list">
+                    <div class="mobile-menu" aria-label="mobile-navigation">
+                        <label class="mobile-menu__toggler" for="burger_toggler"
+                            aria-label="open-close mobile-navigation">
+                            <svg width="42" height="22" viewBox="0 0 42 22" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1H41" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
+                                <path d="M1 11H31" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
+                                <path d="M1 21H41" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                        </label>
+                        <input type="checkbox" id="burger_toggler" class="mobile-menu__toggler"></input>
+                        <nav class="mobile-menu__block">
+                            <ul class="menu__list mobile-menu__list">
                                 <li class="menu__item"><a href="/shop.html">Shop</a></li>
                                 <li class="menu__item"><a href="/about.html">About</a></li>
                                 <li class="menu__item"><a href="/contacts.html">Contacts</a> </li>
                             </ul>
+                            <form class="mobile-menu__form" method="get">
+                                <label for="mobile-menu-search" aria-label="mobile-navigation search"></label>
+                                <input type="search" placeholder="Search" name="q">
+                            </form>
+                            <div class="cart mobile__menu_cart">
+                                <a href="#" class="cart__btn mobile-menu__cart_btn" area-label="cart">Cart</a>
+                                <span></span>
+                            </div>
+                            <label for="burger_toggler" class="mobile-menu__close">
+                                <svg width="31" height="31" viewBox="0 0 31 31" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.00151 29.2843L29.2858 1M29.2858 29.2843L1.00151 1" stroke="#2C2C2C"
+                                        stroke-width="2" stroke-linecap="round" />
+                                </svg>
+                            </label>
                         </nav>
-                        <div class="menu__search_block"><button type="button" class="btn menu__search"
-                                area-label="Open search">Search</button>
-                        </div>
-                        <div class="cart menu__cart">
-                            <a href="#" class=" cart__btn menu__cart_btn" area-label="cart">Cart</a>
-                            <span></span>
-                        </div>
-
                     </div>
-                    <nav class="menu__desktop">
-                        <ul class="menu__list">
-                            <li class="menu__item"><a href="/shop.html">Shop</a></li>
-                            <li class="menu__item"><a href="/about.html">About</a></li>
-                            <li class="menu__item"><a href="/contacts.html">Contacts</a> </li>
-                        </ul>
-                    </nav>
+                    <div class="menu__desktop">
+                        <nav class="menu__desktop_nav">
+                            <ul class="menu__desktop_list">
+                                <li class="menu__desktop_item"><a href="/shop.html">Shop</a></li>
+                                <li class="menu__desktop_item"><a href="/about.html">About</a></li>
+                                <li class="menu__desktop_item"><a href="/contacts.html">Contacts</a> </li>
+                            </ul>
+                        </nav>
+                    </div>
+
                 </div>
                 <div class="header__center">
                     <a class="header__center_link header__center_link_short " href="#" aria-label="warm heart logo">

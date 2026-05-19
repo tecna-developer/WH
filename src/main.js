@@ -9,32 +9,32 @@ import "./scss/style.scss";
 
 import Slider from "./js/slider";
 
-// Открытие меню
+// // Открытие меню
 
-const burgerBtnElement = document.querySelector(".header__left_burger"),
-  menuElement = document.querySelector(".menu"),
-  closeBtnElement = document.querySelector(".menu__close");
+// const burgerBtnElement = document.querySelector(".header__left_burger"),
+//   menuElement = document.querySelector(".menu"),
+//   closeBtnElement = document.querySelector(".menu__close");
 
-burgerBtnElement.addEventListener("click", () => {
-  menuElement.classList.add("active");
-  document.body.style.overflow = "hidden";
-});
+// burgerBtnElement.addEventListener("click", () => {
+//   menuElement.classList.add("active");
+//   document.body.style.overflow = "hidden";
+// });
 
-if (closeBtnElement) {
-  closeBtnElement.addEventListener("click", () => {
-    menuElement.classList.remove("active");
-    document.body.style.overflow = "";
-  });
-}
+// if (closeBtnElement) {
+//   closeBtnElement.addEventListener("click", () => {
+//     menuElement.classList.remove("active");
+//     document.body.style.overflow = "";
+//   });
+// }
 
-window.addEventListener("scroll", () => {
-  const headerElement = document.querySelector(".header");
-  if (scrollY > 50) {
-    headerElement.classList.add("header_scrolled");
-  } else {
-    headerElement.classList.remove("header_scrolled");
-  }
-});
+// window.addEventListener("scroll", () => {
+//   const headerElement = document.querySelector(".header");
+//   if (scrollY > 10) {
+//     headerElement.classList.add("header_scrolled");
+//   } else {
+//     headerElement.classList.remove("header_scrolled");
+//   }
+// });
 
 //Открытие модального окна с формой поиска
 

@@ -1,0 +1,30 @@
+@use "/src/scss/helpers/variables.scss" as *;
+@use "/src/scss/helpers/mixin.scss" as *;
+
+.mobile-menu {
+  min-height: 100vh;
+
+  padding-block: 10px;
+
+  &__block {
+    position: absolute;
+    inset: 0;
+
+    max-width: 360px;
+    z-index: 100;
+    padding: 10px 30px;
+    transform: translateY(-1000vh);
+    transition: transform 0.4s ease-in-out;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: $white-color;
+    height: 100vh;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .mobile-menu {
+    display: none;
+  }
+}
