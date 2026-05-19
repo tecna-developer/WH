@@ -20,4 +20,10 @@
     font-size: 17px;
     line-height: 1.4;
   }
+  &:hover {
+    color: $beige-color;
+  }
+  & svg {
+    stroke: currentColor;
+  }
 }

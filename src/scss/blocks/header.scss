@@ -2,10 +2,9 @@
 @use "/src/scss/helpers/mixin.scss" as *;
 
 .header {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
-  transition: all $transition;
+  // position: fixed;
+  // top: 0;
+  // transition: all $transition;
   padding: 1.25rem 0;
   max-height: 115px;
 
@@ -48,9 +47,9 @@
   }
 
   &__right {
-    width: 62px;
+    outline: 2px dashed rgb(244, 39, 39);
     justify-content: flex-end;
-    // justify-content: space-between;
+    align-items: center;
     gap: 15px;
     &_search {
       padding: 0;
@@ -59,16 +58,13 @@
       border: none;
       width: 44px;
       height: 44px;
-      &_text {
-        display: none;
-      }
     }
-    // &_modal {
-    //   display: none;
-    //   &.active {
-    //     display: block;
-    //   }
-    // }
+    &_icon {
+      display: block;
+    }
+    &_text {
+      display: none;
+    }
   }
 }
 
@@ -106,17 +102,13 @@
 @media screen and (min-width: 1000px) {
   .header {
     &__right {
-      justify-content: end;
-      column-gap: 15px;
-      font-size: 21px;
-      &_search {
-        &_text {
-          display: block;
-        }
+      column-gap: 50px;
+      &_icon {
+        display: none;
       }
-    }
-    &__icon {
-      display: none;
+      &_text {
+        display: block;
+      }
     }
   }
 }
@@ -124,7 +116,8 @@
 @media screen and (min-width: 1920px) {
   .menu__desktop {
     display: block;
-    &__list {
+    &_list {
+      display: flex;
       flex-direction: row;
       column-gap: 50px;
       border-bottom: none;

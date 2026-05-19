@@ -1,28 +1,13 @@
 @use "/src/scss/helpers/variables.scss" as *;
 .cart {
   cursor: pointer;
-  // display: flex;
-  // justify-content: space-around;
-  // align-items: center;
   font-size: 1.3125rem;
+  width: 44px;
+  height: 44px;
+
   &__btn {
-    width: 44px;
-    height: 44px;
     background-color: transparent;
     border: none;
-  }
-  &__title {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 1000px) {
-  .cart {
-    &__btn {
-      background: none;
-    }
-    &__title {
-      display: block;
-    }
+    padding: 0;
   }
 }

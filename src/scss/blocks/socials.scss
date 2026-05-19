@@ -23,7 +23,7 @@
         transform: scale(1.2);
       }
       &:focus {
-        outline: 3px solid rgb(250, 116, 116);
+        outline: 3px solid $accent-color;
         background-color: $beige-color;
       }
 
@@ -42,12 +42,11 @@
 @media screen and (min-width: 1000px) {
   .socials {
     &__links {
-      & a {
-        &:hover {
-          background-color: $beige-color;
-          color: $white-color;
-          transform: scale(1.2);
-        }
+      & a:hover {
+        background-color: $beige-color;
+        color: $white-color;
+        border-color: $accent-color;
+        transform: scale(1.2);
       }
     }
   }

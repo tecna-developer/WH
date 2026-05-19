@@ -2,14 +2,11 @@
 @use "/src/scss/helpers/mixin.scss" as *;
 
 .mobile-menu {
-  min-height: 100vh;
-
   padding-block: 10px;
 
   &__block {
     position: absolute;
     inset: 0;
-
     max-width: 360px;
     z-index: 100;
     padding: 10px 30px;
