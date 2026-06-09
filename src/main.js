@@ -65,6 +65,7 @@ const heroSlider = new Swiper(".hero__slider", {
     el: ".swiper-pagination",
     clickable: true,
     type: "bullets",
+    dynamicBullets: true,
   },
 
   // Адаптив
@@ -74,6 +75,7 @@ const heroSlider = new Swiper(".hero__slider", {
       direction: "vertical",
       clickable: true,
       type: "bullets",
+      dynamicBullets: true,
     },
   },
 
