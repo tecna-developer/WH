@@ -36,21 +36,44 @@ import Slider from "./js/slider";
 //   }
 // });
 
-//Открытие модального окна с формой поиска
+// Открытие модального окна с формой поиска
+window.addEventListener("DOMContentLoaded", () => {
+  const openSearchElement = document.querySelector(".header__right_search");
+  const searchOverlay = document.querySelector(".search__overlay");
+  const closeModalFormBtn = document.querySelector(".search__modal_close");
 
-/*
-const openSearchElement = document.querySelector(".header__right_search"),
-  modalFormElement = document.querySelector(".search__modal"),
-  closeModalFormBtn = document.querySelector(".search__modal_close");
+  if (!openSearchElement || !searchOverlay) return;
 
-openSearchElement.addEventListener("click", () => {
-  modalFormElement.classList.add("is-active");
+  openSearchElement.addEventListener("click", () => {
+    searchOverlay.classList.add("is-active");
+    searchOverlay.setAttribute("aria-hidden", "false");
+    const input = searchOverlay.querySelector(".search__input");
+    if (input) input.focus();
+  });
+
+  if (closeModalFormBtn) {
+    closeModalFormBtn.addEventListener("click", () => {
+      searchOverlay.classList.remove("is-active");
+      searchOverlay.setAttribute("aria-hidden", "true");
+    });
+  }
+
+  // Закрытие по клику на фон
+  searchOverlay.addEventListener("click", (e) => {
+    if (e.target === searchOverlay) {
+      searchOverlay.classList.remove("is-active");
+      searchOverlay.setAttribute("aria-hidden", "true");
+    }
+  });
+
+  // Закрытие по Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && searchOverlay.classList.contains("is-active")) {
+      searchOverlay.classList.remove("is-active");
+      searchOverlay.setAttribute("aria-hidden", "true");
+    }
+  });
 });
-
-closeModalFormBtn.addEventListener("click", () => {
-  modalFormElement.classList.remove("is-active");
-});
-*/
 
 //счетчик для корзины
 // --- Cart state and helpers -------------------------------------------------

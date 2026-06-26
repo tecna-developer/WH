@@ -101,6 +101,17 @@
         </div>
     </header>
 
+    <!-- Search modal overlay -->
+    <div class="search__overlay" aria-hidden="true">
+        <div class="search__modal" role="dialog" aria-modal="true" aria-label="Search form">
+            <button type="button" class="search__modal_close" aria-label="Close search">×</button>
+            <form class="search__form" role="search" method="get" action="/search">
+                <input type="search" name="q" placeholder="Search" class="search__input">
+                <button type="submit" class="btn">Search</button>
+            </form>
+        </div>
+    </div>
+
     <main>
         <section class="shop__about" id="shop_section">
             <div class="container">

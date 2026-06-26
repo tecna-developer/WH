@@ -103,11 +103,10 @@
       flex: 1 1 45%;
       align-self: end;
 
-      &_item {
+      &_product {
         & img {
-          margin-left: -120px;
           position: absolute;
-          padding: 25px;
+          padding: 30px;
           max-width: 450px;
           height: 241px;
         }

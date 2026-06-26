@@ -17,12 +17,20 @@
   &__pagination {
     @include flexStandart(30px, center);
     padding-block: 40px;
+    flex-wrap: nowrap; // prevent wrapping on wider screens
+    white-space: nowrap;
+    gap: 30px;
     &_dot {
       @include box(16px, 16px, $grey-color);
       border-radius: 50%;
       cursor: pointer;
       border: none;
       transition: $transition;
+      flex: 0 0 auto; // don't allow shrinking/growing
+      min-width: 16px;
+      min-height: 16px;
+      width: 16px;
+      height: 16px;
       &.active {
         background-color: $black-color;
         transform: scale(1.2);
