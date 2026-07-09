@@ -22,7 +22,7 @@
         transform: scale(1.2);
       }
       &:focus {
-        background-color: $beige-color;
+        outline: none;
       }
 
       &:focus-visible {
@@ -37,7 +37,7 @@
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: $media-xl) {
   .socials {
     &__links {
       & a:hover {

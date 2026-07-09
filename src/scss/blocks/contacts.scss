@@ -29,18 +29,26 @@
       padding-bottom: 15px;
     }
   }
-  & img {
-    width: 100%;
-  }
-  & map {
-    grid-row: 1/-1;
-  }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: $media-xl) {
   .contacts {
     &__grid {
-      grid-template-columns: 1fr 1fr;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-areas:
+        "shop map"
+        "office map";
+      &:nth-child(2) {
+        grid-area: shop;
+      }
+      &:nth-child(3) {
+        grid-area: office;
+      }
+    }
+    &__map_wrapper {
+      grid-area: map;
     }
   }
 }

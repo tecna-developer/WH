@@ -71,7 +71,7 @@
   display: none;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: $media-md) {
   .header {
     &__center {
       &_link {
@@ -86,7 +86,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $media-lg) {
   .header {
     padding-block: 1.875rem;
     &__center {
@@ -98,7 +98,7 @@
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: $media-xl) {
   .header {
     &__right {
       column-gap: 50px;
@@ -112,7 +112,7 @@
   }
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: $media-xxl) {
   .menu__desktop {
     display: block;
     &_list {

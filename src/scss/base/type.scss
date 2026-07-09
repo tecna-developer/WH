@@ -28,7 +28,7 @@ ul li a::first-letter {
   margin-bottom: 20px;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: $media-md) {
   .title__h1 {
     font-size: 60px;
   }
@@ -37,13 +37,13 @@ ul li a::first-letter {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $media-lg) {
   .title__h2 {
     font-size: 48px;
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: $media-xl) {
   .title__h2 {
     margin-bottom: 30px;
   }
@@ -75,7 +75,7 @@ p:not(:last-child) {
   margin-bottom: 1.5rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $media-lg) {
   p,
   li,
   a {

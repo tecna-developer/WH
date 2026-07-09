@@ -1,5 +1,7 @@
-@use "/src/scss/base/global.scss";
 @use "/src/scss/helpers/variables.scss";
+@use "/src/scss/helpers/mixin.scss";
+@use "/src/scss/base/global.scss";
+
 @use "/src/scss/base/type.scss";
 
 @use "/src/scss/ui/button.scss";

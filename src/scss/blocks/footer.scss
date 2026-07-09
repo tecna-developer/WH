@@ -76,7 +76,7 @@
   }
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: $media-md) {
   .footer {
     &__header {
       display: flex;
@@ -86,7 +86,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $media-lg) {
   .footer {
     &__wrapper {
       padding-block: 90px 50px;
@@ -129,7 +129,7 @@
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: $media-xl) {
   .footer {
     &__wrapper {
       max-width: 960px;
@@ -168,7 +168,7 @@
   }
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: $media-xxl) {
   .footer {
     &__wrapper {
       padding-block: 150px;

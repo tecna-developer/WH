@@ -12,7 +12,7 @@
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: $media-xl) {
   .subscription {
     &__wrapper {
       grid-template-columns: 47% 44%;

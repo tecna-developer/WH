@@ -93,7 +93,7 @@ const heroSlider = new Swiper(".hero__slider", {
 
   // Адаптив
   breakpoints: {
-    // Когда ширина экрана >= 768px
+    // Когда ширина экрана >= $media-lg
     768: {
       direction: "vertical",
       clickable: true,
@@ -126,7 +126,7 @@ window.addEventListener("DOMContentLoaded", () => {
 //Footer details collaps
 
 function handleFooterResize() {
-  const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+  const isDesktop = window.matchMedia("(min-width: $media-lg)").matches;
   const detailsElements = document.querySelectorAll("details");
   const accordionGroupName = "footer";
 
