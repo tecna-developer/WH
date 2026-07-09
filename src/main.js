@@ -112,21 +112,23 @@ const heroSlider = new Swiper(".hero__slider", {
 
 //Slider popular products
 const sliderElementForPopular = document.querySelector(".popular__slider");
+
 window.addEventListener("DOMContentLoaded", () => {
-  const sliderPopular = new Slider(sliderElementForPopular, {
+  if (!sliderElementForPopular) return;
+
+  new Slider(sliderElementForPopular, {
     track: "[data-slider-track]",
     prevBtn: "[data-btn-prev]",
     nextBtn: "[data-btn-next]",
     slidesToShow: 1,
     paginationContainer: ".slider__pagination",
   });
-  sliderPopular.initSlider();
 });
 
 //Footer details collaps
 
 function handleFooterResize() {
-  const isDesktop = window.matchMedia("(min-width: $media-lg)").matches;
+  const isDesktop = window.matchMedia("(min-width: 768px)").matches;
   const detailsElements = document.querySelectorAll("details");
   const accordionGroupName = "footer";
 
