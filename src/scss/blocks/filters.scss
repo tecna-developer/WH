@@ -1,0 +1,162 @@
+@use "/src/scss/helpers/variables.scss" as *;
+@use "/src/scss/helpers/mixin.scss" as *;
+
+.filters {
+  &__bar {
+    @include flexStandart(20px, space-between);
+    flex-wrap: wrap;
+    row-gap: 16px;
+  }
+
+  &__toggler {
+    display: none;
+  }
+
+  &__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  &__group {
+    @include flexStandart(24px, flex-start);
+    flex-wrap: wrap;
+    row-gap: 12px;
+    flex-basis: 100%;
+    order: 3;
+    display: none;
+  }
+
+  &__toggler:checked ~ &__group {
+    display: flex;
+  }
+
+  &__dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
+    padding-right: 20px;
+    font: inherit;
+    font-weight: 700;
+    color: $black-color;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid $black-color;
+      outline-offset: 4px;
+    }
+  }
+
+  &__chevron {
+    position: absolute;
+    right: 0;
+    pointer-events: none;
+  }
+
+  &__meta {
+    @include flexStandart(20px, flex-end);
+  }
+
+  &__count {
+    font-size: 15px;
+    color: rgba($black-color, 0.5);
+    white-space: nowrap;
+  }
+
+  &__view-toggle {
+    display: none;
+    gap: 12px;
+  }
+
+  &__view-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background: none;
+    border: none;
+    color: rgba($black-color, 0.35);
+    cursor: pointer;
+    transition: color $transition;
+
+    &.is-active,
+    &:hover {
+      color: $black-color;
+    }
+  }
+
+  &__chips {
+    @include flexStandart(12px, flex-start);
+    flex-direction: column;
+    align-items: flex-start;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+
+  &__chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 18px 6px 6px;
+    border-radius: 100px;
+    background-color: $black-color;
+    color: $white-color;
+    font-size: 15px;
+    white-space: nowrap;
+  }
+
+  &__chip_remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: $white-color;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+}
+
+@media screen and (min-width: $media-lg) {
+  .filters {
+    &__bar {
+      flex-wrap: nowrap;
+    }
+
+    &__trigger {
+      display: none;
+    }
+
+    &__group {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-basis: auto;
+      order: 0;
+    }
+
+    &__view-toggle {
+      display: flex;
+    }
+
+    &__chips {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+  }
+}
