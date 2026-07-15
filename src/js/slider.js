@@ -3,8 +3,6 @@ export default class Slider {
     rootElement,
     {
       track = "",
-      nextBtn = "",
-      prevBtn = "",
       slidesToShow = "",
       ANIMATION_TIME = 0.5,
       paginationContainer = "",
@@ -12,8 +10,6 @@ export default class Slider {
   ) {
     this.root = rootElement;
     this.track = this.root.querySelector(track);
-    this.nextBtn = this.root.querySelector(nextBtn);
-    this.prevBtn = this.root.querySelector(prevBtn);
     this.slides = this.root.querySelectorAll("[data-slide]");
     this.paginationContainer = this.root.querySelector(paginationContainer);
     this.ANIMATION_TIME = ANIMATION_TIME;
