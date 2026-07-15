@@ -1,1 +1,56 @@
 @use "/src/scss/helpers/variables.scss" as *;
+@use "/src/scss/helpers/mixin.scss" as *;
+
+.post {
+  display: flex;
+  flex-direction: column;
+  background-color: $beige-color;
+  border-radius: 25px;
+  overflow: hidden;
+
+  &__media {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    padding: 30px;
+  }
+
+  &__handle {
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  &__text {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: $media-lg) {
+  .post {
+    flex-direction: row;
+    align-items: stretch;
+
+    &__media {
+      flex: 1 1 45%;
+      aspect-ratio: auto;
+    }
+
+    &__content {
+      flex: 1 1 55%;
+      justify-content: center;
+      padding: 50px;
+    }
+  }
+}
