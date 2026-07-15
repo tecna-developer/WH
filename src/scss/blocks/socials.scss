@@ -43,7 +43,7 @@
       & a:hover {
         background-color: $beige-color;
         color: $white-color;
-        outline: $accent-color;
+        outline: 2px solid $accent-color;
         transform: scale(1.2);
       }
     }
