@@ -14,7 +14,7 @@
   &__block {
     visibility: hidden;
     position: fixed;
-    width: 360px;
+    width: min(360px, 100vw);
     inset: 0;
     z-index: 100;
     padding: 30px 0 0 30px;
@@ -43,7 +43,8 @@
     color: $grey-color;
   }
   &__form input {
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     padding-block-end: 15px;
     border: none;
     background-color: transparent;
