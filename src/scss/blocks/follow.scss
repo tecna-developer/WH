@@ -1,15 +1,26 @@
 @use "/src/scss/helpers/variables.scss" as *;
 @use "/src/scss/helpers/mixin.scss" as *;
 
-.post {
-  display: flex;
-  flex-direction: column;
-  background-color: $beige-color;
-  border-radius: 25px;
-  overflow: hidden;
+.follow {
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  &__item {
+    margin: 0;
+  }
+
+  &__item--2,
+  &__item--3 {
+    display: none;
+  }
 
   &__media {
-    aspect-ratio: 4 / 3;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 25px;
     overflow: hidden;
   }
 
@@ -20,37 +31,57 @@
     object-fit: cover;
   }
 
-  &__content {
-    display: flex;
-    flex-direction: column;
-    row-gap: 12px;
-    padding: 30px;
+  &__text {
+    margin-top: 20px;
   }
 
   &__handle {
+    display: block;
     font-weight: 700;
     font-size: 20px;
   }
 
-  &__text {
-    margin-bottom: 0;
+  &__item--2 &__handle,
+  &__item--3 &__handle {
+    margin-top: 16px;
+  }
+
+  &__caption {
+    margin-top: 8px;
   }
 }
 
 @media screen and (min-width: $media-lg) {
-  .post {
-    flex-direction: row;
-    align-items: stretch;
-
-    &__media {
-      flex: 1 1 45%;
-      aspect-ratio: auto;
+  .follow {
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 20px;
+      align-items: start;
     }
 
-    &__content {
-      flex: 1 1 55%;
-      justify-content: center;
-      padding: 50px;
+    &__item--2 {
+      display: block;
+    }
+
+    &__handle--mobile {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: $media-xl) {
+  .follow {
+    &__grid {
+      grid-template-columns: 307fr 400fr 213fr;
+    }
+
+    &__item--3 {
+      display: block;
+    }
+
+    &__item--2 &__handle {
+      display: none;
     }
   }
 }

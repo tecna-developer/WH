@@ -8,6 +8,10 @@ import "swiper/css/pagination";
 import "./scss/style.scss";
 
 import Slider from "./js/slider";
+import { renderCartCount } from "./js/cart";
+import { initProductDetail } from "./js/product-detail";
+import { initCartPage } from "./js/cart-page";
+import { initCatalogView } from "./js/catalog-view";
 
 // // Открытие меню
 
@@ -76,7 +80,10 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 //счетчик для корзины
-// --- Cart state and helpers -------------------------------------------------
+document.addEventListener("DOMContentLoaded", renderCartCount);
+document.addEventListener("DOMContentLoaded", initProductDetail);
+document.addEventListener("DOMContentLoaded", initCartPage);
+document.addEventListener("DOMContentLoaded", initCatalogView);
 
 // Cлайдер через Swiper.js
 const heroSlider = new Swiper(".hero__slider", {

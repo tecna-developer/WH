@@ -48,8 +48,8 @@
                                 <input type="search" id="mobile-menu-search" placeholder="Search" name="q">
                             </form>
                             <div class="cart mobile__menu__cart">
-                                <a href="#" class="cart__btn mobile-menu__cart_btn" aria-label="cart">Cart</a>
-                                <span></span>
+                                <a href="cart.html" class="cart__btn mobile-menu__cart_btn" aria-label="cart">Cart</a>
+                                <span class="cart__count" data-cart-count aria-hidden="true"></span>
                             </div>
                         </nav>
                     </div>
@@ -89,7 +89,7 @@
                         </svg>
                         <span class="header__right_text">Search</span>
                     </button>
-                    <a href="#" class="btn cart__btn" aria-label="cart">
+                    <a href="cart.html" class="btn cart__btn" aria-label="cart">
                         <svg class="header__right_icon" role="img" focusable="false" width="28" height="28"
                             viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <title>Cart</title>
@@ -102,7 +102,8 @@
                                 d="M18.6693 11.6667C18.6693 12.9043 18.1776 14.0913 17.3024 14.9665C16.4273 15.8417 15.2403 16.3333 14.0026 16.3333C12.7649 16.3333 11.5779 15.8417 10.7028 14.9665C9.8276 14.0913 9.33594 12.9043 9.33594 11.6667"
                                 stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        <span class="header__right_text">Cart</span>
+                        <span class="header__right_text">Cart<span class="cart__count" data-cart-count
+                                aria-hidden="true"></span></span>
                     </a>
 
 
@@ -125,7 +126,7 @@
             <div class="container">
                 <div class="hero__wrapper">
                     <div class="hero__content">
-                        <h1>Soft plaids for your comfort</h1>
+                        <h1 class="title__h1">Soft plaids for your comfort</h1>
                         <p>Throw a blanket over your shoulders or place it on the arm of the sofa, and the atmosphere in
                             the
                             house will be warmer.</p>
@@ -177,7 +178,17 @@
                                 <img src="/src/image/products/product(1).webp" alt="Gerhild blanket">
                             </div>
                             <footer class="product_footer">
-                                <h4 class="title__h4">Gerhild</h4>
+                                <h4 class="title__h4">
+                                    <a href="product.html" class="product__link">Gerhild
+                                        <span class="product__add_icon" aria-hidden="true">
+                                            <svg width="38" height="38" viewBox="0 0 38 38" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M19 36L19 2M36 19L2 19" stroke="currentColor"
+                                                    stroke-width="3" stroke-linecap="round" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </h4>
                                 <div class="product__footer_bottom">
                                     <p>130x170 cm</p>
                                     <p>€90</p>
@@ -188,7 +199,17 @@
                             <div class="product__bg"><img src="/src/image/products/product(2).webp"
                                     alt="Gultall blanket"></div>
                             <footer class="product_footer">
-                                <h4 class="title__h4">Gultall</h4>
+                                <h4 class="title__h4">
+                                    <a href="product.html" class="product__link">Gultall
+                                        <span class="product__add_icon" aria-hidden="true">
+                                            <svg width="38" height="38" viewBox="0 0 38 38" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M19 36L19 2M36 19L2 19" stroke="currentColor"
+                                                    stroke-width="3" stroke-linecap="round" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </h4>
                                 <div class="product__footer_bottom">
                                     <p>130x170 cm</p>
                                     <p>€180</p>
@@ -200,7 +221,17 @@
                                 <img data-active src="/src/image/products/product(3).webp" alt="Rovaror blanket">
                             </div>
                             <footer class="product_footer">
-                                <h4 class="title__h4">Rovaror</h4>
+                                <h4 class="title__h4">
+                                    <a href="product.html" class="product__link">Rovaror
+                                        <span class="product__add_icon" aria-hidden="true">
+                                            <svg width="38" height="38" viewBox="0 0 38 38" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M19 36L19 2M36 19L2 19" stroke="currentColor"
+                                                    stroke-width="3" stroke-linecap="round" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </h4>
                                 <div class="product__footer_bottom">
                                     <p>150x200 cm</p>
                                     <p>€85</p>
@@ -211,7 +242,17 @@
                             <div class="product__bg"> <img src="/src/image/products/product(4).webp"
                                     alt="Gerhild blanket"></div>
                             <footer class="product_footer">
-                                <h4 class="title__h4">Gerhild</h4>
+                                <h4 class="title__h4">
+                                    <a href="product.html" class="product__link">Gerhild
+                                        <span class="product__add_icon" aria-hidden="true">
+                                            <svg width="38" height="38" viewBox="0 0 38 38" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M19 36L19 2M36 19L2 19" stroke="currentColor"
+                                                    stroke-width="3" stroke-linecap="round" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </h4>
                                 <div class="product__footer_bottom">
                                     <p>130x170 cm</p>
                                     <p>€90</p>
@@ -222,7 +263,17 @@
                             <div class="product__bg"><img src="/src/image/products/product(5).webp"
                                     alt="Ingrun blanket"></div>
                             <footer class="product_footer">
-                                <h4 class="title__h4">Ingrun</h4>
+                                <h4 class="title__h4">
+                                    <a href="product.html" class="product__link">Ingrun
+                                        <span class="product__add_icon" aria-hidden="true">
+                                            <svg width="38" height="38" viewBox="0 0 38 38" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M19 36L19 2M36 19L2 19" stroke="currentColor"
+                                                    stroke-width="3" stroke-linecap="round" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </h4>
                                 <div class="product__footer_bottom">
                                     <p>130x170 cm</p>
                                     <p>€90</p>
@@ -233,7 +284,17 @@
                             <div class="product__bg"><img src="/src/image/products/product(6).webp"
                                     alt="Mialotta blanket"></div>
                             <footer class="product_footer">
-                                <h4 class="title__h4">Mialotta</h4>
+                                <h4 class="title__h4">
+                                    <a href="product.html" class="product__link">Mialotta
+                                        <span class="product__add_icon" aria-hidden="true">
+                                            <svg width="38" height="38" viewBox="0 0 38 38" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M19 36L19 2M36 19L2 19" stroke="currentColor"
+                                                    stroke-width="3" stroke-linecap="round" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </h4>
                                 <div class="product__footer_bottom">
                                     <p>130x170 cm</p>
                                     <p>€90</p>
@@ -244,7 +305,17 @@
                             <div class="product__bg"><img src="/src/image/products/product(7).webp"
                                     alt="Luddmalla blanket"></div>
                             <footer class="product_footer">
-                                <h4 class="title__h4">Luddmalla</h4>
+                                <h4 class="title__h4">
+                                    <a href="product.html" class="product__link">Luddmalla
+                                        <span class="product__add_icon" aria-hidden="true">
+                                            <svg width="38" height="38" viewBox="0 0 38 38" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M19 36L19 2M36 19L2 19" stroke="currentColor"
+                                                    stroke-width="3" stroke-linecap="round" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </h4>
                                 <div class="product__footer_bottom">
                                     <p>130x170 cm</p>
                                     <p>€90</p>
@@ -255,7 +326,17 @@
                             <div class="product__bg"><img src="/src/image/products/product(8).webp"
                                     alt="Vivianna blanket"></div>
                             <footer class="product_footer">
-                                <h4 class="title__h4">Vivianna</h4>
+                                <h4 class="title__h4">
+                                    <a href="product.html" class="product__link">Vivianna
+                                        <span class="product__add_icon" aria-hidden="true">
+                                            <svg width="38" height="38" viewBox="0 0 38 38" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M19 36L19 2M36 19L2 19" stroke="currentColor"
+                                                    stroke-width="3" stroke-linecap="round" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </h4>
                                 <div class="product__footer_bottom">
                                     <p>130x170 cm</p>
                                     <p>€90</p>
@@ -266,7 +347,17 @@
                             <div class="product__bg product__bg_circled"> <img src="/src/image/products/product(9).webp"
                                     alt="Evali blanket"></div>
                             <footer class="product_footer">
-                                <h4 class="title__h4">Evali</h4>
+                                <h4 class="title__h4">
+                                    <a href="product.html" class="product__link">Evali
+                                        <span class="product__add_icon" aria-hidden="true">
+                                            <svg width="38" height="38" viewBox="0 0 38 38" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M19 36L19 2M36 19L2 19" stroke="currentColor"
+                                                    stroke-width="3" stroke-linecap="round" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </h4>
                                 <div class="product__footer_bottom">
                                     <p>130x170 cm</p>
                                     <p>€90</p>
@@ -316,12 +407,32 @@
         <section id="posts" class="follow">
             <div class="container">
                 <h2 class="title__h2">Follow us on instagram</h2>
-                <div id="instagram-feed" class="post">
-                    <img src="/src/image/post.jpg" alt="Warm Heart Instagram post">
-                    <a href="#">@warm.heart</a>
-                    <p>On our Instagram, we regularly share the most interesting news. We also tell you about all our
+                <div id="instagram-feed" class="follow__grid">
+                    <figure class="follow__item follow__item--1">
+                        <div class="follow__media">
+                            <img class="follow__img" src="/src/image/post.jpg" alt="Warm Heart Instagram post">
+                        </div>
+                        <div class="follow__text">
+                            <a href="#" class="follow__handle follow__handle--mobile">@warm.heart</a>
+                            <p class="follow__caption">On our Instagram, we regularly share the most interesting news. We also tell you about all our
                         new
                         products.</p>
+                        </div>
+                    </figure>
+                    <figure class="follow__item follow__item--2">
+                        <div class="follow__media">
+                            <img class="follow__img" src="/src/image/products/product(6).webp"
+                                alt="Warm Heart Instagram post">
+                        </div>
+                        <a href="#" class="follow__handle">@warm.heart</a>
+                    </figure>
+                    <figure class="follow__item follow__item--3">
+                        <div class="follow__media">
+                            <img class="follow__img" src="/src/image/products/product(4).webp"
+                                alt="Warm Heart Instagram post">
+                        </div>
+                        <a href="#" class="follow__handle">@warm.heart</a>
+                    </figure>
                 </div>
             </div>
         </section>

@@ -27,6 +27,7 @@
 
       &:focus-visible {
         background-color: $black-color;
+        color: $white-color;
       }
     }
     & svg {

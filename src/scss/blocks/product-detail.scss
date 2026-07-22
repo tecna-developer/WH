@@ -1,0 +1,255 @@
+@use "/src/scss/helpers/variables.scss" as *;
+@use "/src/scss/helpers/mixin.scss" as *;
+
+.breadcrumbs {
+  padding-top: 20px;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 8px;
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+  }
+
+  &__item {
+    color: rgba($black-color, 0.5);
+
+    a {
+      color: inherit;
+    }
+
+    &[aria-current] {
+      color: $black-color;
+    }
+  }
+}
+
+.product-detail {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+  }
+
+  &__main-photo {
+    aspect-ratio: 1 / 1;
+    border-radius: 25px;
+    overflow: hidden;
+    background-color: $beige-color;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__thumbs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 15px;
+    row-gap: 15px;
+    margin-top: 20px;
+  }
+
+  &__thumb {
+    width: 60px;
+    height: 60px;
+    padding: 12px;
+    border: none;
+    border-radius: 50%;
+    background-color: $beige-color;
+    cursor: pointer;
+    overflow: hidden;
+    transition: outline-color $transition;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    &.is-active {
+      outline-color: $black-color;
+    }
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  &__name {
+    font-size: 28px;
+    font-weight: 900;
+  }
+
+  &__price {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  &__tabs {
+    margin-bottom: 24px;
+  }
+
+  &__tablist {
+    display: flex;
+    column-gap: 24px;
+    border-bottom: 1px solid $grey-color;
+    margin-bottom: 16px;
+  }
+
+  &__tab {
+    background: none;
+    border: none;
+    padding: 0 0 12px;
+    font-weight: 700;
+    font-size: 17px;
+    cursor: pointer;
+    color: rgba($black-color, 0.4);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color $transition;
+
+    &.is-active {
+      color: $black-color;
+      border-bottom-color: $black-color;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 24px;
+    row-gap: 8px;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid $grey-color;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 16px;
+  }
+
+  &__counter {
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+    border: 1px solid $grey-color;
+    border-radius: 100px;
+    padding: 8px 16px;
+  }
+
+  &__counter_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  &__counter_value {
+    min-width: 16px;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  &__add {
+    flex: 1 1 auto;
+  }
+}
+
+@media screen and (min-width: $media-lg) {
+  .product-detail {
+    &__wrapper {
+      flex-direction: row;
+      align-items: flex-start;
+      column-gap: 30px;
+    }
+
+    &__gallery {
+      flex: 0 0 290px;
+    }
+
+    &__info {
+      flex: 1 1 auto;
+    }
+
+    &__actions {
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+@media screen and (min-width: $media-xl) {
+  .product-detail {
+    &__gallery {
+      flex-basis: 460px;
+    }
+  }
+}
+
+@media screen and (min-width: $media-xxl) {
+  .product-detail {
+    &__gallery {
+      flex-basis: 594px;
+    }
+  }
+}
+
+.last-viewed {
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  &__item {
+    display: block;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: $beige-color;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+@media screen and (min-width: $media-lg) {
+  .last-viewed__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: $media-xl) {
+  .last-viewed__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/svg+xml" href="/wh.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Browse the Warm Heart catalog of soft, eco-friendly plaids and blankets.">
+    <meta name="description" content="Your Warm Heart shopping cart.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <title>Warm Heart | Shop</title>
+    <title>Warm Heart | Cart</title>
 </head>
 
 <body>
@@ -119,293 +119,37 @@
     </div>
 
     <main>
-        <section class="shop__about" id="shop_section">
-            <div class="container">
-                <div class="shop__about_block">
-                    <h1 class="title__h1">Shop</h1>
-                    <p>In our store you will find a large number of high-quality blankets that will help make your home
-                        more comfortable and warm your life.</p>
-                </div>
-            </div>
-        </section>
-        <section class="filters">
-            <div class="container">
-                <div class="filters__bar">
-                    <input type="checkbox" id="filters_toggler" class="filters__toggler">
-                    <label for="filters_toggler" class="filters__trigger">
-                        <svg class="filters__trigger_icon" width="20" height="14" viewBox="0 0 20 14" fill="none"
-                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <line x1="0" y1="2" x2="20" y2="2" stroke="#2C2C2C" stroke-width="1.5" />
-                            <circle cx="7" cy="2" r="2.5" fill="#FDFBF9" stroke="#2C2C2C" stroke-width="1.5" />
-                            <line x1="0" y1="12" x2="20" y2="12" stroke="#2C2C2C" stroke-width="1.5" />
-                            <circle cx="14" cy="12" r="2.5" fill="#FDFBF9" stroke="#2C2C2C" stroke-width="1.5" />
-                        </svg>
-                        Filter
-                    </label>
-                    <div class="filters__group">
-                        <label class="filters__dropdown">
-                            <select class="filters__select" id="size-filter">
-                                <option value="Size">Size</option>
-                                <option value="150x200">150x200cm</option>
-                                <option value="230x200">230x200cm</option>
-                            </select>
-                            <svg class="filters__chevron" width="12" height="8" viewBox="0 0 12 8" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path d="M1 1L6 6L11 1" stroke="#2C2C2C" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </label>
-                        <label class="filters__dropdown">
-                            <select class="filters__select" id="color-filter">
-                                <option value="Color">Color</option>
-                                <option value="Blue">Blue</option>
-                                <option value="Orange">Orange</option>
-                            </select>
-                            <svg class="filters__chevron" width="12" height="8" viewBox="0 0 12 8" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path d="M1 1L6 6L11 1" stroke="#2C2C2C" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </label>
-                        <label class="filters__dropdown">
-                            <select class="filters__select" id="material-filter">
-                                <option value="Material">Material</option>
-                                <option value="Synthetics">Synthetics</option>
-                                <option value="Wool">Wool</option>
-                            </select>
-                            <svg class="filters__chevron" width="12" height="8" viewBox="0 0 12 8" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path d="M1 1L6 6L11 1" stroke="#2C2C2C" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </label>
-                        <label class="filters__dropdown">
-                            <select class="filters__select" id="price-filter">
-                                <option value="Price">Price</option>
-                                <option value="0-90">€0 – €90</option>
-                                <option value="90-180">€90 – €180</option>
-                            </select>
-                            <svg class="filters__chevron" width="12" height="8" viewBox="0 0 12 8" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path d="M1 1L6 6L11 1" stroke="#2C2C2C" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </label>
-                    </div>
-                    <div class="filters__meta">
-                        <span class="filters__count">9 products</span>
-                        <div class="filters__view-toggle" role="group" aria-label="Switch product view">
-                            <button type="button" class="filters__view-btn is-active" aria-label="Grid view"
-                                aria-pressed="true">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <rect x="2" y="2" width="7" height="7" rx="1.5" fill="currentColor" />
-                                    <rect x="11" y="2" width="7" height="7" rx="1.5" fill="currentColor" />
-                                    <rect x="2" y="11" width="7" height="7" rx="1.5" fill="currentColor" />
-                                    <rect x="11" y="11" width="7" height="7" rx="1.5" fill="currentColor" />
-                                </svg>
-                            </button>
-                            <button type="button" class="filters__view-btn" aria-label="List view"
-                                aria-pressed="false">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <rect x="2" y="3" width="16" height="3" rx="1.5" fill="currentColor" />
-                                    <rect x="2" y="8.5" width="16" height="3" rx="1.5" fill="currentColor" />
-                                    <rect x="2" y="14" width="16" height="3" rx="1.5" fill="currentColor" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <ul class="filters__chips">
-                    <li class="filters__chip">
-                        <button type="button" class="filters__chip_remove" aria-label="Remove Wool filter">
-                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path d="M1 1L9 9M9 1L1 9" stroke="#2C2C2C" stroke-width="1.5" stroke-linecap="round" />
-                            </svg>
-                        </button>
-                        Wool
-                    </li>
-                    <li class="filters__chip">
-                        <button type="button" class="filters__chip_remove" aria-label="Remove price filter">
-                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path d="M1 1L9 9M9 1L1 9" stroke="#2C2C2C" stroke-width="1.5" stroke-linecap="round" />
-                            </svg>
-                        </button>
-                        €85 – €180
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <section class="catalog">
-            <div class="container">
-                <div class="catalog__wrapper">
-                    <div class="product">
-                        <div class="product__bg">
-                            <img src="/src/image/products/product(1).webp" alt="Gerhild blanket">
-                        </div>
-                        <footer class="product__footer">
-                            <h4 class="title__h4">
-                                <a href="product.html" class="product__link">Gerhild</a>
-                            </h4>
-                            <div class="product__footer_bottom">
-                                <p>130x170 cm</p>
-                                <p>€90</p>
-                            </div>
-                            <div class="product__list-extra">
-                                <p class="product__description">Made from soft brushed cotton that feels warm and
-                                    gentle against the skin. Perfect for cozy evenings on the sofa.</p>
-                                <p class="product__color">Color: beige</p>
-                                <a href="product.html" class="btn btn-shop product__add-btn">Add to cart</a>
-                            </div>
-                        </footer>
-                    </div>
-                    <div class="product">
-                        <div class="product__bg"><img src="/src/image/products/product(2).webp" alt="Gultall blanket">
-                        </div>
-                        <footer class="product__footer">
-                            <h4 class="title__h4"><a href="product.html" class="product__link">Gultall</a></h4>
-                            <div class="product__footer_bottom">
-                                <p>130x170 cm</p>
-                                <p>€180</p>
-                            </div>
-                            <div class="product__list-extra">
-                                <p class="product__description">A generously sized wool-blend throw that keeps its
-                                    shape and warmth wash after wash.</p>
-                                <p class="product__color">Color: grey</p>
-                                <a href="product.html" class="btn btn-shop product__add-btn">Add to cart</a>
-                            </div>
-                        </footer>
-                    </div>
-                    <div class="product">
-                        <div class="product__bg">
-                            <img data-active src="/src/image/products/product(3).webp" alt="Rovaror blanket">
-                        </div>
-                        <footer class="product__footer">
-                            <h4 class="title__h4"><a href="product.html" class="product__link">Rovaror</a></h4>
-                            <div class="product__footer_bottom">
-                                <p>150x200 cm</p>
-                                <p>€85</p>
-                            </div>
-                            <div class="product__list-extra">
-                                <p class="product__description">Lightweight yet warm, this open-weave throw adds
-                                    texture to any couch or bed without feeling heavy.</p>
-                                <p class="product__color">Color: grey</p>
-                                <a href="product.html" class="btn btn-shop product__add-btn">Add to cart</a>
-                            </div>
-                        </footer>
-                    </div>
-                    <div class="product">
-                        <div class="product__bg"><img src="/src/image/products/product(4).webp" alt="Gerhild blanket">
-                        </div>
-                        <footer class="product__footer">
-                            <h4 class="title__h4"><a href="product.html" class="product__link">Gerhild</a></h4>
-                            <div class="product__footer_bottom">
-                                <p>130x170 cm</p>
-                                <p>€90</p>
-                            </div>
-                            <div class="product__list-extra">
-                                <p class="product__description">Made from soft brushed cotton that feels warm and
-                                    gentle against the skin. Perfect for cozy evenings on the sofa.</p>
-                                <p class="product__color">Color: beige</p>
-                                <a href="product.html" class="btn btn-shop product__add-btn">Add to cart</a>
-                            </div>
-                        </footer>
-                    </div>
-                    <div class="product">
-                        <div class="product__bg"><img src="/src/image/products/product(5).webp" alt="Ingrun blanket">
-                        </div>
-                        <footer class="product__footer">
-                            <h4 class="title__h4"><a href="product.html" class="product__link">Ingrun</a></h4>
-                            <div class="product__footer_bottom">
-                                <p>130x170 cm</p>
-                                <p>€90</p>
-                            </div>
-                            <div class="product__list-extra">
-                                <p class="product__description">Wool is stain resistant. This wear-resistant material
-                                    perfectly retains heat. You can wrap yourself up comfortably lying on the couch.
-                                </p>
-                                <p class="product__color">Color: beige</p>
-                                <a href="product.html" class="btn btn-shop product__add-btn">Add to cart</a>
-                            </div>
-                        </footer>
-                    </div>
-                    <div class="product">
-                        <div class="product__bg"><img src="/src/image/products/product(6).webp" alt="Mialotta blanket">
-                        </div>
-                        <footer class="product__footer">
-                            <h4 class="title__h4"><a href="product.html" class="product__link">Mialotta</a></h4>
-                            <div class="product__footer_bottom">
-                                <p>130x170 cm</p>
-                                <p>€90</p>
-                            </div>
-                            <div class="product__list-extra">
-                                <p class="product__description">Soft, pleasant to the touch chenille fabric.
-                                    Polyester is used in the composition of the fabric, along with other materials.
-                                </p>
-                                <p class="product__color">Color: orange</p>
-                                <a href="product.html" class="btn btn-shop product__add-btn">Add to cart</a>
-                            </div>
-                        </footer>
-                    </div>
-                    <div class="product">
-                        <div class="product__bg"><img src="/src/image/products/product(7).webp" alt="Luddmalla blanket">
-                        </div>
-                        <footer class="product__footer">
-                            <h4 class="title__h4"><a href="product.html" class="product__link">Luddmalla</a></h4>
-                            <div class="product__footer_bottom">
-                                <p>130x170 cm</p>
-                                <p>€90</p>
-                            </div>
-                            <div class="product__list-extra">
-                                <p class="product__description">Hand-finished fringe and a dense knit make this throw
-                                    both durable and beautiful to look at.</p>
-                                <p class="product__color">Color: brown</p>
-                                <a href="product.html" class="btn btn-shop product__add-btn">Add to cart</a>
-                            </div>
-                        </footer>
-                    </div>
-                    <div class="product">
-                        <div class="product__bg"><img src="/src/image/products/product(8).webp" alt="Vivianna blanket">
-                        </div>
-                        <footer class="product__footer">
-                            <h4 class="title__h4"><a href="product.html" class="product__link">Vivianna</a></h4>
-                            <div class="product__footer_bottom">
-                                <p>130x170 cm</p>
-                                <p>€90</p>
-                            </div>
-                            <div class="product__list-extra">
-                                <p class="product__description">An acrylic blanket is just as soft, warm and cozy as
-                                    a wool blanket. At the same time, it is very easy to care for.</p>
-                                <p class="product__color">Color: cappuccino</p>
-                                <a href="product.html" class="btn btn-shop product__add-btn">Add to cart</a>
-                            </div>
-                        </footer>
-                    </div>
-                    <div class="product">
-                        <div class="product__bg product__bg_circled"> <img src="/src/image/products/product(9).webp"
-                                alt="Evali blanket"></div>
-                        <footer class="product__footer">
-                            <h4 class="title__h4"><a href="product.html" class="product__link">Evali</a></h4>
-                            <div class="product__footer_bottom">
-                                <p>130x170 cm</p>
-                                <p>€90</p>
-                            </div>
-                            <div class="product__list-extra">
-                                <p class="product__description">A plush, textured throw that pairs well with any
-                                    interior. Machine washable and fade-resistant.</p>
-                                <p class="product__color">Color: grey</p>
-                                <a href="product.html" class="btn btn-shop product__add-btn">Add to cart</a>
-                            </div>
-                        </footer>
-                    </div>
-                </div>
-            </div>
+        <div class="container">
+            <h1 class="title__h1 cart-page__title">Shopping cart</h1>
+        </div>
 
+        <section class="cart-page">
+            <div class="container">
+                <div class="cart-page__wrapper">
+                    <div class="cart-page__main">
+                        <ul class="cart-page__list" data-cart-list></ul>
+                        <p class="cart-page__empty" data-cart-empty hidden>Your cart is empty. <a
+                                href="shop.html">Continue shopping</a></p>
+                    </div>
+                    <aside class="cart-summary" data-cart-summary hidden>
+                        <h2 class="cart-summary__title">Order summary</h2>
+                        <div class="cart-summary__row">
+                            <span>Subtotal:</span>
+                            <span data-cart-subtotal>€0</span>
+                        </div>
+                        <div class="cart-summary__row">
+                            <span>Shipping:</span>
+                            <span>free shipping</span>
+                        </div>
+                        <div class="cart-summary__row cart-summary__row--total">
+                            <span>Total:</span>
+                            <span data-cart-total>€0</span>
+                        </div>
+                        <button type="button" class="btn btn-shop cart-summary__checkout">Checkout</button>
+                    </aside>
+                </div>
+            </div>
         </section>
-
     </main>
 
     <footer class="footer">

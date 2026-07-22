@@ -12,6 +12,8 @@ export default defineConfig({
         shop: resolve(__dirname, "shop.html"),
         contacts: resolve(__dirname, "contacts.html"),
         about: resolve(__dirname, "about.html"),
+        product: resolve(__dirname, "product.html"),
+        cart: resolve(__dirname, "cart.html"),
       },
     },
   },

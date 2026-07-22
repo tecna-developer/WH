@@ -50,8 +50,8 @@
     background-color: transparent;
     border-bottom: 2px solid $black-color;
     &:focus-visible {
-      outline: none;
-      border-color: $beige-color;
+      outline: 2px solid $black-color;
+      outline-offset: 4px;
     }
     &::placeholder {
       opacity: 0.3;
