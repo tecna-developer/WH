@@ -95,6 +95,10 @@
     align-self: flex-start;
     margin-top: 8px;
   }
+
+  .product__add_icon {
+    display: none;
+  }
 }
 
 @media screen and (min-width: $media-md) {
