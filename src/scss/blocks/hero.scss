@@ -54,6 +54,12 @@
       margin-top: 35px;
     }
   }
+  &__arc {
+    display: none;
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+  }
 }
 
 @media screen and (min-width: $media-md) {
@@ -113,6 +119,20 @@
       &_pagination.swiper-pagination-bullets-dynamic {
         width: 25px;
       }
+    }
+    &__arc {
+      display: block;
+      width: 70px;
+      height: 70px;
+    }
+    &__arc--top {
+      top: -40px;
+      left: 20px;
+    }
+    &__arc--bottom {
+      bottom: 20px;
+      right: -40px;
+      transform: rotate(180deg);
     }
   }
 }
