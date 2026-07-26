@@ -12,6 +12,7 @@ import { renderCartCount } from "./js/cart";
 import { initProductDetail } from "./js/product-detail";
 import { initCartPage } from "./js/cart-page";
 import { initCatalogView } from "./js/catalog-view";
+import { initQuickAdd } from "./js/quick-add";
 
 // // Открытие меню
 
@@ -84,6 +85,7 @@ document.addEventListener("DOMContentLoaded", renderCartCount);
 document.addEventListener("DOMContentLoaded", initProductDetail);
 document.addEventListener("DOMContentLoaded", initCartPage);
 document.addEventListener("DOMContentLoaded", initCatalogView);
+document.addEventListener("DOMContentLoaded", initQuickAdd);
 
 // Cлайдер через Swiper.js
 const heroSlider = new Swiper(".hero__slider", {
