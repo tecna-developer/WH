@@ -5,7 +5,9 @@ import { defineConfig } from "vite";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  base: "/WH/",
+  // По умолчанию "/" — годится и для dev-сервера, и для будущей темы WordPress.
+  // GitHub Pages раздаёт из подкаталога, поэтому его workflow задаёт VITE_BASE=/WH/
+  base: process.env.VITE_BASE || "/",
   build: {
     rollupOptions: {
       input: {

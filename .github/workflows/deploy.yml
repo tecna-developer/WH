@@ -26,6 +26,9 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          # Pages раздаёт сайт из подкаталога /WH/, локально и под WordPress base = "/"
+          VITE_BASE: /WH/
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
