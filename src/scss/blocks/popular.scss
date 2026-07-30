@@ -6,12 +6,4 @@
   &__slider {
     padding-block-start: 20px;
   }
-  &__footer {
-    flex-grow: 1;
-    &-bottom {
-      display: flex;
-      justify-content: space-between;
-      column-gap: 20px;
-    }
-  }
 }

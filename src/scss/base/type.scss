@@ -5,13 +5,18 @@ a {
   color: inherit;
 }
 
-ul li a {
-  text-transform: lowercase;
+// Нормализация регистра — только для навигационных меню: пункты приходят
+// из админки, регистр может быть любым. Глобальный `ul li a` цеплял все
+// списки подряд (футер, крошки) и ломал «FAQ» → «Faq», а под WordPress
+// задел бы ещё и разметку плагинов — корзину, аккаунт, уведомления
+.menu__list a,
+.menu__desktop_list a {
   display: inline-block;
-}
+  text-transform: lowercase;
 
-ul li a::first-letter {
-  text-transform: uppercase;
+  &::first-letter {
+    text-transform: uppercase;
+  }
 }
 .title__h1 {
   font-size: 48px;
