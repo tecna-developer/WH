@@ -1,9 +1,8 @@
 import "@a1rth/css-normalize";
 import Swiper from "swiper";
-import { Navigation, Pagination } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 // import Swiper and modules styles
 import "swiper/css";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./scss/style.scss";
 
@@ -13,33 +12,6 @@ import { initProductDetail } from "./js/product-detail";
 import { initCartPage } from "./js/cart-page";
 import { initCatalogView } from "./js/catalog-view";
 import { initQuickAdd } from "./js/quick-add";
-
-// // Открытие меню
-
-// const burgerBtnElement = document.querySelector(".header__left_burger"),
-//   menuElement = document.querySelector(".menu"),
-//   closeBtnElement = document.querySelector(".menu__close");
-
-// burgerBtnElement.addEventListener("click", () => {
-//   menuElement.classList.add("active");
-//   document.body.style.overflow = "hidden";
-// });
-
-// if (closeBtnElement) {
-//   closeBtnElement.addEventListener("click", () => {
-//     menuElement.classList.remove("active");
-//     document.body.style.overflow = "";
-//   });
-// }
-
-// window.addEventListener("scroll", () => {
-//   const headerElement = document.querySelector(".header");
-//   if (scrollY > 10) {
-//     headerElement.classList.add("header_scrolled");
-//   } else {
-//     headerElement.classList.remove("header_scrolled");
-//   }
-// });
 
 // Открытие модального окна с формой поиска
 window.addEventListener("DOMContentLoaded", () => {
@@ -88,36 +60,25 @@ document.addEventListener("DOMContentLoaded", initCatalogView);
 document.addEventListener("DOMContentLoaded", initQuickAdd);
 
 // Cлайдер через Swiper.js
-const heroSlider = new Swiper(".hero__slider", {
-  modules: [Navigation, Pagination],
-  // Настройки для мобильных устройств (по умолчанию)
-  direction: "horizontal",
-  loop: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-    type: "bullets",
-    dynamicBullets: true,
-  },
+const heroSliderElement = document.querySelector(".hero__slider");
 
-  // Адаптив
-  breakpoints: {
-    // Когда ширина экрана >= $media-lg
-    768: {
-      direction: "vertical",
+if (heroSliderElement) {
+  new Swiper(heroSliderElement, {
+    modules: [Pagination],
+    direction: "horizontal",
+    loop: true,
+    pagination: {
+      el: ".hero__slider_pagination",
       clickable: true,
       type: "bullets",
-      dynamicBullets: true,
     },
-  },
-
-  // Обновление при изменении размера окна
-  on: {
-    resize: function () {
-      this.update(); // Принудительно обновляем параметры при ресайзе
+    breakpoints: {
+      768: {
+        direction: "vertical",
+      },
     },
-  },
-});
+  });
+}
 
 //Slider popular products
 const sliderElementForPopular = document.querySelector(".popular__slider");

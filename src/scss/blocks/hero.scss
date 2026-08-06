@@ -1,6 +1,7 @@
 @use "/src/scss/helpers/variables.scss" as *;
 
 .hero {
+  // высота hero в макетах равна высоте вьюпорта на всех брейкпоинтах
   min-height: 100vh;
   background:
     url("/src/image/hero-bg.avif"),
@@ -31,45 +32,54 @@
       margin-bottom: 35px;
     }
   }
-  &__slider {
+  // Обёртка нужна, чтобы дуги не резались overflow: hidden у .swiper
+  &__slider-wrap {
+    position: relative;
     width: 300px;
     margin-bottom: 35px;
-    padding: 20px;
-    position: relative;
-    height: 80vh;
+  }
+  &__slider {
+    width: 100%;
+    height: 260px;
+    padding-bottom: 20px;
 
     &_product {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: row;
+      // height: auto;
       padding: 20px;
       img {
+        // rotate(-10deg) раздувает габарит в 1.154 раза по ширине и 1.131 по высоте,
+        // поэтому ширина подобрана так, чтобы повёрнутый бокс влезал в слайд без обрезки
+        width: 173px;
         transform: rotate(-10deg);
       }
-    }
-    &_pagination {
-      margin-top: 35px;
     }
   }
   &__arc {
     display: none;
     position: absolute;
     pointer-events: none;
-    z-index: 1;
+    // без z-index дуги рисуются до .swiper и уходят за плед, как в макете
   }
 }
 
 @media screen and (min-width: $media-md) {
   .hero {
-    &__slider {
+    &__wrapper {
+      row-gap: 0;
+    }
+    &__slider-wrap {
+      margin-bottom: 10px;
       margin-top: -60px;
       margin-right: 0;
-      // width: 360px;
-      &__wrapper {
-        row-gap: 0;
-      }
+      width: 100%;
+    }
+    &__slider {
       &_product {
+        align-self: stretch;
         & img {
           width: 180px;
           margin-left: auto;
@@ -81,7 +91,6 @@
 
 @media screen and (min-width: $media-lg) {
   .hero {
-    min-height: 60vh;
     background:
       url("/src/image/hero-bg-768.avif"),
       linear-gradient(to right, $beige-color 68%, $black-color 32%);
@@ -97,40 +106,116 @@
       align-items: stretch;
       column-gap: 10px;
       justify-content: space-between;
+      // тянем строку на всю высоту hero за вычетом его padding-block,
+      // иначе align-self: center центрирует колонку не по блоку, а по
+      // высоте текста, и буллеты уезжают при другой высоте окна
+      min-height: calc(100vh - 8.75rem);
     }
     &__content {
       flex: 1 1 55%;
+      // колонка слайдера заходит на текстовую, поэтому строки текста
+      // ограничены по ширине — иначе заголовок наезжает на плед
+      max-width: 470px;
     }
 
+    &__slider-wrap {
+      // -60px нужен только для колоночной раскладки на 480–767
+      margin-top: 0;
+      // обёртка держит колонку буллетов — она в макете стоит по центру блока
+      align-self: center;
+      // колонка шире своей доли, чтобы плед встал центром на границу
+      // бежевого и чёрного (68%); с текстовой колонкой она перекрывается,
+      // но текст ограничен по max-width и на плед не заходит
+      flex: 0 0 62%;
+      margin-left: -17%;
+      // колонка заходит на текстовую, поэтому её пустая часть не должна
+      // ловить курсор — иначе текст не выделить, а протяжка по нему листает
+      // слайды. Свойство наследуемое, ниже возвращаем его пледу и буллетам
+      pointer-events: none;
+    }
     &__slider {
-      flex: 1 1 45%;
-      align-self: end;
+      height: 400px;
+      padding-right: 20px;
+      // По макету на 768 плед уведён вниз, под кнопку, а буллеты остаются
+      // по центру. Пагинация лежит вне .swiper, поэтому смещаем только слайды.
+      // position: relative не влияет на поток — обёртка и буллеты не едут.
+      // Единица vh, а не px, потому что высота hero = 100vh
+      position: relative;
+      // 33vh держит пропорцию макета при разной высоте окна, а нижняя
+      // граница в 230px не даёт пледу подняться на абзац на низких экранах
+      top: max(33vh, 230px);
 
       &_product {
         & img {
           position: absolute;
-          padding: 30px;
-          max-width: 450px;
-          height: 241px;
+          width: 234px;
+          pointer-events: auto;
         }
       }
-      &_pagination.swiper-pagination-bullets-dynamic {
-        width: 25px;
+      &_pagination {
+        pointer-events: auto;
+      }
+    }
+  }
+}
+
+// По макету дуги появляются только с 1000px — на 768 их нет
+@media screen and (min-width: $media-xl) {
+  .hero {
+    &__slider {
+      // с 1000 плед по макету стоит по центру, вровень с буллетами
+      top: 0;
+
+      &_product {
+        & img {
+          width: 290px;
+        }
       }
     }
     &__arc {
       display: block;
-      width: 70px;
-      height: 70px;
+      width: 115px;
+      height: 115px;
+      // Отсчёт от центра обёртки, а не от её краёв: плед тоже центрирован
+      // в ней, поэтому смещения остаются постоянными и при другой высоте
+      // окна, и при смене ширины обёртки. Проценты тут не годятся — обёртка
+      // на 1920 в полтора раза больше, и дуги уезжали от пледа
+      top: 50%;
+      left: 50%;
     }
     &__arc--top {
-      top: -40px;
-      left: 20px;
+      margin-left: -197px;
+      margin-top: -236px;
+      color: $black-color;
     }
     &__arc--bottom {
-      bottom: 20px;
-      right: -40px;
+      margin-left: 77px;
+      margin-top: 77px;
       transform: rotate(180deg);
+      color: $white-color;
+    }
+  }
+}
+
+@media screen and (min-width: $media-xxl) {
+  .hero {
+    &__slider {
+      min-height: 80vh;
+
+      &_product {
+        & img {
+          width: 400px;
+        }
+      }
+    }
+    // плед тут шире (400 против 290), поэтому дуги отходят от центра дальше
+    &__arc--top {
+      margin-left: -263px;
+      margin-top: -280px;
+    }
+    &__arc--bottom {
+      margin-left: 163px;
+      margin-top: 155px;
     }
   }
 }
