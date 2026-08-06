@@ -6,34 +6,70 @@
   &__burger {
     width: 44px;
     height: 44px;
+    border: none;
+    background: none;
     cursor: pointer;
-  }
-  &__toggler {
-    display: none;
   }
   &__block {
     visibility: hidden;
     position: fixed;
     width: min(360px, 100vw);
+    height: 100dvh;
     inset: 0;
     z-index: 100;
     padding: 30px 0 0 30px;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in;
+    // overlay удерживает панель в верхнем слое, пока идёт переход, — без него
+    // подложка гаснет мгновенно. Вторым объявлением ради браузеров, которые
+    // ещё не знают overlay: там останется первая строка
+    transition:
+      transform 0.3s ease-in,
+      display 0.3s allow-discrete,
+      overlay 0.3s allow-discrete;
     background-color: $white-color;
+    border: none;
     display: flex;
     flex-direction: column;
     row-gap: 30px;
+    transition-behavior: allow-discrete;
   }
-  &__toggler:checked + &__block {
+  &__block[popover] {
+    @supports (anchor-name: --anchor) {
+      inset: 0;
+      margin-block-end: 1rem;
+      position-area: span-bottom;
+    }
+  }
+  // Затемнение фона. Закрытое состояние — прозрачное, чтобы подложке было
+  // куда возвращаться при закрытии; непрозрачность навешена на :popover-open
+  &__block::backdrop {
+    background-color: rgba($black-color, 0);
+    transition: background-color 0.3s ease-in;
+    // Чтобы затемнение успело растаять, в переход нужно добавить display и
+    // overlay — иначе браузер убирает подложку из верхнего слоя мгновенно.
+    // Вторым объявлением: если браузер не знает overlay, он отбросит только
+    // эту строку и останется появление без затухания
+    transition:
+      background-color 0.3s ease-in,
+      display 0.3s allow-discrete,
+      overlay 0.3s allow-discrete;
+  }
+  &__block:popover-open {
     visibility: visible;
     transform: translateX(0);
+
+    &::backdrop {
+      background-color: rgba($black-color, 0.4);
+    }
   }
 
   &__item {
     margin-bottom: 30px;
   }
   &__close {
+    border: none;
+    background: none;
     cursor: pointer;
     width: 40px;
     height: 40px;
@@ -61,7 +97,24 @@
   }
 }
 
-@media screen and (min-width: $media-xxl) {
+// Пока меню открыто, страница под ним не должна прокручиваться.
+// Панель уже 360px, справа от неё остаётся полоса, за которую иначе
+// можно утянуть фон
+body:has(.mobile-menu__block:popover-open) {
+  overflow: hidden;
+}
+
+@starting-style {
+  .mobile-menu {
+    &__block {
+      transform: translateX(-100%);
+      &:popover-open::backdrop {
+        background-color: rgba($black-color, 0);
+      }
+    }
+  }
+}
+@media screen and (min-width: $media-xl) {
   .mobile-menu {
     display: none;
   }

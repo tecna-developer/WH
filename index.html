@@ -32,7 +32,7 @@
             <div class="header__wrapper">
                 <div class="header__left">
                     <div class="mobile-menu" aria-label="mobile-navigation">
-                        <label class="mobile-menu__burger" for="burger_toggler"
+                        <button type="button" popovertarget="mobile-navigation" class="mobile-menu__burger"
                             aria-label="open-close mobile-navigation">
                             <svg width="44" height="22" viewBox="0 0 42 22" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -40,16 +40,17 @@
                                 <path d="M1 11H31" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
                                 <path d="M1 21H41" stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" />
                             </svg>
-                        </label>
-                        <input type="checkbox" id="burger_toggler" class="mobile-menu__toggler"></input>
-                        <nav class="mobile-menu__block">
-                            <label for="burger_toggler" class="mobile-menu__close">
+                        </button>
+                        <nav class="mobile-menu__block" id="mobile-navigation" popover="auto">
+                            <button type="button" class="mobile-menu__close" popovertarget="mobile-navigation"
+                                popovertargetaction="hide" aria-label="close mobile-navigation">
                                 <svg width="31" height="31" viewBox="0 0 31 31" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1.00151 29.2843L29.2858 1M29.2858 29.2843L1.00151 1" stroke="#2C2C2C"
                                         stroke-width="2" stroke-linecap="round" />
                                 </svg>
-                            </label>
+                            </button>
+
                             <ul class="menu__list mobile-menu__list">
                                 <li class="menu__item mobile-menu__item"><a href="shop.html">Shop</a></li>
                                 <li class="menu__item mobile-menu__item"><a href="about.html">About</a></li>
