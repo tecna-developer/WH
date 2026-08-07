@@ -58,17 +58,42 @@
       border: none;
       width: 44px;
       height: 44px;
-      transition: all $transition;
-      &:hover {
-        color: $accent-color;
-        scale: 1.1;
-      }
     }
     &_icon {
       display: block;
     }
     &_text {
       display: none;
+    }
+  }
+
+  // Единый ховер для всех управляющих элементов шапки. Перечислены явно,
+  // чтобы правило не доставало до содержимого мобильного меню
+  .mobile-menu__burger,
+  &__center_link,
+  .menu__desktop_list a,
+  &__right_search,
+  &__right .cart__btn {
+    color: $black-color;
+    transition:
+      color $transition,
+      scale $transition;
+    // у path в разметке жёстко прописан stroke, но CSS перебивает атрибут —
+    // так иконки красятся вместе с элементом
+    svg path {
+      stroke: currentColor;
+    }
+    &:hover {
+      color: $accent-dark-color;
+    }
+  }
+
+  // Увеличение — только у иконок, текстовые ссылки меняют лишь цвет
+  .mobile-menu__burger,
+  &__right_search,
+  &__right .cart__btn {
+    &:hover {
+      scale: 1.1;
     }
   }
 }
@@ -113,6 +138,13 @@
       }
       &_text {
         display: block;
+      }
+    }
+    // здесь лупа и корзина показывают текст вместо иконки — масштаб убираем
+    &__right_search,
+    &__right .cart__btn {
+      &:hover {
+        scale: 1;
       }
     }
   }

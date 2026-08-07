@@ -4,6 +4,10 @@ $black-color: #2c2c2c;
 $grey-color: #e5e5e5;
 $light-grey-color: #313131;
 $accent-color: rgb(250, 116, 116);
+// Затемнённый акцент для светлого фона: исходный даёт контраст 2.6:1 на
+// #fdfbf9 и не проходит ни порог для текста (4.5), ни для иконок (3).
+// Этот — 6.28:1. На тёмном фоне по-прежнему нужен $accent-color
+$accent-dark-color: #ab332b;
 
 $transition: 0.2s ease;
 $media-xxl: 1920px;
