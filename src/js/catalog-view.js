@@ -1,19 +1,22 @@
 export function initCatalogView() {
   const wrapper = document.querySelector(".catalog__wrapper");
-  const gridBtn = document.querySelector('.filters__view-btn[aria-label="Grid view"]');
-  const listBtn = document.querySelector('.filters__view-btn[aria-label="List view"]');
-  if (!wrapper || !gridBtn || !listBtn) return;
+  // Кнопки ищем по data-view, а не по aria-label: под WordPress подпись
+  // уходит в перевод, и селектор по ней молча перестал бы находить кнопки —
+  // без ошибки в консоли, просто переключение вида перестало бы работать
+  const buttons = document.querySelectorAll("[data-view]");
+  if (!wrapper || !buttons.length) return;
 
-  function setView(isList) {
-    wrapper.classList.toggle("is-list", isList);
+  function setView(view) {
+    wrapper.classList.toggle("is-list", view === "list");
 
-    gridBtn.classList.toggle("is-active", !isList);
-    gridBtn.setAttribute("aria-pressed", String(!isList));
-
-    listBtn.classList.toggle("is-active", isList);
-    listBtn.setAttribute("aria-pressed", String(isList));
+    buttons.forEach((btn) => {
+      const isActive = btn.dataset.view === view;
+      btn.classList.toggle("is-active", isActive);
+      btn.setAttribute("aria-pressed", String(isActive));
+    });
   }
 
-  gridBtn.addEventListener("click", () => setView(false));
-  listBtn.addEventListener("click", () => setView(true));
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => setView(btn.dataset.view));
+  });
 }
