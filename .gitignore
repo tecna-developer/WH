@@ -12,6 +12,7 @@ screenshots
 
 dist
 dist-ssr
+output
 *.local
 
 # Editor directories and files
