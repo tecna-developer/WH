@@ -55,14 +55,20 @@ export function initProductDetail() {
     renderQuantity();
   });
 
+  // Данные товара — на самой кнопке, как в quick-add.js, а не в замыкании:
+  // сейчас на странице всегда Helgun, но карточку рендерит один шаблон на
+  // любой товар, и id/цена/название обязаны идти из разметки, а не из кода
   const addToCartBtn = root.querySelector("[data-add-to-cart]");
   addToCartBtn?.addEventListener("click", () => {
     addToCart({
-      id: "helgun",
-      name: "Helgun",
-      variant: "150x200 cm, beige",
-      price: 135,
-      image: "/src/image/products/product(1).webp",
+      id: addToCartBtn.dataset.id,
+      name: addToCartBtn.dataset.name,
+      variant: addToCartBtn.dataset.variant,
+      price: Number(addToCartBtn.dataset.price),
+      // getAttribute, не .src: свойство резолвит путь в абсолютный URL, а
+      // quick-add.js кладёт в корзину исходный относительный путь из
+      // data-image — так оба источника хранят image в одном формате
+      image: mainPhoto?.getAttribute("src"),
       quantity,
     });
   });
