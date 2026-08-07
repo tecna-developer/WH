@@ -58,27 +58,34 @@ window.addEventListener("DOMContentLoaded", () => {
 
 //Footer details collaps
 
-function handleFooterResize() {
-  const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-  const detailsElements = document.querySelectorAll("details");
-  const accordionGroupName = "footer";
+// Держим в синхроне с $media-lg из helpers/variables.scss
+const footerDesktopQuery = window.matchMedia("(min-width: 768px)");
 
-  detailsElements.forEach((detail) => {
+// До брейкпоинта секции футера работают аккордеоном: name сводит их в группу,
+// и браузер сам держит открытой только одну. С брейкпоинта раскрываем все и
+// снимаем name, чтобы они были независимы
+function syncFooterAccordion() {
+  const isDesktop = footerDesktopQuery.matches;
+
+  // Только футерные: голый `details` забирал бы и чужие блоки — сейчас других
+  // на страницах нет, но под WordPress их принесёт любой плагин
+  document.querySelectorAll(".footer__details").forEach((detail) => {
     if (isDesktop) {
+      // name снимаем до открытия: пока элемент в группе, браузер закрывает
+      // все остальные, и раскрыть удалось бы лишь последний
       detail.removeAttribute("name");
-
-      // Принудительно открываем
-      detail.setAttribute("open", "");
+      detail.open = true;
     } else {
-      detail.setAttribute("name", accordionGroupName);
-
-      detail.removeAttribute("open");
+      detail.setAttribute("name", "footer");
+      detail.open = false;
     }
   });
 }
 
-// Слушаем изменение размера экрана
-window.addEventListener("resize", handleFooterResize);
+// change, а не resize: resize на мобильных прилетает и при сворачивании
+// адресной строки во время скролла — открытая секция захлопывалась прямо
+// под пальцем. change срабатывает только на пересечении брейкпоинта
+footerDesktopQuery.addEventListener("change", syncFooterAccordion);
 
 // Запускаем один раз при загрузке страницы
-document.addEventListener("DOMContentLoaded", handleFooterResize);
+document.addEventListener("DOMContentLoaded", syncFooterAccordion);
