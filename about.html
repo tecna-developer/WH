@@ -74,7 +74,8 @@
                         Heart</a>
                 </div>
                 <div class="header__right">
-                    <button type="button" class="btn header__right_search" aria-label="Open search">
+                    <button type="button" class="btn header__right_search" aria-label="Open search"
+                        popovertarget="search-in-header">
                         <svg class="header__right_icon" width="28" height="28" viewBox="0 0 28 28" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -108,17 +109,6 @@
         </div>
     </header>
 
-    <!-- Search modal overlay -->
-    <div class="search__overlay" aria-hidden="true">
-        <div class="search__modal" role="dialog" aria-modal="true" aria-label="Search form">
-            <button type="button" class="search__modal_close" aria-label="Close search">×</button>
-            <form class="search__form" role="search" method="get" action="index.html">
-                <input type="search" name="s" placeholder="Search" class="search__input">
-                <input type="hidden" name="post_type" value="product">
-                <button type="submit" class="btn">Search</button>
-            </form>
-        </div>
-    </div>
 
 
     <main>
@@ -238,7 +228,14 @@
             </div>
         </div>
     </footer>
-
+    <!-- Search modal-->
+    <div class="search__modal" popover="auto" id="search-in-header">
+        <form class="search__form" role="search" method="get" action="index.html">
+            <input type="search" name="s" placeholder="Search..." class="search__input" autofocus>
+            <input type="hidden" name="post_type" value="product">
+            <button type="submit" class="btn search__btn">Search</button>
+        </form>
+    </div>
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>

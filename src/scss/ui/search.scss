@@ -1,41 +1,80 @@
 @use "/src/scss/helpers/variables.scss" as *;
+@use "/src/scss/helpers/mixin.scss" as *;
 
 .search {
-  &__overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный */
-    z-index: 1000;
+  &__modal {
+    background: rgba($white-color, 0.8);
+    border-radius: 12px;
+    border: 1px solid rgba($black-color, 0.1);
+    width: min(340px, 100vw);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    color: $black-color;
+    // Модалка выпадает из-под шапки. Задаём вертикаль явно, а не через
+    // margin: auto: в global.scss стоит * { margin: 0 }, и авто-отступы,
+    // которыми браузер центрирует popover, до элемента не доходят.
+    // 107px — высота шапки до $media-lg, дальше она 115px
+    inset: auto 0 auto 0;
+    top: 107px;
+    // при inset: auto 0 auto 0 фиксированная ширина прижимается к левому краю
+    margin-inline: auto;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 100px;
-    &.is-active {
-      visibility: visible;
+    transition-property: display, overlay, opacity, visibility;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transition-behavior: allow-discrete;
+    &:popover-open {
       opacity: 1;
+      visibility: visible;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    // Задел на привязку модалки к кнопке лупы. Пока выключено: чтобы это
+    // заработало осмысленно, кнопке нужен anchor-name, а модалке —
+    // position-anchor с тем же именем. Без них position-area отсчитывает
+    // от неявного якоря и сажает модалку на 182px вместо заданных 107,
+    // перебивая top выше
+    @supports (anchor-name: --anchor) {
+      // position-area: center bottom;
+      // position-try: flip-block;
+    }
+    &::backdrop {
+      background: rgba($black-color, 0.5);
     }
   }
-  &__modal {
-    background: $white-color;
-    padding: 30px;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 600px;
-    position: relative;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  &__form {
+    min-width: 100%;
+    @include flexStandart($gap: 10px, $justifyContent: center);
+    flex-direction: column;
+    align-items: center;
 
-    /* Анимация выезда сверху */
-    transform: translateY(-20px);
-    transition: transform 0.3s ease;
+    gap: 20px;
+    & > input {
+      width: 100%;
+      padding: 15px 80px;
+      border: 1px solid rgba($black-color, 0.1);
+      border-radius: 8px;
+      font-size: 16px;
+    }
   }
-  &__overlay.is-active .search__modal {
-    transform: translateY(0);
+  &__btn {
+    background-color: $light-grey-color;
+    color: $white-color;
+  }
+}
+
+@media (min-width: $media-lg) {
+  .search {
+    &__modal {
+      // с этого брейкпоинта у шапки padding-block: 1.875rem, и она выше
+      top: 115px;
+      // здесь же форма встаёт в строку, и 340px на неё не хватает:
+      // кнопка 214 + отступ 20 + инпут, у которого один только padding 160
+      width: min(600px, 100vw);
+    }
+    &__form {
+      flex-direction: row;
+    }
   }
 }

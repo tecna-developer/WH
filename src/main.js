@@ -13,45 +13,6 @@ import { initCartPage } from "./js/cart-page";
 import { initCatalogView } from "./js/catalog-view";
 import { initQuickAdd } from "./js/quick-add";
 
-// Открытие модального окна с формой поиска
-window.addEventListener("DOMContentLoaded", () => {
-  const openSearchElement = document.querySelector(".header__right_search");
-  const searchOverlay = document.querySelector(".search__overlay");
-  const closeModalFormBtn = document.querySelector(".search__modal_close");
-
-  if (!openSearchElement || !searchOverlay) return;
-
-  openSearchElement.addEventListener("click", () => {
-    searchOverlay.classList.add("is-active");
-    searchOverlay.setAttribute("aria-hidden", "false");
-    const input = searchOverlay.querySelector(".search__input");
-    if (input) input.focus();
-  });
-
-  if (closeModalFormBtn) {
-    closeModalFormBtn.addEventListener("click", () => {
-      searchOverlay.classList.remove("is-active");
-      searchOverlay.setAttribute("aria-hidden", "true");
-    });
-  }
-
-  // Закрытие по клику на фон
-  searchOverlay.addEventListener("click", (e) => {
-    if (e.target === searchOverlay) {
-      searchOverlay.classList.remove("is-active");
-      searchOverlay.setAttribute("aria-hidden", "true");
-    }
-  });
-
-  // Закрытие по Escape
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && searchOverlay.classList.contains("is-active")) {
-      searchOverlay.classList.remove("is-active");
-      searchOverlay.setAttribute("aria-hidden", "true");
-    }
-  });
-});
-
 //счетчик для корзины
 document.addEventListener("DOMContentLoaded", renderCartCount);
 document.addEventListener("DOMContentLoaded", initProductDetail);

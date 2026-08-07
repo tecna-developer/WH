@@ -18,6 +18,7 @@
     display: flex;
     min-height: 36px;
     column-gap: 10px;
+    align-items: center;
   }
   &__left,
   &__right {
@@ -57,6 +58,11 @@
       border: none;
       width: 44px;
       height: 44px;
+      transition: all $transition;
+      &:hover {
+        color: $accent-color;
+        scale: 1.1;
+      }
     }
     &_icon {
       display: block;
