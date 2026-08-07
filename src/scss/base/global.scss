@@ -76,18 +76,22 @@ main {
   }
 }
 
+// Селектор одинаковый во всех трёх правилах. Голый `section` в медиазапросе
+// имеет специфичность (0,0,1) и проигрывает базовому `main section` (0,0,2):
+// медиазапросы специфичность не повышают, поэтому адаптивный ритм не
+// применялся вообще — секции оставались 70/90 на любой ширине
 main section {
   padding-block: 70px 90px;
 }
 
 @media screen and (min-width: $media-lg) {
-  section {
+  main section {
     padding-block: 90px 120px;
   }
 }
 
 @media screen and (min-width: $media-xxl) {
-  section {
+  main section {
     padding-block: 130px 150px;
   }
 }
