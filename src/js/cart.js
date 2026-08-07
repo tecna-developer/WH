@@ -11,7 +11,18 @@ function readCart() {
 }
 
 function writeCart(items) {
-  localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(items));
+  // localStorage.setItem бросает в приватном режиме Safari и при
+  // переполнении квоты. Без try/catch исключение вылетало бы прямо из
+  // обработчика клика — addToCart/updateCartItemQuantity/removeFromCart
+  // все вызывают writeCart синхронно, и клик по "+", "−" или иконке
+  // корзины падал бы молча, без единого следа в интерфейсе
+  try {
+    localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(items));
+    return true;
+  } catch (err) {
+    console.warn("WH: couldn't save the cart", err);
+    return false;
+  }
 }
 
 export function getCartItems() {
