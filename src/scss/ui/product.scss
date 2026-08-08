@@ -14,19 +14,34 @@
   &:not(:last-child) {
     padding-right: 20px;
   }
-  &__add_icon {
+  &__add {
     position: absolute;
-    width: 70px;
-    height: 70px;
-    padding: 18px;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
     z-index: 2;
-    top: -34px;
-    right: -17px;
-    opacity: 0;
+    border: none;
+    border-radius: 50%;
     background-color: $black-color;
     color: $white-color;
-    border-radius: 50%;
-    transition: opacity 0.3s ease;
+    cursor: pointer;
+    transition:
+      opacity $transition,
+      transform $transition;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $black-color;
+      outline-offset: 4px;
+    }
   }
   &__bg {
     position: relative;
@@ -54,9 +69,6 @@
       inset: 0;
       z-index: 1;
     }
-    &:hover .product__add_icon {
-      opacity: 1;
-    }
   }
   &__footer {
     flex-grow: 1;
@@ -64,6 +76,21 @@
       display: flex;
       justify-content: space-between;
       column-gap: 20px;
+    }
+  }
+}
+
+// На устройствах с мышью кнопка появляется по наведению на карточку,
+// на тач-устройствах остаётся видимой всегда — как у .last-viewed__add
+@media (hover: hover) {
+  .product {
+    &__add {
+      opacity: 0;
+    }
+
+    &:hover &__add,
+    &__add:focus-visible {
+      opacity: 1;
     }
   }
 }
