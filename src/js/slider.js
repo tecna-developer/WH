@@ -31,11 +31,7 @@ export default class Slider {
   }
 
   initSlider() {
-    this.checkAdaptive();
-
     this.bindEvents();
-    this.moveSlide(false);
-    this.renderPagination();
   }
 
   moveSlide(animate = true) {
@@ -108,9 +104,15 @@ export default class Slider {
 
     // this.nextBtn.addEventListener("click", () => this.goToNextSlide());
 
-    window.addEventListener("resize", () => {
+    // ResizeObserver зовёт колбэк сразу же с текущим размером контейнера —
+    // раньше первый checkAdaptive() случался синхронно при создании слайдера
+    // и мог замерить offsetWidth ещё нулевого контейнера, а пересчёт
+    // происходил только по window resize — неверная нулевая раскладка могла
+    // прожить до первого ресайза окна
+    const resizeObserver = new ResizeObserver(() => {
       this.checkAdaptive();
     });
+    resizeObserver.observe(this.root);
   }
 
   // Проверяем размер экрана для адаптивности
