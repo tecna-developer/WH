@@ -1,5 +1,9 @@
 @use "/src/scss/helpers/variables.scss" as *;
 
+.page-section {
+  background-color: $beige-color;
+}
+
 // Заголовки/списки, которые редактор блоков WordPress выводит без наших
 // классов .title__h2/.title__h3 — те завязаны на класс, а не на тег, так что
 // текст со страниц (About и т.п.) без этого раздела остался бы неоформленным

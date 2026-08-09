@@ -11,7 +11,7 @@ get_header();
 			<div class="container">
 				<?php the_title( '<h1 class="title__h1">', '</h1>' ); ?>
 			</div>
-			<section>
+			<section class="page-section">
 				<div class="container page-content">
 					<?php the_content(); ?>
 				</div>
