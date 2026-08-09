@@ -1,0 +1,52 @@
+@use "/src/scss/helpers/variables.scss" as *;
+
+// Заголовки/списки, которые редактор блоков WordPress выводит без наших
+// классов .title__h2/.title__h3 — те завязаны на класс, а не на тег, так что
+// текст со страниц (About и т.п.) без этого раздела остался бы неоформленным
+.page-content {
+  h2 {
+    font-size: 36px;
+    line-height: 1.3;
+    font-weight: 900;
+    color: $black-color;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 24px;
+    line-height: 1.3;
+    font-weight: 900;
+    color: $black-color;
+    margin-top: 32px;
+    margin-bottom: 16px;
+  }
+
+  ul {
+    padding-left: 20px;
+    margin-bottom: 24px;
+
+    li {
+      margin-bottom: 12px;
+
+      &::marker {
+        color: $black-color;
+      }
+    }
+  }
+
+  strong {
+    font-weight: 700;
+  }
+}
+
+@media screen and (min-width: $media-md) {
+  .page-content h2 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (min-width: $media-lg) {
+  .page-content h2 {
+    font-size: 48px;
+  }
+}
