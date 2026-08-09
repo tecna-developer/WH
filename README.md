@@ -21,7 +21,6 @@ This project focuses on practicing:
 - **Libraries:**
   - [Swiper](https://swiperjs.com/) - Touch slider library
   - [@a1rth/css-normalize](https://www.npmjs.com/package/@a1rth/css-normalize) - CSS normalization
-- **CSS Processing:** PostCSS with px-to-rem conversion
 - **Image Optimization:** Multiple image formats (AVIF, responsive sizes)
 
 ## 📦 Project Structure
@@ -53,6 +52,42 @@ npm run build
 # Preview production build
 npm run preview
 ```
+
+## 🧵 WordPress theme (`wp-theme/`)
+
+This same source (`src/`, SCSS, JS) also drives a WooCommerce theme that lives in
+[`wp-theme/`](wp-theme/). Both targets share the SCSS/JS source and build with
+Vite, but through separate configs and outputs:
+
+| | static site (this README's `npm run build`) | WordPress theme |
+|---|---|---|
+| Config | `vite.config.js` | `vite.theme.config.js` |
+| Entry | the six `*.html` pages | `src/main.js` only |
+| Output | `dist/` | `wp-theme/build/` (gitignored) |
+| Consumed by | GitHub Pages | `wp-theme/functions.php`, via a manifest lookup |
+
+```bash
+# One-off build of the theme's CSS/JS
+npm run build:theme
+
+# Rebuild on every save (use this while developing the theme)
+npm run watch:theme
+```
+
+`functions.php` reads `wp-theme/build/.vite/manifest.json` and enqueues the
+hashed CSS/JS it points to — there's nothing to wire up by hand after a build.
+
+**Local dev:** the theme folder itself isn't copied anywhere. Point your local
+WordPress install's `wp-content/themes/wh` at `wp-theme/` with a directory
+junction (Windows; no admin rights needed, unlike a symlink):
+
+```powershell
+cmd /c mklink /J "<path to Local site>\app\public\wp-content\themes\wh" "<repo>\wp-theme"
+```
+
+Static assets that aren't run through Vite (placeholder product photos, the
+presentation/Instagram images) live under `wp-theme/assets/` and are tracked
+in git as-is.
 
 ## ✨ Features
 

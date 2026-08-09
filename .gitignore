@@ -13,6 +13,7 @@ screenshots
 dist
 dist-ssr
 output
+wp-theme/build
 *.local
 
 # Editor directories and files
