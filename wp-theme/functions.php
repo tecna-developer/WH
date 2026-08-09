@@ -28,6 +28,15 @@ add_action(
 				'footer-useful'  => __( 'Footer: Useful information', 'wh' ),
 			)
 		);
+
+		// Тема отдаёт свою разметку везде — штатный CSS WooCommerce (float-раскладка
+		// woocommerce-general/layout/smallscreen) только мешает, накладываясь на BEM.
+		add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+
+		// "Showing all N results" и дропдаун сортировки дублируют наш собственный
+		// .filters__count в панели фильтров — их float ещё и поджимал .catalog__wrapper
+		remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+		remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 	}
 );
 
