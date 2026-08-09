@@ -87,6 +87,15 @@ function wh_cart_contents_count() {
 }
 
 /**
+ * " (N)" при непустой корзине, иначе пусто — тот же формат, что рисовал
+ * прежний renderCartCount() в cart.js до перехода на серверный рендер.
+ */
+function wh_cart_count_label() {
+	$count = wh_cart_contents_count();
+	return $count > 0 ? ' (' . $count . ')' : '';
+}
+
+/**
  * Оба .cart__count (в шапке и в мобильном меню) обновляются этим же
  * фрагментом: jQuery(selector).replaceWith() у wc-cart-fragments заменяет
  * все элементы, подходящие под селектор, а не только первый.
@@ -96,7 +105,7 @@ add_filter(
 	function ( $fragments ) {
 		ob_start();
 		?>
-		<span class="cart__count" data-cart-count aria-hidden="true"><?php echo esc_html( wh_cart_contents_count() ); ?></span>
+		<span class="cart__count" data-cart-count aria-hidden="true"><?php echo esc_html( wh_cart_count_label() ); ?></span>
 		<?php
 		$fragments['.cart__count'] = trim( ob_get_clean() );
 		return $fragments;

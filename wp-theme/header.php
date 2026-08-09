@@ -67,7 +67,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 							<div class="cart mobile__menu__cart">
 								<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="cart__btn mobile-menu__cart_btn" aria-label="cart">Cart</a>
-								<span class="cart__count" data-cart-count aria-hidden="true"><?php echo esc_html( wh_cart_contents_count() ); ?></span>
+								<span class="cart__count" data-cart-count aria-hidden="true"><?php echo esc_html( wh_cart_count_label() ); ?></span>
 							</div>
 						</nav>
 					</div>
@@ -131,7 +131,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 						</svg>
 						<span class="header__right_text">Cart<span class="cart__count" data-cart-count
-								aria-hidden="true"><?php echo esc_html( wh_cart_contents_count() ); ?></span></span>
+								aria-hidden="true"><?php echo esc_html( wh_cart_count_label() ); ?></span></span>
 					</a>
 				</div>
 			</div>
