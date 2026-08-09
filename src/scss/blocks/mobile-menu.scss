@@ -37,7 +37,7 @@
   &__block[popover] {
     @supports (anchor-name: --anchor) {
       inset: 0;
-      margin-block-end: 1rem;
+      margin-block-end: 16px;
       position-area: span-bottom;
     }
   }

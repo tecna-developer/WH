@@ -5,7 +5,7 @@
   // position: fixed;
   // top: 0;
   // transition: all $transition;
-  padding: 1.25rem 0;
+  padding: 20px 0;
   max-height: 115px;
 
   &.header_scrolled {
@@ -119,9 +119,9 @@
 
 @media screen and (min-width: $media-lg) {
   .header {
-    padding-block: 1.875rem;
+    padding-block: 30px;
     &__center {
-      width: 15.4375rem;
+      width: 247px;
       &_link {
         font-size: 36px;
       }

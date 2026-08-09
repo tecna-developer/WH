@@ -13,12 +13,12 @@
     auto 35%,
     100% 100%;
 
-  padding-block: 4.375rem;
+  padding-block: 70px;
   &__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 2.1875rem;
+    row-gap: 35px;
   }
   &__content {
     h1 {
@@ -26,7 +26,7 @@
       margin-block-end: 20px;
     }
     p {
-      font-size: 1.0625rem;
+      font-size: 17px;
       line-height: 1.4;
       text-align: start;
       margin-bottom: 35px;
@@ -109,7 +109,7 @@
       // тянем строку на всю высоту hero за вычетом его padding-block,
       // иначе align-self: center центрирует колонку не по блоку, а по
       // высоте текста, и буллеты уезжают при другой высоте окна
-      min-height: calc(100vh - 8.75rem);
+      min-height: calc(100vh - 140px);
     }
     &__content {
       flex: 1 1 55%;
