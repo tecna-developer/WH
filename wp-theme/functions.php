@@ -46,6 +46,16 @@ add_action(
  * настоящим хешированным именам вместо жёстко прописанных путей.
  */
 function wh_enqueue_assets() {
+	// global.scss задаёт font-family: "Lato" — без её реального подключения
+	// браузер молча падает на sans-serif, и это незаметно, пока не сравнишь
+	// с макетом: шрифт просто выглядит "обычным"
+	wp_enqueue_style(
+		'wh-google-fonts',
+		'https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap',
+		array(),
+		null
+	);
+
 	$manifest_path = get_template_directory() . '/build/.vite/manifest.json';
 
 	if ( ! file_exists( $manifest_path ) ) {
