@@ -1,0 +1,202 @@
+@use "/src/scss/helpers/variables.scss" as *;
+@use "/src/scss/helpers/mixin.scss" as *;
+
+.checkout-page {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+  }
+
+  &__main {
+    flex: 1 1 auto;
+  }
+}
+
+// Купон и форма входа (checkout/form-coupon.php, form-login.php) — разметка
+// от WooCommerce как есть, тут только отступы под общий ритм страницы
+.woocommerce-form-coupon-toggle,
+.woocommerce-form-login-toggle {
+  margin-bottom: 24px;
+}
+
+.woocommerce-form-coupon,
+.woocommerce-form-login {
+  margin-bottom: 32px;
+
+  .form-row {
+    max-width: 320px;
+  }
+}
+
+// Поля из form-billing.php/form-shipping.php генерирует сам WooCommerce —
+// тут только раскраска под токены проекта, разметку не трогаем
+.woocommerce-billing-fields,
+.woocommerce-shipping-fields {
+  h3 {
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 24px;
+  }
+}
+
+.form-row {
+  margin-bottom: 24px;
+
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: rgba($black-color, 0.7);
+  }
+
+  .input-text,
+  select {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 4px solid $black-color;
+    padding-block: 8px;
+    font: inherit;
+
+    &:focus-visible {
+      outline: 2px solid $black-color;
+      outline-offset: 4px;
+    }
+  }
+
+  .select2-container {
+    width: 100% !important;
+  }
+}
+
+#customer_details .col2-set {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+#ship-to-different-address {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 24px;
+  font-weight: 700;
+
+  label {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    cursor: pointer;
+  }
+}
+
+.checkout-summary {
+  background-color: $beige-color;
+  border-radius: 25px;
+  padding: 30px 20px;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 24px;
+  }
+
+  &__list {
+    border-top: 1px solid rgba($black-color, 0.15);
+    margin-bottom: 16px;
+
+    .cart-item {
+      padding-block: 16px;
+      border-bottom-color: rgba($black-color, 0.15);
+    }
+
+    .cart-item__counter {
+      display: none;
+    }
+  }
+
+  &__totals {
+    display: flex;
+    flex-direction: column;
+
+    .cart-summary__row span:first-child {
+      color: rgba($black-color, 0.7);
+    }
+  }
+}
+
+.woocommerce-checkout-payment {
+  margin-top: 24px;
+
+  ul.wc_payment_methods {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+  }
+
+  li.wc_payment_method label {
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .payment_box {
+    padding: 12px 0 0 24px;
+    font-size: 14px;
+    color: rgba($black-color, 0.7);
+  }
+
+  .woocommerce-terms-and-conditions-wrapper {
+    margin-block: 16px;
+    font-size: 14px;
+  }
+
+  #place_order {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 100px;
+    background-color: $black-color;
+    color: $white-color;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+
+    &:hover {
+      color: $beige-color;
+    }
+  }
+}
+
+@media screen and (min-width: $media-lg) {
+  #customer_details .col2-set {
+    flex-direction: row;
+    column-gap: 30px;
+
+    .col-1,
+    .col-2 {
+      flex: 1 1 0;
+    }
+  }
+}
+
+@media screen and (min-width: $media-xl) {
+  .checkout-page__wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+    column-gap: 30px;
+  }
+
+  .checkout-summary {
+    flex: 0 0 386px;
+    position: sticky;
+    top: 24px;
+  }
+}
