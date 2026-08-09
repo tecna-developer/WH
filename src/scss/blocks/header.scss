@@ -34,10 +34,15 @@
   }
 
   &__center {
+    // Не даём сжать логотип соседям с flex:1, когда места впритык
+    flex-shrink: 0;
     &_link {
       font-size: 28px;
       text-transform: uppercase;
       font-weight: 900;
+      // Ширина блока раньше была жёстко зафиксирована и не вмещала текст
+      // "WARM Heart" на 36px — переносило посреди слова
+      white-space: nowrap;
       &_short {
         display: inline-block;
       }
@@ -121,7 +126,6 @@
   .header {
     padding-block: 30px;
     &__center {
-      width: 247px;
       &_link {
         font-size: 36px;
       }
