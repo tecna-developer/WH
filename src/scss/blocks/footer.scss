@@ -96,7 +96,9 @@
       grid-template-columns: repeat(3, auto);
       grid-template-rows: auto 1fr;
       align-items: start;
-      column-gap: 90px;
+      // Уже, чем на xl — заголовок колонки растёт (20 → 24px) как раз там,
+      // где становится теснее, поэтому зазор здесь меньше, чем дальше
+      column-gap: 40px;
     }
     &__header {
       grid-column: 1 / -1;
@@ -114,6 +116,7 @@
             pointer-events: none;
             cursor: default;
             font-size: 24px;
+            white-space: nowrap;
 
             & .arrow-icon {
               display: none;
