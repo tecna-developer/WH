@@ -7,18 +7,17 @@ import "swiper/css/pagination";
 import "./scss/style.scss";
 
 import Slider from "./js/slider";
-import { renderCartCount } from "./js/cart";
 import { initProductDetail } from "./js/product-detail";
 import { initCartPage } from "./js/cart-page";
 import { initCatalogView } from "./js/catalog-view";
 import { initQuickAdd } from "./js/quick-add";
+import { initSubscription } from "./js/subscription";
 
-//счетчик для корзины
-document.addEventListener("DOMContentLoaded", renderCartCount);
 document.addEventListener("DOMContentLoaded", initProductDetail);
 document.addEventListener("DOMContentLoaded", initCartPage);
 document.addEventListener("DOMContentLoaded", initCatalogView);
 document.addEventListener("DOMContentLoaded", initQuickAdd);
+document.addEventListener("DOMContentLoaded", initSubscription);
 
 // Cлайдер через Swiper.js
 const heroSliderElement = document.querySelector(".hero__slider");
