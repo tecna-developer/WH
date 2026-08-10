@@ -1,0 +1,107 @@
+@use "/src/scss/helpers/variables.scss" as *;
+
+// Только каркас (nav + контент) и раскраска штатной разметки WooCommerce —
+// navigation.php/dashboard.php/orders.php/form-login.php не переопределены
+
+.my-account__wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+.woocommerce-MyAccount-navigation {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+  }
+
+  a {
+    font-weight: 700;
+    font-size: 17px;
+  }
+
+  a[aria-current='page'] {
+    color: $accent-dark-color;
+  }
+}
+
+.woocommerce-MyAccount-content {
+  flex: 1 1 auto;
+
+  > p:first-child {
+    margin-top: 0;
+  }
+}
+
+// Логин/регистрация (form-login.php) — тот же col2-set, что и билинг/шиппинг
+// на чекауте, только свой класс
+#customer_login.col2-set {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 20px;
+  }
+}
+
+// Таблицы заказов (orders.php) и состав заказа (order/order-details.php)
+table.shop_table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: 24px;
+
+  th,
+  td {
+    text-align: left;
+    padding: 12px 8px;
+    border-bottom: 1px solid $grey-color;
+  }
+
+  th {
+    font-weight: 700;
+  }
+}
+
+.woocommerce-orders-table__cell-order-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .button {
+    padding: 6px 16px;
+  }
+}
+
+.woocommerce-pagination {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+@media screen and (min-width: $media-lg) {
+  .my-account__wrapper {
+    flex-direction: row;
+    column-gap: 40px;
+  }
+
+  .woocommerce-MyAccount-navigation {
+    flex: 0 0 220px;
+  }
+
+  #customer_login.col2-set {
+    flex-direction: row;
+    column-gap: 40px;
+
+    .u-column1,
+    .u-column2 {
+      flex: 1 1 0;
+    }
+  }
+}

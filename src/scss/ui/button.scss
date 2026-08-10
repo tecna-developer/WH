@@ -27,3 +27,27 @@
     stroke: currentColor;
   }
 }
+
+// Кнопки, которые рисует сам WooCommerce (логин/регистрация, действия по
+// заказу, пагинация в My Account) — свои классы (.button, .woocommerce-Button),
+// не .btn. Без этого правила они падают на голый браузерный <button>
+.woocommerce-button,
+a.button,
+button.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 100px;
+  background-color: $black-color;
+  color: $white-color;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color $transition;
+
+  &:hover {
+    color: $beige-color;
+  }
+}
