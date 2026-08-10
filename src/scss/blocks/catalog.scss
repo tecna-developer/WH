@@ -2,6 +2,10 @@
 @use "/src/scss/helpers/mixin.scss" as *;
 
 .catalog {
+  // Продолжение .filters, не новый смысловой блок — свой padding-top
+  // не нужен, отступ уже даёт .filters { padding-bottom }
+  padding-top: 0;
+
   &__wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));

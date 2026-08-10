@@ -2,6 +2,11 @@
 @use "/src/scss/helpers/mixin.scss" as *;
 
 .filters {
+  // main section даёт большой padding-block, рассчитанный на разделение
+  // крупных смысловых блоков (как на главной) — тут же фильтры и сетка
+  // товаров логически один узел, разрыв в 200px+ между ними лишний
+  padding-bottom: 24px;
+
   &__bar {
     @include flexStandart(20px, space-between);
     flex-wrap: wrap;
