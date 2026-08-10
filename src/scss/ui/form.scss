@@ -28,3 +28,37 @@
     row-gap: 45px;
   }
 }
+
+// Уведомления WooCommerce (checkout-валидация, ошибка логина в My Account,
+// success-сообщение на order-received) — своей разметки/классов не задают,
+// один общий вид для error/message/info/notice
+.woocommerce-error,
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-notice {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 16px 20px;
+  border: 1px solid $black-color;
+  border-radius: 12px;
+  font-size: 14px;
+
+  li {
+    margin: 0;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.woocommerce-error {
+  border-color: $accent-dark-color;
+  color: $accent-dark-color;
+}
+
+.woocommerce-message,
+.woocommerce-notice--success {
+  background-color: $beige-color;
+  border-color: $beige-color;
+}

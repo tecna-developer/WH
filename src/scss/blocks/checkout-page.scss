@@ -126,6 +126,23 @@
   }
 }
 
+// Итог заказа на странице order-received (thankyou.php) — номер, дата,
+// email, сумма, способ оплаты
+.woocommerce-order-overview {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 32px;
+  row-gap: 12px;
+
+  strong {
+    display: block;
+    margin-top: 2px;
+  }
+}
+
 .woocommerce-checkout-payment {
   margin-top: 24px;
 

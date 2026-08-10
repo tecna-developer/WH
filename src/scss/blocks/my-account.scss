@@ -51,6 +51,16 @@
   }
 }
 
+// order-details.php и order-details-customer.php оборачивают таблицу заказа
+// и billing/shipping-адреса в свои <section> — main section даёт им 90–150px
+// padding-block, рассчитанный на разделение крупных блоков, а тут это один
+// логический узел (order-received и view-order.php используют те же шаблоны)
+.woocommerce-order-details,
+.woocommerce-customer-details,
+.woocommerce-customer-details section {
+  padding-block: 0;
+}
+
 // Таблицы заказов (orders.php) и состав заказа (order/order-details.php)
 table.shop_table {
   width: 100%;
