@@ -60,77 +60,26 @@ if ( empty( $hero_slides ) ) {
 	);
 }
 
-// Те же 9 карточек, что и в каталоге — временная статика. Настоящий запрос к
-// WooCommerce (популярные/featured товары) появится вместе с content-product.php
-// в фазе «Каталог», чтобы не переносить разметку карточки дважды.
-$wh_popular_products = array(
+$popular_products = wc_get_products(
 	array(
-		'id'      => 'gerhild',
-		'name'    => 'Gerhild',
-		'variant' => '130x170 cm',
-		'price'   => 90,
-		'image'   => 'product(1).webp',
-	),
-	array(
-		'id'      => 'gultall',
-		'name'    => 'Gultall',
-		'variant' => '130x170 cm',
-		'price'   => 180,
-		'image'   => 'product(2).webp',
-	),
-	array(
-		'id'      => 'rovaror',
-		'name'    => 'Rovaror',
-		'variant' => '150x200 cm',
-		'price'   => 85,
-		'image'   => 'product(3).webp',
-	),
-	array(
-		'id'      => 'gerhild-4',
-		'name'    => 'Gerhild',
-		'variant' => '130x170 cm',
-		'price'   => 90,
-		'image'   => 'product(4).webp',
-	),
-	array(
-		'id'      => 'ingrun',
-		'name'    => 'Ingrun',
-		'variant' => '130x170 cm',
-		'price'   => 90,
-		'image'   => 'product(5).webp',
-	),
-	array(
-		'id'      => 'mialotta',
-		'name'    => 'Mialotta',
-		'variant' => '130x170 cm',
-		'price'   => 90,
-		'image'   => 'product(6).webp',
-	),
-	array(
-		'id'      => 'luddmalla',
-		'name'    => 'Luddmalla',
-		'variant' => '130x170 cm',
-		'price'   => 90,
-		'image'   => 'product(7).webp',
-	),
-	array(
-		'id'      => 'vivianna',
-		'name'    => 'Vivianna',
-		'variant' => '130x170 cm',
-		'price'   => 90,
-		'image'   => 'product(8).webp',
-	),
-	array(
-		'id'      => 'evali',
-		'name'    => 'Evali',
-		'variant' => '130x170 cm',
-		'price'   => 90,
-		'image'   => 'product(9).webp',
-		'circled' => true,
-	),
+		'status'   => 'publish',
+		'featured' => true,
+		'limit'    => 9,
+	)
 );
 
-$wh_products_uri = get_template_directory_uri() . '/assets/image/products';
+// Пока ни один товар не отмечен как Featured (товар → Featured product) —
+// показываем последние опубликованные, чтобы секция не была пустой
+if ( empty( $popular_products ) ) {
+	$popular_products = wc_get_products(
+		array(
+			'status'  => 'publish',
+			'limit'   => 9,
+			'orderby' => 'date',
+			'order'   => 'DESC',
+		)
+	);
+}
 ?>
 
 	<main>
@@ -178,31 +127,35 @@ $wh_products_uri = get_template_directory_uri() . '/assets/image/products';
 				<h2 class="title__h2 popular__title">Popular products</h2>
 				<div class="slider popular__slider">
 					<div class="slider_track" data-slider-track>
-						<?php foreach ( $wh_popular_products as $product ) : ?>
+						<?php foreach ( $popular_products as $product ) :
+							$sizes   = wc_get_product_terms( $product->get_id(), 'pa_size', array( 'fields' => 'names' ) );
+							$variant = ! empty( $sizes ) ? $sizes[0] : '';
+							?>
 							<div class="product" data-slide>
-								<div class="product__bg<?php echo ! empty( $product['circled'] ) ? ' product__bg_circled' : ''; ?>">
-									<img src="<?php echo esc_url( $wh_products_uri . '/' . $product['image'] ); ?>"
-										alt="<?php echo esc_attr( $product['name'] ); ?> blanket">
+								<div class="product__bg">
+									<a href="<?php echo esc_url( get_permalink( $product->get_id() ) ); ?>">
+										<?php echo wp_kses_post( $product->get_image( 'woocommerce_thumbnail' ) ); ?>
+									</a>
 								</div>
 								<footer class="product__footer">
 									<h4 class="title__h4">
-										<a href="<?php echo esc_url( home_url( '/shop/' ) ); ?>" class="product__link"><?php echo esc_html( $product['name'] ); ?></a>
+										<a href="<?php echo esc_url( get_permalink( $product->get_id() ) ); ?>" class="product__link"><?php echo esc_html( $product->get_name() ); ?></a>
 									</h4>
 									<button type="button" class="product__add" data-quick-add
-										data-id="<?php echo esc_attr( $product['id'] ); ?>"
-										data-name="<?php echo esc_attr( $product['name'] ); ?>"
-										data-variant="<?php echo esc_attr( $product['variant'] ); ?>"
-										data-price="<?php echo esc_attr( $product['price'] ); ?>"
-										data-image="<?php echo esc_url( $wh_products_uri . '/' . $product['image'] ); ?>"
-										aria-label="<?php echo esc_attr( 'Add ' . $product['name'] . ' to cart' ); ?>">
+										data-id="<?php echo esc_attr( $product->get_id() ); ?>"
+										data-name="<?php echo esc_attr( $product->get_name() ); ?>"
+										data-variant="<?php echo esc_attr( $variant ); ?>"
+										data-price="<?php echo esc_attr( $product->get_price() ); ?>"
+										data-image="<?php echo esc_url( wp_get_attachment_image_url( $product->get_image_id(), 'woocommerce_thumbnail' ) ); ?>"
+										aria-label="<?php echo esc_attr( 'Add ' . $product->get_name() . ' to cart' ); ?>">
 										<svg width="20" height="20" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg"
 											aria-hidden="true">
 											<path d="M19 36L19 2M36 19L2 19" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
 										</svg>
 									</button>
 									<div class="product__footer_bottom">
-										<p><?php echo esc_html( $product['variant'] ); ?></p>
-										<p>€<?php echo esc_html( $product['price'] ); ?></p>
+										<p><?php echo esc_html( $variant ); ?></p>
+										<p><?php echo wp_kses_post( $product->get_price_html() ); ?></p>
 									</div>
 								</footer>
 							</div>

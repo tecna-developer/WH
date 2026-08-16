@@ -8,12 +8,6 @@
   padding: 20px 0;
   max-height: 115px;
 
-  &.header_scrolled {
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.7);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 10px 0;
-  }
   &__wrapper {
     display: flex;
     min-height: 36px;

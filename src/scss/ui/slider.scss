@@ -38,20 +38,3 @@
     }
   }
 }
-
-@media screen and (min-width: $media-md) {
-  .slider {
-    &_item {
-      padding: 0 10px;
-      min-height: 300px;
-    }
-  }
-}
-
-@media screen and (min-width: $media-xxl) {
-  .slider {
-    &_item {
-      padding: 0 15px;
-    }
-  }
-}
