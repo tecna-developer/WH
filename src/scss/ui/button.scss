@@ -4,11 +4,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px 80px;
+  padding: 15px 32px;
   border-radius: 100px;
   max-width: fit-content;
   // min-width: 226px;
-  height: 55px;
+  min-height: 55px;
+  white-space: nowrap;
   &-shop {
     background-color: $black-color;
     color: $white-color;
@@ -25,6 +26,18 @@
   }
   & svg {
     stroke: currentColor;
+  }
+}
+
+@media screen and (min-width: $media-md) {
+  .btn {
+    padding: 15px 56px;
+  }
+}
+
+@media screen and (min-width: $media-lg) {
+  .btn {
+    padding: 15px 80px;
   }
 }
 
