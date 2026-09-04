@@ -9,5 +9,33 @@
     background-color: transparent;
     border: none;
     padding: 0;
+    // Счётчик — бейдж на всей кнопке, а не хвост у слова "Cart":
+    // .header__right_text скрыт до $media-xl, вместе с ним пропадал и счётчик
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__count {
+    position: absolute;
+    top: -4px;
+    right: -8px;
+    min-width: 18px;
+    height: 18px;
+    padding-inline: 5px;
+    border-radius: 999px;
+    background-color: $accent-dark-color;
+    color: $white-color;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center;
+    pointer-events: none;
+
+    // При пустой корзине сервер отдаёт пустой фрагмент — бейдж не рисуем
+    &:empty {
+      display: none;
+    }
   }
 }

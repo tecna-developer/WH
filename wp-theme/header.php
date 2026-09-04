@@ -68,8 +68,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 							<?php get_search_form( array( 'variant' => 'mobile' ) ); ?>
 
 							<div class="cart mobile__menu__cart">
-								<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="cart__btn mobile-menu__cart_btn" aria-label="cart">Cart</a>
-								<span class="cart__count" data-cart-count aria-hidden="true"><?php echo esc_html( wh_cart_count_label() ); ?></span>
+								<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="cart__btn mobile-menu__cart_btn" aria-label="cart">Cart<span
+										class="cart__count" data-cart-count aria-hidden="true"><?php echo esc_html( wh_cart_count_label() ); ?></span></a>
 							</div>
 						</nav>
 					</div>
@@ -132,8 +132,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 								d="M18.6693 11.6667C18.6693 12.9043 18.1776 14.0913 17.3024 14.9665C16.4273 15.8417 15.2403 16.3333 14.0026 16.3333C12.7649 16.3333 11.5779 15.8417 10.7028 14.9665C9.8276 14.0913 9.33594 12.9043 9.33594 11.6667"
 								stroke="#2C2C2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 						</svg>
-						<span class="header__right_text">Cart<span class="cart__count" data-cart-count
-								aria-hidden="true"><?php echo esc_html( wh_cart_count_label() ); ?></span></span>
+						<span class="header__right_text">Cart</span>
+						<span class="cart__count" data-cart-count aria-hidden="true"><?php echo esc_html( wh_cart_count_label() ); ?></span>
 					</a>
 				</div>
 			</div>
