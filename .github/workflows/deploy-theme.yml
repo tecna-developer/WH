@@ -62,6 +62,47 @@ jobs:
             *) echo "::error::FTP_SERVER_DIR должен заканчиваться слешем: $FTP_SERVER_DIR"; exit 1 ;;
           esac
 
+      # FTP-Deploy-Action молча создаёт недостающие каталоги, поэтому опечатка
+      # в пути не падает с ошибкой, а раскладывает тему в стороне от WordPress
+      # и выглядит успешной заливкой. Здесь путь проверяется до сборки: каталог
+      # должен существовать и содержать style.css — файл, без которого
+      # WordPress вообще не считает папку темой
+      - name: Verify theme directory on server
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_SERVER_DIR: ${{ vars.FTP_SERVER_DIR || secrets.FTP_SERVER_DIR }}
+          FTP_PROTOCOL: ${{ vars.FTP_PROTOCOL || 'ftps' }}
+        run: |
+          case "$FTP_PROTOCOL" in
+            ftps) ssl_opt=--ssl-reqd ;;
+            ftp) ssl_opt=--disable-epsv ;;
+            *) echo "::error::FTP_PROTOCOL должен быть ftp или ftps, а не '$FTP_PROTOCOL'"; exit 1 ;;
+          esac
+
+          list_dir() {
+            curl -sS --connect-timeout 30 --max-time 120 "$ssl_opt" \
+              --user "$FTP_USERNAME:$FTP_PASSWORD" --list-only "ftp://$FTP_SERVER$1"
+          }
+
+          if ! listing=$(list_dir "$FTP_SERVER_DIR" 2>&1); then
+            echo "::error::Каталог из FTP_SERVER_DIR не открывается: $listing"
+            parent="$(dirname "${FTP_SERVER_DIR%/}")/"
+            echo "Что лежит в родительском каталоге — ищите среди этого папку темы:"
+            list_dir "$parent" || echo "(родительский каталог тоже не открылся)"
+            exit 1
+          fi
+
+          if ! printf '%s\n' "$listing" | grep -qx 'style.css'; then
+            echo "::error::В каталоге нет style.css — это не папка темы, а заливка создала бы там мусор"
+            echo "Что лежит по указанному пути:"
+            printf '%s\n' "$listing"
+            exit 1
+          fi
+
+          echo "Каталог темы найден, style.css на месте"
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:

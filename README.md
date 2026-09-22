@@ -109,11 +109,16 @@ Configure it once under **Settings → Secrets and variables → Actions**:
 | `FTP_SERVER_DIR` | secret **or** variable | **required** — path to the theme on the server, with a trailing slash, e.g. `/public_html/wp-content/themes/wh/`. GitHub won't let a variable reuse a name an existing secret already holds, so the workflow reads whichever one exists |
 | `FTP_PROTOCOL` | variable | `ftps` (default) or `ftp` if the host has no TLS |
 
-`FTP_SERVER_DIR` has no default on purpose: a wrong path would quietly build a
-tree of files at the FTP root instead of inside WordPress. The run stops before
-connecting if it is unset or missing its trailing slash. Find the real path in
-your hosting's file manager — it's wherever `wp-config.php` lives, plus
-`wp-content/themes/wh/`.
+`FTP_SERVER_DIR` has no default on purpose, and the workflow checks it twice
+before building: it must end in a slash, and the directory must already exist on
+the server with a `style.css` in it. Without that check a wrong path deploys
+"successfully" — the FTP action creates missing folders, so a typo scatters the
+theme somewhere beside WordPress instead of failing. When the path is wrong the
+run prints the parent directory's contents, which is the quickest way to spot
+the real theme folder and its exact name.
+
+Find the path in your hosting's file manager, or navigate to the theme folder in
+an FTP client and copy the remote path it shows.
 
 ## ✨ Features
 
