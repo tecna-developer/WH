@@ -33,22 +33,31 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Check FTP secrets
+      - name: Check FTP settings
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_SERVER_DIR: ${{ vars.FTP_SERVER_DIR }}
         # Без этой проверки отсутствующий секрет всплыл бы только на шаге
-        # заливки — уже после сборки и с невнятной ошибкой подключения
+        # заливки — уже после сборки и с невнятной ошибкой подключения.
+        # У FTP_SERVER_DIR намеренно нет значения по умолчанию: неверный путь
+        # тихо создал бы дерево файлов мимо WordPress, в корне FTP-аккаунта
         run: |
           missing=""
-          if [ -z "$FTP_SERVER" ]; then missing="$missing FTP_SERVER"; fi
-          if [ -z "$FTP_USERNAME" ]; then missing="$missing FTP_USERNAME"; fi
-          if [ -z "$FTP_PASSWORD" ]; then missing="$missing FTP_PASSWORD"; fi
+          if [ -z "$FTP_SERVER" ]; then missing="$missing FTP_SERVER (secret)"; fi
+          if [ -z "$FTP_USERNAME" ]; then missing="$missing FTP_USERNAME (secret)"; fi
+          if [ -z "$FTP_PASSWORD" ]; then missing="$missing FTP_PASSWORD (secret)"; fi
+          if [ -z "$FTP_SERVER_DIR" ]; then missing="$missing FTP_SERVER_DIR (variable)"; fi
           if [ -n "$missing" ]; then
-            echo "::error::Не заданы секреты:$missing (Settings → Secrets and variables → Actions)"
+            echo "::error::Не заданы:$missing — Settings → Secrets and variables → Actions"
+            echo "::error::FTP_SERVER_DIR — путь к теме со слешем на конце, обычно /public_html/wp-content/themes/wh/"
             exit 1
           fi
+          case "$FTP_SERVER_DIR" in
+            */) ;;
+            *) echo "::error::FTP_SERVER_DIR должен заканчиваться слешем: $FTP_SERVER_DIR"; exit 1 ;;
+          esac
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -75,7 +84,7 @@ jobs:
           # поддерживает, задайте переменную FTP_PROTOCOL = ftp
           protocol: ${{ vars.FTP_PROTOCOL || 'ftps' }}
           local-dir: ./wp-theme/
-          server-dir: ${{ vars.FTP_SERVER_DIR || '/wp-content/themes/wh/' }}
+          server-dir: ${{ vars.FTP_SERVER_DIR }}
           exclude: |
             **/.git*
             **/.git*/**
