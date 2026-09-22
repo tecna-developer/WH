@@ -106,7 +106,7 @@ Configure it once under **Settings → Secrets and variables → Actions**:
 | `FTP_SERVER` | secret | FTP host, e.g. `ftp.example.com` (no `ftp://`) |
 | `FTP_USERNAME` | secret | FTP account login |
 | `FTP_PASSWORD` | secret | FTP account password |
-| `FTP_SERVER_DIR` | variable | **required** — path to the theme on the server, with a trailing slash, e.g. `/public_html/wp-content/themes/wh/` |
+| `FTP_SERVER_DIR` | secret **or** variable | **required** — path to the theme on the server, with a trailing slash, e.g. `/public_html/wp-content/themes/wh/`. GitHub won't let a variable reuse a name an existing secret already holds, so the workflow reads whichever one exists |
 | `FTP_PROTOCOL` | variable | `ftps` (default) or `ftp` if the host has no TLS |
 
 `FTP_SERVER_DIR` has no default on purpose: a wrong path would quietly build a
